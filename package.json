@@ -1,0 +1,25 @@
+{
+  "name": "custos",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Open-source real-time monitor for Solana multisigs and DAOs. Detects Drift-class attack chains.",
+  "license": "MIT",
+  "author": "cryptoyasenka",
+  "homepage": "https://github.com/cryptoyasenka/custos",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cryptoyasenka/custos"
+  },
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/daemon.ts",
+    "build": "tsc",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "biome check .",
+    "format": "biome format --write ."
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
