@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import {
   SQUADS_MAX_TIME_LOCK,
+  parseSquadsMultisigThreshold,
   parseSquadsMultisigTimelock,
   squadsMultisigDiscriminator,
 } from "./squads.js";
@@ -70,5 +71,41 @@ describe("parseSquadsMultisigTimelock", () => {
   it("discriminator is exactly 8 bytes of sha256('account:Multisig')", () => {
     const disc = squadsMultisigDiscriminator();
     expect(disc.length).toBe(8);
+  });
+});
+
+describe("parseSquadsMultisigThreshold", () => {
+  it("reads a standard m-of-n threshold at byte offset 72", () => {
+    const buf = buildMultisigBuffer({ timeLock: 0, threshold: 5 });
+    expect(parseSquadsMultisigThreshold(buf)).toBe(5);
+  });
+
+  it("reads threshold of 1 (single-sig multisig, legitimate)", () => {
+    const buf = buildMultisigBuffer({ timeLock: 0, threshold: 1 });
+    expect(parseSquadsMultisigThreshold(buf)).toBe(1);
+  });
+
+  it("reads threshold of 0 verbatim (invalid on-chain but detector needs this signal)", () => {
+    const buf = buildMultisigBuffer({ timeLock: 0, threshold: 0 });
+    expect(parseSquadsMultisigThreshold(buf)).toBe(0);
+  });
+
+  it("threshold byte offset is exactly 72 (disc + create_key + config_authority)", () => {
+    const buf = buildMultisigBuffer({ timeLock: 0, threshold: 777 });
+    expect(buf.readUInt16LE(72)).toBe(777);
+  });
+
+  it("returns null when discriminator does not match", () => {
+    const wrongDisc = Buffer.from("DEADBEEFDEADBEEF", "hex");
+    const buf = buildMultisigBuffer({ timeLock: 0, threshold: 3, discriminator: wrongDisc });
+    expect(parseSquadsMultisigThreshold(buf)).toBeNull();
+  });
+
+  it("returns null when buffer is shorter than the minimum header", () => {
+    expect(parseSquadsMultisigThreshold(Buffer.alloc(71))).toBeNull();
+  });
+
+  it("returns null for a completely empty buffer", () => {
+    expect(parseSquadsMultisigThreshold(Buffer.alloc(0))).toBeNull();
   });
 });
