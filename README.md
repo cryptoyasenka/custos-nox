@@ -102,6 +102,17 @@ in Terminal 2 should print one alert per step — both from the same
 multisig account, both using the same detectors that would catch the
 real Drift exploit on mainnet.
 
+## Self-host with Docker
+
+```bash
+docker build -t custos .
+docker run -d --name custos --restart unless-stopped --env-file .env custos
+docker logs -f custos
+```
+
+The image runs as the built-in unprivileged `node` user and reads the
+same `CUSTOS_*` env vars documented in `.env.example`.
+
 ## Architecture
 
 See [ARCHITECTURE.md](./ARCHITECTURE.md).
