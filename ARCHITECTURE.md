@@ -87,6 +87,15 @@ interface Alert {
   snapshot, so the first change event would otherwise have
   `previousData = null` and detectors would see "startup, not an
   attack."
+- **Reconcile on reconnect.** When the supervisor reconnects, it
+  refetches each watched account and compares the bytes against the
+  in-memory baseline from before the drop. If they differ, it
+  synthesizes an `account_change` event (`previousData = old baseline`,
+  `data = current`) and dispatches it through the detector pipeline.
+  Without this, a config change that lands during the WS disconnect
+  window would get absorbed silently into the new baseline. Initial
+  startup is unaffected — the baseline map is empty, nothing to
+  reconcile.
 - **Reconnect.** Exponential backoff 1s → 60s cap. Resets to 1s on
   successful reconnect. Old `Connection` is dropped (`connection = null`);
   GC closes the underlying WebSocket (web3.js has no explicit close).
