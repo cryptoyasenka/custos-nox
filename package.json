@@ -12,7 +12,7 @@
   },
   "type": "module",
   "scripts": {
-    "dev": "tsx watch src/daemon.ts",
+    "dev": "tsx watch --env-file=.env src/daemon.ts",
     "build": "tsc",
     "test": "vitest run",
     "test:watch": "vitest",
