@@ -5,7 +5,9 @@ const MULTISIG_DISCRIMINATOR: Buffer = createHash("sha256")
   .digest()
   .subarray(0, 8);
 
-export const SQUADS_MAX_TIME_LOCK = 3 * 30 * 24 * 60 * 60;
+// Squads v4 on-chain cap: 90 days in seconds. Anything above is almost
+// certainly an unparseable byte pattern, not a legitimate value.
+export const SQUADS_MAX_TIME_LOCK = 90 * 24 * 60 * 60;
 
 const MIN_BUFFER_LENGTH = 8 + 32 + 32 + 2 + 4;
 const THRESHOLD_OFFSET = 8 + 32 + 32;
