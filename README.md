@@ -1,5 +1,7 @@
 # Custos
 
+[![ci](https://github.com/cryptoyasenka/custos/actions/workflows/ci.yml/badge.svg)](https://github.com/cryptoyasenka/custos/actions/workflows/ci.yml)
+
 Open-source real-time monitor for Solana multisigs and DAOs. Detects the
 attack chain that drained $285M from Drift on April 1, 2026.
 
