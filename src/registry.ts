@@ -68,7 +68,7 @@ function buildOperationalAlert(
 ): Alert {
   const account =
     event.kind === "account_change" ? event.account.toBase58() : "<transaction-event>";
-  const signature = event.kind === "account_change" ? event.signature : event.signature;
+  const signature = event.signature;
   return {
     detector: detectorName,
     severity: "low",
