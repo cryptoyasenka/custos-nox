@@ -3,6 +3,7 @@ import { type AlertSink, StdoutAlertSink } from "./alerts/stdout.js";
 import { DiscordAlertSink, FanOutAlertSink, SlackAlertSink } from "./alerts/webhook.js";
 import { type DaemonConfig, type WatchEntry, loadConfigFromEnv } from "./config.js";
 import { SquadsMultisigWeakeningDetector } from "./detectors/multisig-weakening.js";
+import { PrivilegedNonceDetector } from "./detectors/privileged-nonce.js";
 import {
   SplGovernanceTimelockRemovalDetector,
   SquadsTimelockRemovalDetector,
@@ -14,6 +15,7 @@ const DETECTORS: Detector[] = [
   SquadsTimelockRemovalDetector,
   SplGovernanceTimelockRemovalDetector,
   SquadsMultisigWeakeningDetector,
+  PrivilegedNonceDetector,
 ];
 
 function log(msg: string): void {
