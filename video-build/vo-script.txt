@@ -1,0 +1,13 @@
+Drift lost over twenty million dollars because a multisig config was quietly weakened before the attack, and nobody was watching.
+
+Custos Nox is an open-source daemon that watches Solana multisigs and DAOs for the exact config changes that enable attacks like that. Three detectors, TypeScript, self-hostable.
+
+Here's a three-of-five Squads multisig I just created on devnet. Daemon is subscribed, baseline seeded.
+
+Step one of the Drift chain — zero out the timelock. Critical alert in under a second, with a Solscan link and machine-readable context.
+
+Step two — drop the threshold from three to one. That's the attacker giving themselves a solo key. High-severity alert, same pipeline.
+
+And the one Drift actually missed — an attacker initializing a durable nonce they control, so a pre-signed transaction lands later on their schedule. Critical. Three attacks, three alerts.
+
+This is shipped code, on main, verified live on devnet, a hundred and thirty-three tests green. Discord and Slack sinks already wired up. Week four: the stale-nonce-execution detector and a hosted demo. Repo is github dot com slash cryptoyasenka slash custos dash nox.

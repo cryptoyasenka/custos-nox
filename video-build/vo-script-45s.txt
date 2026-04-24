@@ -1,0 +1,20 @@
+April 2026. Drift lost $285 million.
+Three on-chain config changes happened in plain view —
+timelock removed, multisig weakened, durable nonce created —
+and nobody was watching.
+
+Custos Nox is an open-source daemon that detects exactly these patterns on Solana multisigs and DAOs.
+
+Step one: zero the timelock.
+Critical alert — sub-second, Solscan link included.
+
+Step two: drop the threshold from three to one.
+High severity. The treasury is now single-signer.
+
+Step three: attacker initializes a durable nonce.
+Critical. A pre-signed withdrawal is waiting to fire.
+
+Three Drift attack steps. Three alerts.
+Open-source. Self-hosted. MIT.
+
+github dot com slash cryptoyasenka slash custos dash nox

@@ -1,0 +1,13 @@
+April 2026. Drift lost $285 million because three on-chain changes went unnoticed — timelock removed, multisig weakened, durable nonce created.
+
+Custos Nox watches Solana multisigs and DAOs for exactly these patterns.
+
+Step one — zero the timelock. Critical alert, sub-second.
+
+Step two — threshold three to one. High severity. Single-signer treasury.
+
+Step three — attacker claims a durable nonce. Critical. Pre-signed withdrawal ready to fire.
+
+Three attack steps. Three alerts. Open-source, MIT.
+
+github dot com slash cryptoyasenka slash custos dash nox

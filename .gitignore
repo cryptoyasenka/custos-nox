@@ -16,3 +16,11 @@ coverage/
 # Devnet smoke artifacts — ephemeral keypairs, never commit.
 .smoke-nonce.json
 assets/kлого утвержденное.png
+
+# Video production binaries — keep locally or in cloud storage, too large for git
+video-build/*.mp4
+video-build/*.mkv
+video-build/*.mp3
+video-build/*.wav
+video-build/*.jpg
+video-build/неделя*/
