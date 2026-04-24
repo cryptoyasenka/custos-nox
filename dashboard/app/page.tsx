@@ -130,7 +130,7 @@ export default function Home() {
             <div className="mb-10 flex flex-col gap-3">
               <h2 className="text-3xl font-semibold tracking-tight">Sample event feed</h2>
               <p className="max-w-2xl text-muted-strong">
-                Replay of the devnet smoke-harness run on 2026-04-23. Three attack-chain steps fire
+                Replay of the devnet smoke-harness run on 2026-04-24. Three attack-chain steps fire
                 three distinct detectors; the last row shows an operational low-severity alert from
                 a detector timeout.
               </p>
