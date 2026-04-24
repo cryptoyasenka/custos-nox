@@ -15,10 +15,10 @@ Living document — update statuses inline as work progresses.
 | A2 | Founder profile (Yasya) | ✅ DONE | Task #23 |
 | A3 | GitHub repo public | ✅ DONE | `github.com/cryptoyasenka/custos-nox` |
 | A4 | Live demo URL | ✅ DONE | `custos-nox-production.up.railway.app` (Task #24) |
-| A5 | Project name + tagline | ⬜ TODO | Draft in Arena form — not yet verified |
-| A6 | Short description (≤280 chars) | ⬜ TODO | Reuse README opening para |
-| A7 | Long description / writeup | ⬜ TODO | Reuse README body |
-| A8 | Tracks selected | ⬜ TODO | Check which tracks Custos Nox fits (Security / DeFi Infra / Public Goods?) |
+| A5 | Project name + tagline | 🟡 DRAFT | `planning/ARENA-SUBMISSION-DRAFT.md` → A5 section. Pick Option B |
+| A6 | Short description (≤280 chars) | 🟡 DRAFT | `planning/ARENA-SUBMISSION-DRAFT.md` → A6 (220 chars, verify in form) |
+| A7 | Long description / writeup | 🟡 DRAFT | `planning/ARENA-SUBMISSION-DRAFT.md` → A7 (check markdown support in Arena) |
+| A8 | Tracks selected | 🟡 DRAFT | Primary: Treasury/Security. Secondary: Governance/Public Goods. Verify names in form |
 | A9 | Pitch video ≤2 min EN (final) | ⬜ TODO | Task #10 |
 | A10 | Tech demo video 2–3 min EN | ⬜ TODO | Task #11 |
 | A11 | Team field (solo — Yasya) | ⬜ TODO | Likely auto from founder profile |
@@ -73,7 +73,7 @@ Living document — update statuses inline as work progresses.
 
 | # | Purpose | Length | Lang | Status | Task |
 | - | ------- | ------ | ---- | ------ | ---- |
-| F1 | Week 3 progress Loom (community update) | 1 min | EN | ⬜ TODO | #6 |
+| F1 | Week 3 progress Loom (community update) | 1 min | EN | 🟡 MONTAGE | #6 — demo-raw.mkv ✅, Sonia VO ✅. Yana in CapCut 2026-04-24. Upload → Arena Week 3 field |
 | F2 | Pitch video (final) | ≤2 min | EN | ⬜ TODO | #10 |
 | F3 | Tech demo video | 2–3 min | EN | ⬜ TODO | #11 |
 

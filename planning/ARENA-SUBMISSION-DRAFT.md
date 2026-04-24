@@ -1,0 +1,119 @@
+# Arena Submission Draft — Custos Nox
+
+**Status:** Draft 1 (2026-04-24). Verify fields against live Arena form before pasting.
+**Form URL:** arena.colosseum.org → your project → Edit submission
+
+---
+
+## A5 — Project name + tagline
+
+**Name (already set):** Custos Nox
+
+**Tagline options (pick one — ~10 words):**
+
+> Option A (incident-focused):
+> "Real-time on-chain monitor that catches Drift-class attacks"
+
+> Option B (audience-focused):
+> "Open-source attack detection for Solana multisigs and DAOs"
+
+> Option C (action-focused):
+> "Alerts you before the governance vote to drain your treasury"
+
+**Recommendation:** Option B — clearest for judges who scan 300 projects.
+
+---
+
+## A6 — Short description (≤280 chars)
+
+> Custos Nox monitors Solana multisigs and DAOs for attack-chain precursors in real time. Detects all 3 on-chain steps of the April 2026 Drift exploit ($285M drained). Self-host in 5 minutes. MIT licensed, zero paid tiers.
+
+**Character count: 220** ✓ (60 chars left to add a link or detail)
+
+Optional add-on if space allows:
+> Live at custos-nox-production.up.railway.app
+
+---
+
+## A7 — Long description / writeup
+
+### Problem
+
+In April 2026, Drift Protocol lost $285M to an attack that spent days setting
+up on-chain before executing. Three governance config changes (timelock removal,
+multisig weakening, privileged-nonce creation) happened in full public view —
+but no tool alerted anyone.
+
+Solana Foundation's STRIDE monitoring program targets protocols with $10M+ TVL.
+The other 99% — small DAOs, grant committees, treasury multisigs — have nothing.
+
+### Solution
+
+Custos Nox is an open-source daemon that watches Solana accounts over WebSocket
+and fires alerts the moment a config change matches a known attack pattern.
+
+Three detectors run live today:
+
+- **TimelockRemovalDetector** — fires when a governance timelock drops to zero
+  or below half (Squads v4 + SPL Governance programs).
+- **MultisigWeakeningDetector** — fires when a Squads v4 signer threshold is
+  reduced (e.g. 5-of-7 → 1-of-7).
+- **PrivilegedNonceDetector** — fires when a watched System Program nonce
+  account is initialized or has its authority rotated.
+
+Each detector maps directly to one step in the Drift April 2026 attack chain.
+Any single alert would have bought hours of response time.
+
+### Architecture highlights
+
+- TypeScript daemon, zero Rust, pure npm — contributors don't need a Solana
+  dev environment to build or test.
+- WebSocket with exponential backoff (1s → 60s) and 30-second slot health checks.
+- Alert fan-out to Discord webhooks, Slack webhooks, and stdout — all sinks
+  receive every alert; one failing sink doesn't block the others.
+- Per-detector 5s timeout: a hanging detector surfaces a low-severity operational
+  alert instead of silently blocking the pipeline.
+- 135 unit + integration tests; GitHub Actions CI on every push.
+
+### Demo
+
+A devnet smoke harness (`scripts/`) reproduces all three Drift attack-chain steps
+end-to-end. Each script fires a real on-chain transaction; the daemon prints the
+corresponding alert within seconds.
+
+Live dashboard: https://custos-nox-production.up.railway.app
+GitHub: https://github.com/cryptoyasenka/custos-nox
+
+### What's next (roadmap)
+
+- **StaleNonceExecutionDetector** (v0.2) — fires when a pre-signed transaction
+  older than N hours executes from a durable nonce. Requires transaction-log
+  ingestion.
+- API mode and hosted alert feed for teams that can't self-host.
+
+---
+
+## A8 — Track selection
+
+**Primary track (Build Path):** Treasury / Security
+
+**Secondary track (if allowed):** Governance (DAOs) / Public Goods
+
+**Rationale:**
+- Custos Nox protects treasury multisigs → Treasury
+- It's a security detection tool → Security
+- It's MIT-licensed open-source infra for the whole ecosystem → Public Goods
+
+**Note:** Exact track names visible only after login to Arena form. Match closest
+to "Security", "DeFi Infrastructure", "Public Goods" if those are the options.
+If only one track allowed, choose **Security / DeFi Infrastructure**.
+
+---
+
+## Arena form checklist before paste
+
+- [ ] Verify character count for A6 in Arena's actual input field
+- [ ] Check if Arena allows markdown in A7 (if not, strip formatting)
+- [ ] Check if Arena lets you select multiple tracks (A8)
+- [ ] A9/A10: video URLs ready before final submit
+- [ ] Click SUBMIT (A12) before 2026-05-10 23:59 PDT
