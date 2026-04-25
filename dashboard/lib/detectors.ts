@@ -44,11 +44,11 @@ export const DETECTORS: DetectorMeta[] = [
   {
     id: "stale-nonce-execution",
     name: "Stale Nonce Execution",
-    subtitle: "Roadmap — v0.2",
-    status: "roadmap",
+    subtitle: "System Program",
+    status: "production",
     severity: "high",
     attackStep: "Pre-signed tx executed from stale nonce",
     description:
-      "Will fire when a transaction older than N hours executes from a durable nonce. Requires transaction-log ingestion and nonce age tracking — designed, not yet built.",
+      "Fires when a durable nonce is advanced (a pre-signed transaction executes) more than 1 hour after the nonce was first initialized. Catches the final step in the Drift attack chain — the moment the attacker's pre-signed drain transaction lands.",
   },
 ];

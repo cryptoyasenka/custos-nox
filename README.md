@@ -12,7 +12,8 @@ live in [`dashboard/`](./dashboard) (Next.js 16, static build).
 
 ## What it catches
 
-Three detectors run 24/7 today; a fourth is on the roadmap:
+Four detectors run live today, covering all on-chain steps of the Drift
+April 2026 attack chain:
 
 - **TimelockRemovalDetector** — alerts when a governance timelock is
   removed or dropped below half (Squads v4 + SPL Governance).
@@ -20,9 +21,10 @@ Three detectors run 24/7 today; a fourth is on the roadmap:
   (e.g. 5-of-7 → 1-of-7) on Squads v4 multisigs.
 - **PrivilegedNonceDetector** — alerts when a watched System Program
   nonce account is initialized or has its authority rotated.
-- *Roadmap:* **StaleNonceExecutionDetector** — alerts when a pre-signed
-  transaction older than N hours executes. Requires transaction-log
-  ingestion (designed, not yet built).
+- **StaleNonceExecutionDetector** — alerts when a durable nonce is
+  advanced (a pre-signed transaction executes) significantly after the
+  nonce was first initialized. Fires when the gap exceeds a configurable
+  threshold (default 1 hour).
 
 Alerts fan out to Discord, Slack, and CLI. Every configured sink
 receives every alert; webhook failures are logged but do not block
@@ -40,11 +42,10 @@ steps:
 | Realm timelock reduced from 6 days → 0             | `spl-governance-timelock-removal` | critical |
 | Squads threshold dropped from 5-of-9 → 1-of-9      | `squads-multisig-weakening`    | high     |
 | Durable nonce created under attacker-controlled key | `privileged-nonce`             | critical |
-| Pre-signed withdrawal tx executed from stale nonce  | *(roadmap)* `stale-nonce-execution` | high     |
+| Pre-signed withdrawal tx executed from stale nonce  | `stale-nonce-execution`        | high     |
 
 Any single detector firing would have bought hours of response time.
-Custos Nox catches all three that changed on-chain state; roadmap item
-covers the final execution step.
+Custos Nox catches all four steps of the attack chain.
 
 ## Positioning
 
@@ -68,10 +69,11 @@ wallets. Self-host in five minutes. MIT licensed.
 ## Status
 
 Pre-release. Built for the Solana Frontier Hackathon
-(submission 2026-05-10 23:59 PDT). Three detectors are running live
-on devnet; devnet smoke harness in `scripts/` reproduces three of the
-four Drift attack-chain steps end-to-end (timelock removal, multisig
-weakening, privileged-nonce initialization).
+(submission 2026-05-10 23:59 PDT). All four detectors are running live;
+devnet smoke harness in `scripts/` reproduces three steps end-to-end
+on-chain (timelock removal, multisig weakening, privileged-nonce init).
+The stale-nonce detector activates after the PrivilegedNonce init step —
+the same account is watched by both detectors simultaneously.
 
 ## Quick start
 

@@ -8,8 +8,8 @@ import Image from "next/image";
 const GITHUB_URL = "https://github.com/cryptoyasenka/custos-nox";
 
 const STATS = [
-  { label: "Detectors live", value: "3" },
-  { label: "Tests passing", value: "135" },
+  { label: "Detectors live", value: "4" },
+  { label: "Tests passing", value: "147" },
   { label: "Drift loss tracked", value: "$285M" },
   { label: "Alert latency", value: "< 1s" },
 ];
@@ -62,7 +62,7 @@ export default function Home() {
             <div className="flex flex-col gap-6">
               <span className="inline-flex w-fit items-center gap-2 rounded-full border border-border bg-surface px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-muted-strong">
                 <span className="h-1.5 w-1.5 rounded-full bg-accent" />
-                v0.1 · 3 detectors · MIT
+                v0.2 · 4 detectors · MIT
               </span>
               <h1 className="max-w-3xl text-4xl font-semibold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
                 Watch the chain
@@ -71,7 +71,7 @@ export default function Home() {
               </h1>
               <p className="max-w-2xl text-lg leading-relaxed text-muted-strong">
                 Custos Nox is an open-source real-time attack monitor for Solana multisigs and DAOs.
-                It detects 3 of the 4 on-chain vectors used to drain $285M from Drift on April 1,
+                It detects all 4 on-chain vectors used to drain $285M from Drift on April 1,
                 2026 — before the stolen funds leave the chain.
               </p>
               <div className="flex flex-wrap gap-3">

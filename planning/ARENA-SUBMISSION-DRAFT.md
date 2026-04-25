@@ -26,7 +26,7 @@
 
 ## A6 — Short description (≤280 chars)
 
-> Custos Nox monitors Solana multisigs and DAOs for attack-chain precursors in real time. Detects all 3 on-chain steps of the April 2026 Drift exploit ($285M drained). Self-host in 5 minutes. MIT licensed, zero paid tiers.
+> Custos Nox monitors Solana multisigs and DAOs for attack-chain precursors in real time. Detects all 4 on-chain steps of the April 2026 Drift exploit ($285M drained). Self-host in 5 minutes. MIT licensed, zero paid tiers.
 
 **Character count: 220** ✓ (60 chars left to add a link or detail)
 
@@ -52,7 +52,7 @@ The other 99% — small DAOs, grant committees, treasury multisigs — have noth
 Custos Nox is an open-source daemon that watches Solana accounts over WebSocket
 and fires alerts the moment a config change matches a known attack pattern.
 
-Three detectors run live today:
+Four detectors run live today, covering the full Drift April 2026 attack chain:
 
 - **TimelockRemovalDetector** — fires when a governance timelock drops to zero
   or below half (Squads v4 + SPL Governance programs).
@@ -60,6 +60,9 @@ Three detectors run live today:
   reduced (e.g. 5-of-7 → 1-of-7).
 - **PrivilegedNonceDetector** — fires when a watched System Program nonce
   account is initialized or has its authority rotated.
+- **StaleNonceExecutionDetector** — fires when a durable nonce is advanced
+  (pre-signed transaction executes) more than 1 hour after initialization.
+  Catches the final step: the moment the attacker's pre-signed drain tx lands.
 
 Each detector maps directly to one step in the Drift April 2026 attack chain.
 Any single alert would have bought hours of response time.
@@ -73,7 +76,7 @@ Any single alert would have bought hours of response time.
   receive every alert; one failing sink doesn't block the others.
 - Per-detector 5s timeout: a hanging detector surfaces a low-severity operational
   alert instead of silently blocking the pipeline.
-- 135 unit + integration tests; GitHub Actions CI on every push.
+- 147 unit + integration tests; GitHub Actions CI on every push.
 
 ### Demo
 
@@ -86,9 +89,10 @@ GitHub: https://github.com/cryptoyasenka/custos-nox
 
 ### What's next (roadmap)
 
-- **StaleNonceExecutionDetector** (v0.2) — fires when a pre-signed transaction
-  older than N hours executes from a durable nonce. Requires transaction-log
-  ingestion.
+- **API mode and hosted alert feed** — for teams that can't self-host, serve
+  alerts via REST endpoint with webhook fan-out to any consumer.
+- **Mainnet watchlist** — pre-configured list of the top 50 Squads multisigs
+  by TVL for zero-config monitoring.
 - API mode and hosted alert feed for teams that can't self-host.
 
 ---

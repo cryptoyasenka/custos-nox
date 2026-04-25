@@ -62,6 +62,26 @@ export const SAMPLE_ALERTS: SampleAlert[] = [
     },
   },
   {
+    detector: "stale-nonce-execution",
+    severity: "high",
+    subject:
+      "Stale nonce 9rK8Ke7ZazGS7Knaj1i6oh9HBa2ocJCNhF9eDQegnfAS advanced 73 min after creation (authority: E9Q5UGyezdKVCZ8GDiAFRQfDarRb3REpTrYN3ytgEMzs)",
+    txSignature: null,
+    cluster: "devnet",
+    minutesAgo: 8,
+    explorerLink:
+      "https://solscan.io/account/9rK8Ke7ZazGS7Knaj1i6oh9HBa2ocJCNhF9eDQegnfAS?cluster=devnet",
+    context: {
+      reason: "stale_nonce_advanced",
+      account: "9rK8Ke7ZazGS7Knaj1i6oh9HBa2ocJCNhF9eDQegnfAS",
+      authority: "E9Q5UGyezdKVCZ8GDiAFRQfDarRb3REpTrYN3ytgEMzs",
+      staleMs: "4380000",
+      staleMins: "73",
+      thresholdMs: "3600000",
+      firstSeenAt: "2026-04-01T07:12:00.000Z",
+    },
+  },
+  {
     detector: "squads-multisig-weakening",
     severity: "low",
     subject:

@@ -98,7 +98,7 @@ Submission form asks for "Project X account link" — separate from personal @ya
 
 | # | Purpose | Length | Lang | Status | Task |
 | - | ------- | ------ | ---- | ------ | ---- |
-| F1 | Week 3 progress update | 1 min | EN | 🟡 UPLOAD NEEDED | `video-build/неделя 3/неделя 3.mp4` (25MB) ✅ assembled 2026-04-25. **Upload to YouTube (unlisted) + paste URL in Arena Week 3 field before 2026-04-26!** |
+| F1 | Week 3 progress update | 1 min | EN | ✅ DONE | Uploaded 2026-04-24 by Yana. URL pasted in Arena Week 3 field. |
 | F2 | Pitch video (final) | ≤2 min | EN | ⬜ TODO | #10. Script draft in `planning/ARENA-SUBMISSION-DRAFT.md` |
 | F3 | Tech demo video | 2–3 min | EN | ⬜ TODO | #11. Show daemon + 3 alerts + architecture diagram |
 
