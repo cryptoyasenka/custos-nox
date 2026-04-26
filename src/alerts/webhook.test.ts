@@ -6,6 +6,8 @@ import {
   SlackAlertSink,
   buildDiscordPayload,
   buildSlackPayload,
+  parseRetryAfter,
+  postWithRetry,
 } from "./webhook.js";
 
 function makeAlert(overrides: Partial<Alert> = {}): Alert {
@@ -105,15 +107,19 @@ describe("DiscordAlertSink", () => {
     expect(body.embeds[0].title).toContain("HIGH");
   });
 
-  it("reports non-2xx responses to onError", async () => {
+  it("reports non-2xx responses to onError after retries are exhausted", async () => {
     const fetchImpl = vi.fn().mockResolvedValue(new Response(null, { status: 429 }));
+    const sleepImpl = vi.fn().mockResolvedValue(undefined);
     const onError = vi.fn();
     const sink = new DiscordAlertSink({
       url: "https://discord.com/api/webhooks/1/abc",
       label: "discord-webhook",
       now: FIXED_NOW,
       fetchImpl,
+      sleepImpl,
       onError,
+      maxAttempts: 2,
+      baseDelayMs: 10,
     });
     sink.handle(makeAlert());
     await vi.waitFor(() => expect(onError).toHaveBeenCalled());
@@ -122,15 +128,19 @@ describe("DiscordAlertSink", () => {
     expect(err.message).toContain("429");
   });
 
-  it("reports fetch throws (network errors) to onError", async () => {
+  it("reports fetch throws (network errors) to onError after retries are exhausted", async () => {
     const fetchImpl = vi.fn().mockRejectedValue(new Error("ECONNRESET"));
+    const sleepImpl = vi.fn().mockResolvedValue(undefined);
     const onError = vi.fn();
     const sink = new DiscordAlertSink({
       url: "https://discord.com/api/webhooks/1/abc",
       label: "discord-webhook",
       now: FIXED_NOW,
       fetchImpl,
+      sleepImpl,
       onError,
+      maxAttempts: 2,
+      baseDelayMs: 10,
     });
     sink.handle(makeAlert());
     await vi.waitFor(() => expect(onError).toHaveBeenCalled());
@@ -151,6 +161,137 @@ describe("SlackAlertSink", () => {
     const body = JSON.parse((fetchImpl.mock.calls[0]?.[1]?.body as string | undefined) ?? "{}");
     expect(body.text).toContain("HIGH");
     expect(body.blocks).toBeInstanceOf(Array);
+  });
+});
+
+describe("parseRetryAfter", () => {
+  it("returns null for missing/invalid headers", () => {
+    expect(parseRetryAfter(null)).toBeNull();
+    expect(parseRetryAfter("")).toBeNull();
+    expect(parseRetryAfter("not-a-number")).toBeNull();
+    expect(parseRetryAfter("-1")).toBeNull();
+  });
+
+  it("converts seconds to ms (Discord float form supported)", () => {
+    expect(parseRetryAfter("2")).toBe(2_000);
+    expect(parseRetryAfter("0.5")).toBe(500);
+  });
+
+  it("caps at 60 seconds to bound delay", () => {
+    expect(parseRetryAfter("3600")).toBe(60_000);
+  });
+});
+
+describe("postWithRetry", () => {
+  it("retries on 429 and honors Retry-After", async () => {
+    const fetchImpl = vi
+      .fn()
+      .mockResolvedValueOnce(new Response(null, { status: 429, headers: { "retry-after": "0.5" } }))
+      .mockResolvedValueOnce(new Response(null, { status: 204 }));
+    const sleepImpl = vi.fn().mockResolvedValue(undefined);
+    const res = await postWithRetry("https://x", { a: 1 }, fetchImpl, { sleepImpl });
+    expect(res.status).toBe(204);
+    expect(fetchImpl).toHaveBeenCalledTimes(2);
+    expect(sleepImpl).toHaveBeenCalledTimes(1);
+    expect(sleepImpl).toHaveBeenCalledWith(500);
+  });
+
+  it("retries on 500 with exponential backoff", async () => {
+    const fetchImpl = vi
+      .fn()
+      .mockResolvedValueOnce(new Response(null, { status: 500 }))
+      .mockResolvedValueOnce(new Response(null, { status: 502 }))
+      .mockResolvedValueOnce(new Response(null, { status: 200 }));
+    const sleepImpl = vi.fn().mockResolvedValue(undefined);
+    const res = await postWithRetry("https://x", { a: 1 }, fetchImpl, {
+      sleepImpl,
+      baseDelayMs: 100,
+    });
+    expect(res.status).toBe(200);
+    expect(sleepImpl).toHaveBeenCalledTimes(2);
+    // First retry: baseDelay * 2^0 = 100
+    expect(sleepImpl).toHaveBeenNthCalledWith(1, 100);
+    // Second retry: baseDelay * 2^1 = 200
+    expect(sleepImpl).toHaveBeenNthCalledWith(2, 200);
+  });
+
+  it("does not retry on 4xx other than 429", async () => {
+    const fetchImpl = vi.fn().mockResolvedValue(new Response(null, { status: 404 }));
+    const sleepImpl = vi.fn().mockResolvedValue(undefined);
+    const res = await postWithRetry("https://x", { a: 1 }, fetchImpl, { sleepImpl });
+    expect(res.status).toBe(404);
+    expect(fetchImpl).toHaveBeenCalledTimes(1);
+    expect(sleepImpl).not.toHaveBeenCalled();
+  });
+
+  it("returns the last response after maxAttempts retryable failures", async () => {
+    const fetchImpl = vi.fn().mockResolvedValue(new Response(null, { status: 503 }));
+    const sleepImpl = vi.fn().mockResolvedValue(undefined);
+    const res = await postWithRetry("https://x", { a: 1 }, fetchImpl, {
+      sleepImpl,
+      maxAttempts: 3,
+      baseDelayMs: 10,
+    });
+    expect(res.status).toBe(503);
+    expect(fetchImpl).toHaveBeenCalledTimes(3);
+    // Sleep happens between attempts 1→2 and 2→3, not after the last failure.
+    expect(sleepImpl).toHaveBeenCalledTimes(2);
+  });
+
+  it("retries on fetch throw and rethrows after maxAttempts", async () => {
+    const fetchImpl = vi.fn().mockRejectedValue(new Error("ECONNRESET"));
+    const sleepImpl = vi.fn().mockResolvedValue(undefined);
+    await expect(
+      postWithRetry("https://x", { a: 1 }, fetchImpl, {
+        sleepImpl,
+        maxAttempts: 2,
+        baseDelayMs: 10,
+      }),
+    ).rejects.toThrow("ECONNRESET");
+    expect(fetchImpl).toHaveBeenCalledTimes(2);
+    expect(sleepImpl).toHaveBeenCalledTimes(1);
+  });
+});
+
+describe("DiscordAlertSink retries", () => {
+  it("retries 429 then succeeds — onError not called", async () => {
+    const fetchImpl = vi
+      .fn()
+      .mockResolvedValueOnce(new Response(null, { status: 429, headers: { "retry-after": "0.1" } }))
+      .mockResolvedValueOnce(new Response(null, { status: 204 }));
+    const sleepImpl = vi.fn().mockResolvedValue(undefined);
+    const onError = vi.fn();
+    const sink = new DiscordAlertSink({
+      url: "https://discord.com/api/webhooks/1/abc",
+      label: "discord-webhook",
+      now: FIXED_NOW,
+      fetchImpl,
+      sleepImpl,
+      onError,
+    });
+    sink.handle(makeAlert());
+    await vi.waitFor(() => expect(fetchImpl).toHaveBeenCalledTimes(2));
+    expect(onError).not.toHaveBeenCalled();
+  });
+
+  it("calls onError after exhausting retries on persistent 500", async () => {
+    const fetchImpl = vi.fn().mockResolvedValue(new Response(null, { status: 500 }));
+    const sleepImpl = vi.fn().mockResolvedValue(undefined);
+    const onError = vi.fn();
+    const sink = new DiscordAlertSink({
+      url: "https://discord.com/api/webhooks/1/abc",
+      label: "discord-webhook",
+      now: FIXED_NOW,
+      fetchImpl,
+      sleepImpl,
+      onError,
+      maxAttempts: 2,
+      baseDelayMs: 10,
+    });
+    sink.handle(makeAlert());
+    await vi.waitFor(() => expect(onError).toHaveBeenCalled());
+    expect(fetchImpl).toHaveBeenCalledTimes(2);
+    expect((onError.mock.calls[0]?.[0] as Error).message).toContain("500");
   });
 });
 
