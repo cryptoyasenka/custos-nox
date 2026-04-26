@@ -1,10 +1,19 @@
 # NEXT-SESSION-STATE — Custos Nox
 
-**Updated:** 2026-04-25
+**Updated:** 2026-04-26
 **Latest commit:** `45223f8` (main, clean working tree)
 **Tests:** 135/135 passing, CI green
 
 ---
+
+## SESSION 2026-04-26 DONE ✅
+
+- Fact-check проведён: Drift $285M ✅ STRIDE ✅ Legends.fun ✅ Crafts.fun ❌ (не существует)
+- F2 pitch script обновлён: убран bold-claim "5 Squads teams before submission" → смягчённая формулировка
+- DRIFT-ATTACK-FORENSICS.md: добавлена заметка что explorers блокируют автозапросы, Yana должна верифицировать TX хэши руками на solscan.io перед записью F3
+- ACTION-CHECKLIST-2026-04-26.md создан в planning/ — полный чеклист с приоритетами
+- luma Demo Day Online: точный URL НЕ найден автоматически. **Yana: найти через @KumekaTeam TG или luma.com/superteam (перейти к May 2026 вручную)**
+- Дедлайн подтверждён: Rules PDF = May 11 23:59 PT, но работать по May 9 (submit) для буфера
 
 ## SESSION 2026-04-25 DONE ✅
 

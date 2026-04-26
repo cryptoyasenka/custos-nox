@@ -63,8 +63,9 @@ Our first users are Squads multisig operators — protocol treasuries, grant
 committees, hackathon prize pools. They're already on Discord. The integration
 is one webhook URL.
 
-The plan is to get five Squads teams running Custos Nox before submission,
-publish their feedback, and open an issue tracker for detector requests.
+We're reaching out to Squads multisig operators directly — the integration is
+one webhook URL and a five-minute self-host. Issue tracker is open for
+detector requests.
 
 ---
 
