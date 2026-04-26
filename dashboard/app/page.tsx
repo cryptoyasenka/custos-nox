@@ -1,5 +1,6 @@
 import { AlertRow } from "@/components/alert-row";
 import { DetectorCard } from "@/components/detector-card";
+import { DriftTimeline } from "@/components/drift-timeline";
 import { SeverityChart } from "@/components/severity-chart";
 import { DETECTORS } from "@/lib/detectors";
 import { SAMPLE_ALERTS } from "@/lib/sample-alerts";
@@ -33,6 +34,12 @@ export default function Home() {
                 className="text-muted-strong transition-colors hover:text-foreground"
               >
                 Detectors
+              </a>
+              <a
+                href="#timeline"
+                className="text-muted-strong transition-colors hover:text-foreground"
+              >
+                Timeline
               </a>
               <a href="#live" className="text-muted-strong transition-colors hover:text-foreground">
                 Replay
@@ -140,12 +147,25 @@ export default function Home() {
           </div>
         </section>
 
+        <section id="timeline" className="border-b border-border">
+          <div className="mx-auto w-full max-w-5xl px-6 py-20">
+            <div className="mb-10 flex flex-col gap-3">
+              <h2 className="text-3xl font-semibold tracking-tight">How the Drift attack unfolded</h2>
+              <p className="max-w-2xl text-muted-strong">
+                The April 2026 Drift exploit was not a zero-day — it was a 9-day on-chain
+                preparation. Every step was observable. None were flagged.
+              </p>
+            </div>
+            <DriftTimeline />
+          </div>
+        </section>
+
         <section id="live" className="border-b border-border">
           <div className="mx-auto w-full max-w-5xl px-6 py-20">
             <div className="mb-10 flex flex-col gap-3">
               <h2 className="text-3xl font-semibold tracking-tight">Attack chain replay</h2>
               <p className="max-w-2xl text-muted-strong">
-                The three Drift attack steps, replayed against a devnet harness. Each fires a
+                All four Drift attack steps replayed against a devnet harness. Each fires a
                 distinct detector within a second — the same sequence that went undetected on
                 mainnet in April 2026.
               </p>

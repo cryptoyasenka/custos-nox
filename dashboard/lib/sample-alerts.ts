@@ -81,19 +81,4 @@ export const SAMPLE_ALERTS: SampleAlert[] = [
       firstSeenAt: "2026-04-01T07:12:00.000Z",
     },
   },
-  {
-    detector: "squads-multisig-weakening",
-    severity: "low",
-    subject:
-      "Detector squads-multisig-weakening timed out processing AjULUVaCpzdGvCXgUkHLitkBR6nmn1M7AsHJ8sGgMZNy",
-    txSignature: null,
-    cluster: "devnet",
-    minutesAgo: 14,
-    explorerLink: null,
-    context: {
-      reason: "detector_timeout",
-      timeoutMs: "5000",
-      account: "AjULUVaCpzdGvCXgUkHLitkBR6nmn1M7AsHJ8sGgMZNy",
-    },
-  },
 ];
