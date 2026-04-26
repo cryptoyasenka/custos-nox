@@ -142,7 +142,7 @@ Record on Loom (preferred by judges per guide). Or YouTube unlisted.
 
 ## A11 — Tech demo video URL (2–3 min, English)
 
-⬜ TODO — show: daemon start → alert for each of the 4 detectors (timelock-removal, multisig-weakening, privileged-nonce, stale-nonce-execution) → architecture diagram. NOTE: this is the older DRAFT; final submission copy lives in `ARENA-SUBMISSION-COPY.md` (already updated to "Four detectors run live today").
+⬜ TODO — show: daemon start → alert for each of the 4 Drift-chain detectors (timelock-removal, multisig-weakening, privileged-nonce, stale-nonce-execution) → architecture diagram (mention the 5th, signer-set-change, lives off-screen). NOTE: this is the older DRAFT; final submission copy lives in `ARENA-SUBMISSION-COPY.md` (now updated to "Five detectors run live today" — four Drift + one adjacent signer-rotation vector).
 
 Anti-pattern to avoid: recording IDE/GitHub with voiceover — must show product running.
 

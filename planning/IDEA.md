@@ -23,7 +23,7 @@ Open-source, self-hostable real-time monitor for Solana multisigs and SPL Govern
 
 ## MVP scope (by 2026-05-11)
 
-- 4 detectors (see `../ARCHITECTURE.md`)
+- 5 detectors (see `../ARCHITECTURE.md`)
 - Node daemon (TypeScript)
 - Minimal CLI: `custos watch --multisig <pda>`
 - Discord + Slack webhook support
