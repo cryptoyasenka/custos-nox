@@ -2,7 +2,7 @@
 
 ## Supported versions
 
-Custos Nox is pre-release (`v0.2`). Security fixes are applied to the latest commit on `main`.
+Custos Nox is pre-release (`v0.3`). Security fixes are applied to the latest commit on `main`.
 
 ## Reporting a vulnerability
 
@@ -34,6 +34,10 @@ Your `.env` file contains:
 
 These are never logged or transmitted anywhere except to the configured sinks.
 The `.env` file is in `.gitignore`. Never commit it.
+
+The startup log line prints only the RPC host (e.g. `mainnet.helius-rpc.com`),
+never the full URL with the API key in the path or query string. See
+`redactRpcUrl` in `src/daemon.ts`.
 
 ## Threat model
 
