@@ -4,7 +4,7 @@
 
 ```
 Solana RPC             Supervisor               Detectors               Alert sinks
-(WebSocket)       ───→  baseline fetch    ───→  3 live + 1 roadmap ───→ Discord, Slack,
+(WebSocket)       ───→  baseline fetch    ───→  4 live detectors   ───→ Discord, Slack,
 CUSTOS_RPC_URL         onAccountChange          5s timeout each         stdout
                        reconnect + health                               fan-out
 ```
@@ -44,9 +44,10 @@ interface AccountChangeEvent {
 }
 ```
 
-`TransactionEvent` is defined but not yet produced — reserved for the
-roadmap `StaleNonceExecutionDetector` which requires an `onLogs`
-ingestor path.
+`TransactionEvent` is defined but not yet produced by the ingestor.
+`StaleNonceExecutionDetector` (the fourth detector) avoids this by
+detecting nonce use through `AccountChangeEvent` — the nonce blockhash
+field changes when AdvanceNonce executes.
 
 ## Detector contract
 
@@ -58,8 +59,11 @@ interface Detector {
 }
 ```
 
-Each detector is pure (no shared state), takes a deserialized Solana
-event, returns an `Alert` or `null`. Severity lives on `Alert`
+Most detectors are pure (no shared state). The exception is
+`StaleNonceExecutionDetector`, which maintains an in-memory
+`Map<string, number>` (account → firstSeenAt ms) to measure staleness
+across events. Each detector takes a deserialized Solana event and
+returns an `Alert` or `null`. Severity lives on `Alert`
 (per-event) so the same detector can emit different severities for
 different transitions. Tests are table-driven.
 
@@ -154,8 +158,7 @@ dashboard that subscribes to a running daemon is roadmap.
 
 ## Out of MVP scope
 
-- `StaleNonceExecutionDetector` (roadmap — needs `onLogs` ingestor and
-  nonce-creation-time tracking)
 - Real-time monitoring dashboard (live alert feed from a running daemon)
 - Multi-tenant SaaS
 - Historical replay UI (CLI replay in MVP)
+- `onLogs` ingestor / `TransactionEvent` producer (not required by any current detector)
