@@ -110,9 +110,11 @@ drain. The one Drift missed."
 *(Switch to architecture diagram or ASCII diagram in README)*
 
 "The architecture is simple by design. Helius WebSocket delivers account changes.
-Four detectors inspect each event in parallel and return zero or one alert. The
-FanOut sink sends every alert to Discord, Slack, and stdout simultaneously —
-one failing webhook doesn't block the others.
+Five detectors inspect each event in parallel and return zero or one alert.
+Today we walked through the four mapped to the Drift chain; the fifth —
+SignerSetChangeDetector — catches signer-set rotation, an adjacent vector that's
+hit other Solana protocols. The FanOut sink sends every alert to Discord, Slack,
+and stdout simultaneously — one failing webhook doesn't block the others.
 
 Per-detector 5-second timeout. If a detector hangs, it surfaces as a low-severity
 operational alert instead of disappearing silently."

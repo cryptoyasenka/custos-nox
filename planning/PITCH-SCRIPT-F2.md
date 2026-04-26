@@ -39,9 +39,10 @@ line. They have nothing.
 Custos Nox is an open-source daemon that watches Solana accounts over WebSocket
 and fires an alert the moment a config change matches a known attack pattern.
 
-Four detectors, live today — one for each step of the Drift attack chain.
-Timelock removed. Multisig weakened. Nonce seeded. Stale nonce executed. Any
-single alert would have stopped the drain.
+Five detectors, live today. Four map to every step of the Drift attack chain —
+timelock removed, multisig weakened, nonce seeded, stale nonce executed. The
+fifth catches signer rotation, an adjacent vector that's hit other Solana teams.
+Any single alert would have stopped the drain.
 
 Discord and Slack alerts, self-hosted in five minutes, MIT licensed, zero paid
 tiers.
@@ -51,8 +52,8 @@ tiers.
 **[SLIDE 4 — Traction / evidence]**
 
 The repo is public. 205 tests, GitHub Actions CI green. A devnet smoke harness
-lets any developer reproduce all four attack steps and watch the alerts fire in
-real time.
+reproduces three Drift attack-chain steps plus the signer-rotation vector —
+four live alerts in real time.
 
 Live dashboard at custos-nox-production.up.railway.app.
 
@@ -82,7 +83,7 @@ ping.
 **[SLIDE 7 — Close]**
 
 I'm Yasya from Superteam Ukraine. The code is live on GitHub, the demo runs on
-devnet, and the four detectors are watching right now.
+devnet, and the five detectors are watching right now.
 
 **github.com/cryptoyasenka/custos-nox**
 
@@ -113,7 +114,7 @@ devnet, and the four detectors are watching right now.
 
 **Slide 2:** Text: "STRIDE protects ~100 protocols. / The other 99% have nothing."
 
-**Slide 3:** Image: architecture diagram (Helius WS → 4 Detectors → FanOut → Discord/Slack). Or: screenshot of daemon output showing all four colored alerts (timelock-removal, multisig-weakening, privileged-nonce, stale-nonce-execution).
+**Slide 3:** Image: architecture diagram (Helius WS → 5 Detectors → FanOut → Discord/Slack). Or: screenshot of daemon output showing all four colored alerts (timelock-removal, multisig-weakening, privileged-nonce, stale-nonce-execution).
 
 **Slide 4:** Screenshot: `npm test` showing 205 passing. Or: GitHub CI badge green.
 
