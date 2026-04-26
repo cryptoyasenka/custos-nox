@@ -17,8 +17,13 @@ npm run smoke:nonce-plan      # prints NEW_NONCE_PUBKEY, writes .smoke-nonce.jso
 
 Update `.env`:
 ```
+CUSTOS_CLUSTER=devnet
+CUSTOS_RPC_URL=https://api.devnet.solana.com
 CUSTOS_WATCH=SQDS4ep65T869zMMBKyuUq6aD6EgTu8psMjkvj52pCf:<NEW_PDA>,11111111111111111111111111111111:<NEW_NONCE>
 ```
+
+> ⚠️ `CUSTOS_CLUSTER=devnet` is REQUIRED — otherwise the daemon defaults to
+> `mainnet` and Solscan links in alerts point to the wrong network.
 
 Layout: two terminals side-by-side, large dark font, nothing else visible.
 - Terminal 1: attacker (empty prompt, ready)
@@ -38,7 +43,7 @@ What you're looking at is the daemon running in Terminal 2. It's subscribed via
 WebSocket to a Squads multisig and a durable-nonce account on devnet. Baseline
 state is seeded — so the very first account change will be diffed correctly.
 
-I'm going to replay the three on-chain steps that set up the Drift attack."
+I'm going to replay the three setup steps live, then show the fourth detector that catches the drain itself."
 
 ---
 
@@ -80,18 +85,23 @@ out to every configured sink simultaneously."
 the mechanism that lets a pre-signed transaction land at any time in the future —
 on the attacker's schedule, not the DAO's.
 
-Three steps. Three sub-second alerts. All the signals were there — they just
-needed a monitor."
+Three setup alerts, sub-second each. All the signals the DAO needed — and
+one more detector waiting for the drain itself."
 
 ---
 
 **[1:40–2:00] — Stale nonce**
 
+*(Optional cut: switch to a pre-recorded `npm test src/detectors/stale-nonce-execution`
+window showing 12 tests pass — proves the detector behavior without the 1-hour wait.)*
+
 "The fourth detector — StaleNonceExecutionDetector — watches that same nonce
 account. When the blockhash changes, meaning a pre-signed transaction just
 executed, and the nonce was seeded more than an hour ago, it fires HIGH.
 
-That's the final step: the drain. The one Drift missed."
+I can't trigger this live without waiting an hour, but the unit suite covers
+the exact Drift pattern — twelve cases, all green. That's the final step: the
+drain. The one Drift missed."
 
 ---
 
@@ -137,7 +147,7 @@ The code is at github.com/cryptoyasenka/custos-nox."
 
 1. Terminal 2 with daemon output (subscription lines visible, clean)
 2. Terminal 1 typing commands → Terminal 2 receiving colored alerts
-3. All 3 alerts visible together in Terminal 2 scrollback
+3. All 3 live alerts visible together in Terminal 2 scrollback (the 4th, stale-nonce-execution, is shown via test output rather than a live trigger — see script note at 1:40)
 4. Architecture diagram (README section or ARCHITECTURE.md)
 5. `npm test` output — 147 passing (optional, quick cut)
 6. GitHub repo home page (final 5 seconds)
