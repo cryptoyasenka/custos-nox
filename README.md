@@ -12,13 +12,18 @@ live in [`dashboard/`](./dashboard) (Next.js 16, static build).
 
 ## What it catches
 
-Four detectors run live today, covering all on-chain steps of the Drift
-April 2026 attack chain:
+Five detectors run live today. Four cover every on-chain step of the
+Drift April 2026 attack chain; the fifth catches an adjacent multisig
+takeover vector (signer-set rotation) that is common in similar
+exploits but was not exercised in Drift specifically.
 
 - **TimelockRemovalDetector** — alerts when a governance timelock is
   removed or dropped below half (Squads v4 + SPL Governance).
 - **MultisigWeakeningDetector** — alerts on signer threshold reductions
   (e.g. 5-of-7 → 1-of-7) on Squads v4 multisigs.
+- **SignerSetChangeDetector** — alerts when a Squads v4 multisig's
+  members vector is mutated. Removal of a legitimate signer or rotation
+  fires HIGH; pure additions fire MEDIUM.
 - **PrivilegedNonceDetector** — alerts when a watched System Program
   nonce account is initialized or has its authority rotated.
 - **StaleNonceExecutionDetector** — alerts when a durable nonce is
@@ -100,11 +105,14 @@ Test coverage grew from 147 to 164 across these changes.
 ## Status
 
 Pre-release. Built for the Solana Frontier Hackathon
-(submission 2026-05-10 23:59 PDT). All four detectors are running live;
+(submission 2026-05-10 23:59 PDT). All five detectors are running live;
 devnet smoke harness in `scripts/` reproduces three steps end-to-end
 on-chain (timelock removal, multisig weakening, privileged-nonce init).
 The stale-nonce detector activates after the PrivilegedNonce init step —
-the same account is watched by both detectors simultaneously.
+the same account is watched by both detectors simultaneously. The
+signer-set-change detector is exercised by the unit tests; live coverage
+needs a multisig whose members vector is mutated, which the smoke
+script does not currently produce.
 
 ## Quick start
 

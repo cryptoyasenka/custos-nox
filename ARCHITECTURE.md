@@ -4,7 +4,7 @@
 
 ```
 Solana RPC             Supervisor               Detectors               Alert sinks
-(WebSocket)       ───→  baseline fetch    ───→  4 live detectors   ───→ Discord, Slack,
+(WebSocket)       ───→  baseline fetch    ───→  5 live detectors   ───→ Discord, Slack,
 CUSTOS_RPC_URL         onAccountChange          5s timeout each         stdout
                        reconnect + health                               fan-out
 ```
@@ -45,9 +45,9 @@ interface AccountChangeEvent {
 ```
 
 `TransactionEvent` is defined but not yet produced by the ingestor.
-`StaleNonceExecutionDetector` (the fourth detector) avoids this by
-detecting nonce use through `AccountChangeEvent` — the nonce blockhash
-field changes when AdvanceNonce executes.
+`StaleNonceExecutionDetector` avoids this by detecting nonce use
+through `AccountChangeEvent` — the nonce blockhash field changes when
+AdvanceNonce executes.
 
 ## Detector contract
 

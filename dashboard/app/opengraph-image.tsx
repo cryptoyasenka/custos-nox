@@ -147,8 +147,8 @@ export default function OGImage() {
       {/* Stats row */}
       <div style={{ display: "flex", gap: 20, marginTop: 40 }}>
         {[
-          { value: "4", label: "Detectors live" },
-          { value: "164", label: "Tests passing" },
+          { value: "5", label: "Detectors live" },
+          { value: "202", label: "Tests passing" },
           { value: "$285M", label: "Drift loss tracked" },
           { value: "MIT", label: "License" },
         ].map((stat) => (

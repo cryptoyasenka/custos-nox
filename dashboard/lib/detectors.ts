@@ -32,6 +32,16 @@ export const DETECTORS: DetectorMeta[] = [
       "Fires when a Squads multisig signer threshold is reduced. Catches the moment a treasury becomes single-signer controlled — the irreversible pivot in most exploits.",
   },
   {
+    id: "squads-signer-set-change",
+    name: "Signer Set Change",
+    subtitle: "Squads v4",
+    status: "production",
+    severity: "high",
+    attackStep: "Members rotated — honest signers evicted",
+    description:
+      "Fires when a Squads multisig's members vector is mutated. Removal of a legitimate signer or rotation fires high; pure additions fire medium. Catches the takeover vector where an attacker swaps honest co-signers for their own keys.",
+  },
+  {
     id: "privileged-nonce",
     name: "Privileged Nonce",
     subtitle: "System Program",

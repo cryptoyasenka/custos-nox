@@ -5,6 +5,7 @@ import { DiscordAlertSink, FanOutAlertSink, SlackAlertSink } from "./alerts/webh
 import { type DaemonConfig, loadConfigFromEnv } from "./config.js";
 import { SquadsMultisigWeakeningDetector } from "./detectors/multisig-weakening.js";
 import { PrivilegedNonceDetector } from "./detectors/privileged-nonce.js";
+import { SignerSetChangeDetector } from "./detectors/signer-set-change.js";
 import { StaleNonceExecutionDetector } from "./detectors/stale-nonce-execution.js";
 import {
   SplGovernanceTimelockRemovalDetector,
@@ -17,6 +18,7 @@ const DETECTORS: Detector[] = [
   SquadsTimelockRemovalDetector,
   SplGovernanceTimelockRemovalDetector,
   SquadsMultisigWeakeningDetector,
+  SignerSetChangeDetector,
   PrivilegedNonceDetector,
   StaleNonceExecutionDetector,
 ];
