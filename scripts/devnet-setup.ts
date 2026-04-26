@@ -19,15 +19,32 @@ const KEYPAIR_PATH = process.env.SOLANA_KEYPAIR ?? join(homedir(), ".config", "s
 const MIN_BALANCE_SOL = 0.5;
 const AIRDROP_SOL = 1;
 
+function loadKeypair(): Keypair {
+  const raw = JSON.parse(readFileSync(KEYPAIR_PATH, "utf8")) as number[];
+  return Keypair.fromSecretKey(Uint8Array.from(raw));
+}
+
 function ensureKeypair(): { keypair: Keypair; created: boolean } {
   if (existsSync(KEYPAIR_PATH)) {
-    const raw = JSON.parse(readFileSync(KEYPAIR_PATH, "utf8")) as number[];
-    return { keypair: Keypair.fromSecretKey(Uint8Array.from(raw)), created: false };
+    return { keypair: loadKeypair(), created: false };
   }
   mkdirSync(dirname(KEYPAIR_PATH), { recursive: true });
   const keypair = Keypair.generate();
-  writeFileSync(KEYPAIR_PATH, JSON.stringify(Array.from(keypair.secretKey)));
-  return { keypair, created: true };
+  try {
+    // flag "wx" = exclusive create (fails with EEXIST if a concurrent run won
+    // the race between existsSync above and this write). mode 0o600 keeps the
+    // secret key readable only by the owner.
+    writeFileSync(KEYPAIR_PATH, JSON.stringify(Array.from(keypair.secretKey)), {
+      flag: "wx",
+      mode: 0o600,
+    });
+    return { keypair, created: true };
+  } catch (err) {
+    if ((err as NodeJS.ErrnoException).code === "EEXIST") {
+      return { keypair: loadKeypair(), created: false };
+    }
+    throw err;
+  }
 }
 
 async function main(): Promise<void> {
