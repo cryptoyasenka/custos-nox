@@ -119,13 +119,15 @@ the four hardening fixes above, plus 41 more from the
 
 Pre-release. Built for the Solana Frontier Hackathon
 (submission 2026-05-10 23:59 PDT). All five detectors are running live;
-devnet smoke harness in `scripts/` reproduces three steps end-to-end
-on-chain (timelock removal, multisig weakening, privileged-nonce init).
-The stale-nonce detector activates after the PrivilegedNonce init step —
-the same account is watched by both detectors simultaneously. The
-signer-set-change detector is exercised by the unit tests; live coverage
-needs a multisig whose members vector is mutated, which the smoke
-script does not currently produce.
+devnet smoke harness in `scripts/` reproduces four steps end-to-end
+on-chain (timelock removal, multisig weakening, privileged-nonce init,
+and an adjacent signer-set rotation). The stale-nonce detector
+activates after the PrivilegedNonce init step — the same account is
+watched by both detectors simultaneously. The on-chain mutations have
+been verified live; whether the daemon's `onAccountChange` subscription
+actually fires for a given watched account depends on the RPC provider,
+since the public devnet RPC silently drops some account-change
+notifications (run `npm run check:null-subscribe` to verify yours).
 
 ## Quick start
 
