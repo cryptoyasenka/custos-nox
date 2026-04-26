@@ -5,6 +5,7 @@ import { SeverityChart } from "@/components/severity-chart";
 import { DETECTORS } from "@/lib/detectors";
 import { SAMPLE_ALERTS } from "@/lib/sample-alerts";
 import Image from "next/image";
+import Link from "next/link";
 
 const GITHUB_URL = "https://github.com/cryptoyasenka/custos-nox";
 
@@ -23,10 +24,10 @@ export default function Home() {
     <div className="relative flex min-h-screen flex-col">
       <nav className="sticky top-0 z-10 border-b border-border bg-background/80 backdrop-blur">
         <div className="mx-auto flex w-full max-w-5xl items-center justify-between px-6 py-4">
-          <a href="/" className="flex items-center gap-2.5">
+          <Link href="/" className="flex items-center gap-2.5">
             <Image src="/logo.svg" alt="Custos Nox" width={32} height={32} priority />
             <span className="font-semibold tracking-tight">Custos Nox</span>
-          </a>
+          </Link>
           <div className="flex items-center gap-5 text-sm">
             <div className="hidden items-center gap-5 sm:flex">
               <a
