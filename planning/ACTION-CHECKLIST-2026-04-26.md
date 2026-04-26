@@ -42,15 +42,26 @@
 
 ---
 
-## СДЕЛАНО МНОЙ (2026-04-26)
+## СДЕЛАНО МНОЙ (2026-04-26 session 1)
 
 - [x] Факт-чек всех ключевых утверждений плана (Drift hack, STRIDE, Legends.fun, Crafts.fun)
 - [x] F2 pitch script обновлён: убран "5 Squads teams before submission" → честная формулировка
-- [x] DRIFT-ATTACK-FORENSICS.md обновлён: заметка что explorer блокируют авто-запросы, Yana должна проверить руками
+- [x] DRIFT-ATTACK-FORENSICS.md обновлён: заметка что explorer блокируют авто-запросы
 - [x] NEXT-SESSION-STATE.md обновлён с итогами сессии
-- [x] Memory обновлена: актуальное состояние + luma URL не подтверждён
-- [ ] TX хэши верифицированы на Solscan — ❌ Не получилось: Solscan/SolanaFM блокируют WebFetch. **Yana: открыть solscan.io/tx/9zJGhyotEes1... и 2HvMSgDEf... руками перед записью F3**
-- [ ] Demo Day Online URL — ❌ luma.com/demodayonline не подтверждён. **Yana: найти через luma.com/superteam (May 2026) или @KumekaTeam TG**
+
+## СДЕЛАНО МНОЙ (2026-04-26 session 2 — autonomous run)
+
+- [x] **Demo Day Online URL подтверждён:** `luma.com/demodayonline` (title "Ukrainian Demo Day | Online", host Superteam Ukraine, requires Solana wallet, призы $500/$200/$100). Wikification done.
+- [x] **Chainalysis blog re-verified** все 3 TX хэша + контекст матчат таблицу в forensics. $285M = "more than 50% TVL" — точная формулировка.
+- [x] **PITCH-SCRIPT-F2 slide 1 fixed:** "single-signer control" удалён (Chainalysis старую конфигурацию multisig НЕ раскрыл) → "2-of-5 threshold and zero timelock" + "more than half of TVL".
+- [x] **Dashboard OG image fixed (12dcf4d):** opengraph-image.tsx был с stale "3 detectors / 135 tests / catches 3 of 4 steps" — обновлено на 4/147/all 4. Это критично: при шере ссылки на X/Discord/Arena preview берётся именно отсюда.
+- [x] **drift-timeline.tsx fixed:** "5-of-9 → 2-of-5" + "single-signer-equivalent" (unverifiable) → "Security Council multisig migrated to 2-of-5 with zero timelock — minimum quorum, instant execution" (Chainalysis-backed).
+- [x] **X-PROJECT-ACCOUNT stale fixes:** tweet 2 = 4 detectors (был 3), tweet 4 = 147 tests (был 135), Crafts.fun удалён, добавлен Demo Day luma link в content calendar.
+- [x] **DISCORD-SHOW-AND-TELL-POST.md создан:** 2 paste-ready варианта (link-first 50w / story-first 85w) + post-discipline notes.
+- [x] **Lint clean, 147 tests passing, CI зелёный, repo public, deploy live проверены.**
+
+- [ ] TX хэши верифицированы на Solscan — ❌ невозможно через автоматику (RPC retention 5 дней, public RPC возвращает null для April 1). **Yana: открыть solscan.io/tx/HASH руками перед записью F3. Fallback: Chainalysis blog screenshots с подписью "via Chainalysis".**
+- [ ] Email Colosseum по дедлайну — ❌ нет MCP-инструмента для Gmail. **Yana: проверить inbox cryptoyasenka@gmail.com на ответ от Colosseum.**
 
 ---
 
