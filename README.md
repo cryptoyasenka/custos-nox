@@ -66,6 +66,37 @@ wallets. Self-host in five minutes. MIT licensed.
 - Per-detector 5s timeout; timeouts and throws emit a low-severity
   alert rather than silently disappearing.
 
+## Hardening notes (v0.3, 2026-04-26)
+
+A senior code review pass landed four reliability fixes between the
+v0.2 hackathon submission and the v0.3 polish. All four are now in
+`main`:
+
+1. **WebSocket subscription cleanup on reconnect** (commit `0adf543`).
+   The supervisor captures subscription IDs from `onAccountChange` and
+   calls `removeAccountChangeListener` on both reconnect and shutdown,
+   instead of relying on `Connection` GC to close stale WebSocket
+   subscriptions. Prevents zombie callbacks after long sessions.
+
+2. **Live `txSignature` backfill** (commit `0adf543`).
+   `onAccountChange` doesn't include the triggering tx signature. The
+   supervisor now calls `getSignaturesForAddress` (limit 5,
+   slot-matched) when an alert fires, so Solscan links go to `/tx/`
+   instead of `/account/`. Backfill failures fall back to the
+   original null-signature alert — delivery is never blocked.
+
+3. **Webhook delivery retry** (commit `0a442e3`).
+   Discord/Slack 429 + 5xx responses now trigger exponential backoff
+   (base 500 ms, capped at 60 s) with `Retry-After` honoring (Discord's
+   sub-second floats supported). 4xx other than 429 do not retry.
+
+4. **Stale-nonce in-memory state bound** (commit `25a0491`).
+   `StaleNonceExecutionDetector` prunes `firstSeenAt` entries older
+   than 2× threshold every 100 inspect calls, with a 10 000-entry hard
+   cap as a safety net.
+
+Test coverage grew from 147 to 164 across these changes.
+
 ## Status
 
 Pre-release. Built for the Solana Frontier Hackathon
