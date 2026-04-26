@@ -111,7 +111,9 @@ v0.2 hackathon submission and the v0.3 polish. All four are now in
    than 2× threshold every 100 inspect calls, with a 10 000-entry hard
    cap as a safety net.
 
-Test coverage grew from 147 to 164 across these changes.
+Test coverage grew from 147 to 205 across these changes (164 from
+the four hardening fixes above, plus 41 more from the
+`SignerSetChangeDetector` shipped alongside them).
 
 ## Status
 

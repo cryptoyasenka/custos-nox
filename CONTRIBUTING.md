@@ -10,7 +10,7 @@ git clone https://github.com/cryptoyasenka/custos-nox
 cd custos-nox
 npm install
 cp .env.example .env      # set CUSTOS_RPC_URL and CUSTOS_WATCH
-npm test                  # 164 tests, all must pass
+npm test                  # 205 tests, all must pass
 npm run lint              # biome — no warnings allowed
 npm run typecheck         # strict mode
 ```
@@ -59,13 +59,15 @@ npx vitest run src/detectors/timelock-removal.test.ts
 Set up a devnet wallet and Squads multisig following `DEV-ENV-SETUP.md`, then:
 
 ```bash
-npm run smoke:timelock      # reproduces the March 26 Drift step on devnet
-npm run smoke:nonce         # reproduces the March 23 Drift step on devnet
+npm run smoke:timelock        # reproduces the timelock-removal Drift step
+npm run smoke:weaken          # reproduces the threshold-reduction Drift step
+npm run smoke:nonce-init      # reproduces the privileged-nonce Drift step
+npm run smoke:rotate-signers  # exercises SignerSetChangeDetector (adjacent vector)
 ```
 
 ## PR checklist
 
-- [ ] `npm test` passes (all 164+ tests green)
+- [ ] `npm test` passes (all 205+ tests green)
 - [ ] `npm run lint` — zero warnings
 - [ ] `npm run typecheck` — zero errors
 - [ ] New detector has a co-located `.test.ts` with ≥10 unit tests

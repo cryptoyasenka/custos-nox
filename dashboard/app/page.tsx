@@ -10,7 +10,7 @@ const GITHUB_URL = "https://github.com/cryptoyasenka/custos-nox";
 
 const STATS = [
   { label: "Detectors live", value: "5" },
-  { label: "Tests passing", value: "202" },
+  { label: "Tests passing", value: "205" },
   { label: "Drift loss tracked", value: "$285M" },
   { label: "Alert latency", value: "< 1s" },
 ];
