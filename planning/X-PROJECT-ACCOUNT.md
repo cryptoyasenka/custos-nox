@@ -43,14 +43,15 @@ Here's what it does:
 
 **Tweet 2:**
 ```
-Four detectors live on devnet:
+Five detectors live on devnet:
 
 • TimelockRemovalDetector — fires when governance timelock drops to zero
 • MultisigWeakeningDetector — fires when Squads signer threshold is reduced (e.g. 5-of-7 → 1-of-7)
 • PrivilegedNonceDetector — fires when a nonce account is initialized or authority rotated
 • StaleNonceExecutionDetector — fires when a pre-signed durable nonce executes hours after seeding
+• SignerSetChangeDetector — fires when a Squads multisig's members vector is mutated (signer rotation/eviction)
 
-Each = one step of the April 2026 Drift attack chain.
+Four map to each step of the April 2026 Drift attack chain. The fifth catches signer-set rotation — an adjacent vector that's hit other Solana protocols.
 ```
 
 **Tweet 3:**

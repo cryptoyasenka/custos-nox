@@ -58,7 +58,7 @@
 - [x] **drift-timeline.tsx fixed:** "5-of-9 → 2-of-5" + "single-signer-equivalent" (unverifiable) → "Security Council multisig migrated to 2-of-5 with zero timelock — minimum quorum, instant execution" (Chainalysis-backed).
 - [x] **X-PROJECT-ACCOUNT stale fixes:** tweet 2 = 4 detectors (был 3), tweet 4 = 147 tests (был 135), Crafts.fun удалён, добавлен Demo Day luma link в content calendar.
 - [x] **DISCORD-SHOW-AND-TELL-POST.md создан:** 2 paste-ready варианта (link-first 50w / story-first 85w) + post-discipline notes.
-- [x] **Lint clean, 147 tests passing, CI зелёный, repo public, deploy live проверены.**
+- [x] **Lint clean, 205 tests passing, CI зелёная, repo public, deploy live проверены.**
 
 - [ ] TX хэши верифицированы на Solscan — ❌ невозможно через автоматику (RPC retention 5 дней, public RPC возвращает null для April 1). **Yana: открыть solscan.io/tx/HASH руками перед записью F3. Fallback: Chainalysis blog screenshots с подписью "via Chainalysis".**
 - [ ] Email Colosseum по дедлайну — ❌ нет MCP-инструмента для Gmail. **Yana: проверить inbox cryptoyasenka@gmail.com на ответ от Colosseum.**
@@ -71,7 +71,7 @@
 - ✅ STRIDE program — РЕАЛЬНЫЙ, $10M+ TVL порог (запущен 07.04.2026)
 - ✅ Legends.fun — РЕАЛЬНАЯ платформа
 - ❌ Crafts.fun — НЕ НАЙДЕНА, не тратить время
-- ✅ Дашборд: 147 тестов, 4 детектора, CI зелёный
+- ✅ Дашборд: 205 тестов, 5 детекторов, CI зелёный
 - ⚠️ Дедлайн: работать по May 9 (submit) — буфер перед May 10/11
 
 ---

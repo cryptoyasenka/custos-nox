@@ -11,7 +11,7 @@
 ```
 Custos Nox â€” open-source Solana attack-chain monitor for multisigs and DAOs.
 
-Watches Squads multisigs and durable-nonce accounts over WebSocket and fires sub-second alerts the moment a config change matches a known attack pattern. Four detectors map directly to the four on-chain steps of the April 2026 Drift exploit ($285M, >50% TVL).
+Watches Squads multisigs and durable-nonce accounts over WebSocket and fires sub-second alerts the moment a config change matches a known attack pattern. Five detectors live: four map directly to the four on-chain steps of the April 2026 Drift exploit ($285M, >50% TVL); the fifth catches an adjacent signer-rotation vector.
 
 Live dashboard: https://custos-nox-production.up.railway.app
 GitHub: https://github.com/cryptoyasenka/custos-nox
@@ -28,7 +28,7 @@ On April 1, $285M drained from Drift in 12 minutes. The attack itself was fast â
 
 Built Custos Nox for Frontier 2026: an open-source daemon that watches Solana multisigs and durable-nonce accounts and fires alerts the moment a config change matches a known attack pattern.
 
-Four detectors live, each mapped to one step of the Drift attack chain. Sub-second Discord/Slack alerts. Self-host in five minutes.
+Five detectors live: four mapped to each step of the Drift attack chain, one for an adjacent signer-rotation vector that's hit other Solana protocols. Sub-second Discord/Slack alerts. Self-host in five minutes.
 
 Live: https://custos-nox-production.up.railway.app
 GitHub: https://github.com/cryptoyasenka/custos-nox

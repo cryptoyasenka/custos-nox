@@ -10,7 +10,7 @@ Built a real-time Solana security monitor for the @colosseum Frontier Hackathon.
 
 Custos Nox watches multisigs and DAOs for the exact on-chain moves that set up the Drift $285M drain — before the exploit executes.
 
-4 detectors. TypeScript. Self-host in 5 min. MIT.
+5 detectors. TypeScript. Self-host in 5 min. MIT.
 
 github.com/cryptoyasenka/custos-nox
 
@@ -51,7 +51,7 @@ github.com/cryptoyasenka/custos-nox
 
 Submitted Custos Nox to @colosseum Frontier Hackathon.
 
-Open-source Solana multisig attack monitor. 4 detectors. MIT licensed.
+Open-source Solana multisig attack monitor. 5 detectors. MIT licensed.
 
 If you run a DAO or treasury on Squads, try it:
 github.com/cryptoyasenka/custos-nox
@@ -68,7 +68,7 @@ Feedback welcome 🙏
 
 Будую **Custos Nox** — open-source демон для Solana, який моніторить мультисіги і DAO в реальному часі на предмет атак типу Drift.
 
-4 детектори. TypeScript, нуль Rust. Самостійний хостинг за 5 хвилин. MIT ліцензія.
+5 детекторів. TypeScript, нуль Rust. Самостійний хостинг за 5 хвилин. MIT ліцензія.
 
 🔗 Dashboard: https://custos-nox-production.up.railway.app
 📦 GitHub: https://github.com/cryptoyasenka/custos-nox
@@ -83,7 +83,7 @@ Hey — building Custos Nox, an open-source real-time monitor for Squads multisi
 
 It detects threshold weakening, timelock removal, and privileged nonce seeding — the exact setup steps used in the April 2026 Drift exploit — and fires alerts to Discord/Slack within seconds of the on-chain event.
 
-4 detectors live, TypeScript daemon, self-hostable in 5 min. MIT licensed.
+5 detectors live, TypeScript daemon, self-hostable in 5 min. MIT licensed.
 
 Would love feedback from the Squads team, and happy to add a Squads-specific integration if there's interest.
 
