@@ -24,3 +24,6 @@ video-build/*.mp3
 video-build/*.wav
 video-build/*.jpg
 video-build/неделя*/
+
+# Local audit / review artifacts (gstack, cso reports, etc.) — operator-side only.
+.gstack/
