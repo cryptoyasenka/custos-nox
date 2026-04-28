@@ -79,8 +79,8 @@ export default function Home() {
               </h1>
               <p className="max-w-2xl text-lg leading-relaxed text-muted-strong">
                 Custos Nox is an open-source real-time attack monitor for Solana multisigs and DAOs.
-                It detects all 4 on-chain vectors used to drain $285M from Drift on April 1, 2026 —
-                before the stolen funds leave the chain.
+                It detects every on-chain step of the $285M Drift drain on April 1, 2026 — plus an
+                adjacent signer-rotation vector — before the stolen funds leave the chain.
               </p>
               <div className="flex flex-wrap gap-3">
                 <a

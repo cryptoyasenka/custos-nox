@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 
 const siteUrl = "https://custos-nox-production.up.railway.app";
 const description =
-  "Open-source real-time attack monitor for Solana multisigs and DAOs. Detects all 4 on-chain vectors used to drain $285M from Drift on April 1, 2026. Self-host in 5 minutes. MIT licensed.";
+  "Open-source real-time attack monitor for Solana multisigs and DAOs. Detects every on-chain step of the $285M Drift drain on April 1, 2026 — plus an adjacent signer-rotation vector. Self-host in 5 minutes. MIT licensed.";
 
 export const metadata: Metadata = {
   title: "Custos Nox — Real-time attack monitor for Solana multisigs",

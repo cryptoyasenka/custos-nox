@@ -58,6 +58,7 @@ export default function OGImage() {
         {[
           { sev: "CRITICAL", color: RED, label: "squads-timelock-removal" },
           { sev: "HIGH", color: AMBER, label: "squads-multisig-weakening" },
+          { sev: "HIGH", color: AMBER, label: "squads-signer-set-change" },
           { sev: "CRITICAL", color: RED, label: "privileged-nonce" },
           { sev: "HIGH", color: AMBER, label: "stale-nonce-execution" },
         ].map((a) => (
@@ -140,8 +141,8 @@ export default function OGImage() {
           fontFamily: "sans-serif",
         }}
       >
-        Open-source real-time attack monitor for Solana multisigs and DAOs. Catches all 4 on-chain
-        steps used to drain $285M from Drift.
+        Open-source real-time attack monitor for Solana multisigs and DAOs. Catches every on-chain
+        step of the $285M Drift drain — plus an adjacent signer-rotation vector.
       </div>
 
       {/* Stats row */}
