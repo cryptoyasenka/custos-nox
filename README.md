@@ -45,7 +45,7 @@ steps:
 | Attack step                                         | Detector                       | Severity |
 | --------------------------------------------------- | ------------------------------ | -------- |
 | Realm timelock reduced from 6 days → 0             | `spl-governance-timelock-removal` | critical |
-| Squads threshold dropped from 5-of-9 → 1-of-9      | `squads-multisig-weakening`    | high     |
+| Squads Security Council migrated to 2-of-5 threshold with zero timelock | `squads-multisig-weakening` | high |
 | Durable nonce created under attacker-controlled key | `privileged-nonce`             | critical |
 | Pre-signed withdrawal tx executed from stale nonce  | `stale-nonce-execution`        | high     |
 
