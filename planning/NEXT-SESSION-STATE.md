@@ -1,8 +1,9 @@
 # NEXT-SESSION-STATE — Custos Nox
 
-**Updated:** 2026-04-26
-**Latest commit:** `45223f8` (main, clean working tree)
-**Tests:** 135/135 passing, CI green
+**Updated:** 2026-04-29
+**Latest commit:** `ccd7cef` (main, clean working tree)
+**Tests:** 205/205 passing, CI green
+**Detectors live:** 5 (4 covering Drift attack chain + 1 adjacent signer-rotation)
 
 ---
 
@@ -31,16 +32,16 @@
 ## WHAT EXISTS NOW
 
 ### Code (daemon)
-- **4/4 MVP detectors live:** TimelockRemoval, MultisigWeakening, PrivilegedNonce, StaleNonceExecution
+- **5/5 MVP detectors live:** TimelockRemoval (Squads + SPL Governance), MultisigWeakening, SignerSetChange, PrivilegedNonce, StaleNonceExecution
 - WS supervisor (reconnect backoff), per-detector 5s timeout, FanOut alert sinks
 - Discord + Slack webhook sinks
-- 135 tests, GitHub Actions CI green
-- `scripts/` smoke scripts: `smoke:create`, `smoke:timelock`, `smoke:weaken`, `smoke:nonce-plan`, `smoke:nonce-init`
+- 205 tests, GitHub Actions CI green
+- `scripts/` smoke scripts: `smoke:create`, `smoke:timelock`, `smoke:weaken`, `smoke:nonce-plan`, `smoke:nonce-init`, `smoke:rotate-signers`
 
 ### Dashboard
 - Next.js marketing site in `/dashboard/`
 - **Live at: https://custos-nox.up.railway.app** (Railway, not Vercel)
-- Shows: 3 detectors, 135 tests, $285M tracked, <1s latency, sample alerts replay
+- Shows: 5 detectors, 205 tests, $285M tracked, <1s latency, 5 sample alerts replay
 - OG banner 1200×630 added (commit `c1352dc`)
 
 ### Videos
@@ -102,7 +103,7 @@ FINAL:
 - GitHub repo public: `github.com/cryptoyasenka/custos-nox`
 - Live dashboard: `custos-nox.up.railway.app` (Railway)
 - Discord Colosseum intro posted (2026-04-23, D1 done)
-- **147 tests passing**, CI green, 4/4 detectors live
+- **205 tests passing**, CI green, 5/5 detectors live
 - **F1 Week 3 video uploaded** (2026-04-24) ✅
 - **Online Demo Day link found**: `luma.com/demodayonline`
 - Full submission text drafted (`planning/ARENA-SUBMISSION-DRAFT.md`)
@@ -120,7 +121,7 @@ git log --oneline -3
 npm test --silent 2>&1 | tail -3
 ```
 
-Expected: `d21d459` on top, 147 passing.
+Expected: `ccd7cef` on top, 205 passing.
 
 ---
 
