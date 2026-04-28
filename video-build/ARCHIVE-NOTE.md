@@ -23,7 +23,7 @@ control" or "5-of-9 → 2-of-5").
 - `sample-*.mp3` — TTS voice samples for picking a voice.
 - `demo-raw.mp4` / `demo-raw.mkv` — raw screen-capture footage. **Caveat:** the dashboard
   state in those frames may show v0.1 / 3 detectors / 135 tests. Re-record screen
-  capture against the live dashboard (`custos-nox-production.up.railway.app`)
+  capture against the live dashboard (`custos-nox.up.railway.app`)
   before using in F2/F3.
 
 ## What is NOT safe to reuse

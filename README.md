@@ -5,7 +5,7 @@
 Open-source real-time monitor for Solana multisigs and DAOs. Detects the
 attack chain that drained $285M from Drift on April 1, 2026.
 
-**Live:** <https://custos-nox-production.up.railway.app>
+**Live:** <https://custos-nox.up.railway.app>
 
 **Dashboard:** marketing site, detector catalog, and sample event feed
 live in [`dashboard/`](./dashboard) (Next.js 16, static build).
