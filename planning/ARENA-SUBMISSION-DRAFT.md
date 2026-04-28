@@ -31,7 +31,7 @@
 **Character count: 220** ✓ (60 chars left to add a link or detail)
 
 Optional add-on if space allows:
-> Live at custos-nox-production.up.railway.app
+> Live at custos-nox.up.railway.app
 
 ---
 
@@ -93,7 +93,7 @@ Each script fires a real on-chain transaction; the daemon prints the
 corresponding alert within seconds. The fourth Drift step — stale-nonce
 execution — is covered by 12 unit tests that match the exact Drift pattern.
 
-Live dashboard: https://custos-nox-production.up.railway.app
+Live dashboard: https://custos-nox.up.railway.app
 GitHub: https://github.com/cryptoyasenka/custos-nox
 
 ### What's next (roadmap)

@@ -55,7 +55,7 @@ The repo is public. 205 tests, GitHub Actions CI green. A devnet smoke harness
 reproduces three Drift attack-chain steps plus the signer-rotation vector —
 four live alerts in real time.
 
-Live dashboard at custos-nox-production.up.railway.app.
+Live dashboard at custos-nox.up.railway.app.
 
 ---
 

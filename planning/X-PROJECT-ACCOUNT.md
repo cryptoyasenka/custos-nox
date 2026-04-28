@@ -26,7 +26,7 @@ Open-source daemon that catches Drift-class attacks on Solana multisigs before t
 
 **Location:** Ukraine
 
-**Website:** https://custos-nox-production.up.railway.app
+**Website:** https://custos-nox.up.railway.app
 
 ---
 

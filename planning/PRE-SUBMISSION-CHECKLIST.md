@@ -14,7 +14,7 @@ Living document — update statuses inline as work progresses.
 | A1 | Arena account, country=Ukraine | ✅ DONE | Task #2 |
 | A2 | Founder profile (Yasya) | ✅ DONE | Task #23 |
 | A3 | GitHub repo public | ✅ DONE | `github.com/cryptoyasenka/custos-nox` |
-| A4 | Live demo URL | ✅ DONE | `custos-nox-production.up.railway.app` (Task #24) |
+| A4 | Live demo URL | ✅ DONE | `custos-nox.up.railway.app` (Task #24) |
 | A5 | Project name + tagline | 🟡 DRAFT | `planning/ARENA-SUBMISSION-DRAFT.md` → A5 section. Pick Option B |
 | A6 | Short description (≤280 chars) | 🟡 DRAFT | `planning/ARENA-SUBMISSION-DRAFT.md` → A6 (220 chars, verify in form) |
 | A7 | Long description / writeup | 🟡 DRAFT | `planning/ARENA-SUBMISSION-DRAFT.md` → A7 (check markdown support in Arena) |

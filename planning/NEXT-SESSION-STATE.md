@@ -39,7 +39,7 @@
 
 ### Dashboard
 - Next.js marketing site in `/dashboard/`
-- **Live at: https://custos-nox-production.up.railway.app** (Railway, not Vercel)
+- **Live at: https://custos-nox.up.railway.app** (Railway, not Vercel)
 - Shows: 3 detectors, 135 tests, $285M tracked, <1s latency, sample alerts replay
 - OG banner 1200×630 added (commit `c1352dc`)
 
@@ -100,7 +100,7 @@ FINAL:
 - Arena account + founder profile (2026-04-18)
 - Project on Arena: Custos Nox, category Security Tools
 - GitHub repo public: `github.com/cryptoyasenka/custos-nox`
-- Live dashboard: `custos-nox-production.up.railway.app` (Railway)
+- Live dashboard: `custos-nox.up.railway.app` (Railway)
 - Discord Colosseum intro posted (2026-04-23, D1 done)
 - **147 tests passing**, CI green, 4/4 detectors live
 - **F1 Week 3 video uploaded** (2026-04-24) ✅
@@ -128,7 +128,7 @@ Expected: `d21d459` on top, 147 passing.
 
 | What | URL |
 | ---- | --- |
-| Live dashboard | https://custos-nox-production.up.railway.app |
+| Live dashboard | https://custos-nox.up.railway.app |
 | GitHub | https://github.com/cryptoyasenka/custos-nox |
 | Arena | https://arena.colosseum.org |
 | Demo Day online | https://luma.com/demodayonline |

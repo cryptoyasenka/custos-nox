@@ -50,7 +50,7 @@ Architecture highlights:
 
 A devnet smoke harness (scripts/) reproduces three core Drift attack-chain steps end-to-end on chain (timelock removal, multisig weakening, privileged-nonce init), plus the adjacent signer-set rotation that the fifth detector catches. Each script fires a real on-chain transaction; the daemon prints the corresponding alert within seconds. The fourth Drift step — stale-nonce execution — is covered by 12 unit tests that match the exact Drift pattern.
 
-Live dashboard: https://custos-nox-production.up.railway.app
+Live dashboard: https://custos-nox.up.railway.app
 GitHub: https://github.com/cryptoyasenka/custos-nox
 
 ---
@@ -72,7 +72,7 @@ If only one track allowed: Security / DeFi Infrastructure
 
 ## PROJECT WEBSITE (A4)
 
-https://custos-nox-production.up.railway.app
+https://custos-nox.up.railway.app
 
 ---
 

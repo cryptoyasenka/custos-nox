@@ -70,7 +70,7 @@ Feedback welcome 🙏
 
 5 детекторів. TypeScript, нуль Rust. Самостійний хостинг за 5 хвилин. MIT ліцензія.
 
-🔗 Dashboard: https://custos-nox-production.up.railway.app
+🔗 Dashboard: https://custos-nox.up.railway.app
 📦 GitHub: https://github.com/cryptoyasenka/custos-nox
 
 Буду вдячна за фідбек і зірочку на GitHub! 🙏
