@@ -1,10 +1,9 @@
 # F2 — Pitch Video Script (≤2 min, English)
 
 **Recording:** Loom, face-cam + slides or just talking head.
-**Target:** 270–290 words (~1:50 at 150 wpm). Stay under 2 min.
+**Target:** ~267 words (~1:47 at 150 wpm). Stay under 2 min.
 **Style:** calm, direct, no buzzwords. Evidence first, enthusiasm second.
-
-Suggested slides: 5–7 slides, minimal text, one idea each.
+**Deck:** 7 slides, see `assets/pitch-slides/deck.html` (arrow keys, F11 fullscreen).
 
 ---
 
@@ -14,20 +13,19 @@ Suggested slides: 5–7 slides, minimal text, one idea each.
 
 **[SLIDE 1 — "April 1, 2026"]**
 
-On April 1, 2026, $285 million was drained from Drift Protocol — more than half
-of its total value locked.
+On April 1, 2026, $285 million drained from Drift Protocol — more than half of TVL.
 
 The attack didn't happen in one transaction. It took weeks. A migrated Security
 Council multisig with a 2-of-5 threshold and zero timelock. Durable nonces
 seeded by privileged signers. A pre-signed admin transfer waiting in the queue.
-Every one of those moves happened on chain. In public. Nobody noticed.
+Every move happened on chain. In public. Nobody noticed.
 
 ---
 
 **[SLIDE 2 — Problem]**
 
-Solana Foundation's STRIDE program monitors big protocols — the ones with
-$10 million or more in TVL. That's maybe a hundred projects.
+Solana Foundation's STRIDE monitors protocols with $10 million or more in TVL.
+Maybe a hundred projects.
 
 There are thousands of DAOs, grant committees, and treasury multisigs below that
 line. They have nothing.
@@ -36,24 +34,20 @@ line. They have nothing.
 
 **[SLIDE 3 — Solution / product]**
 
-Custos Nox is an open-source daemon that watches Solana accounts over WebSocket
-and fires an alert the moment a config change matches a known attack pattern.
+Custos Nox is an open-source daemon. It watches Solana accounts over Helius
+WebSocket and fires an alert when a config change matches an attack pattern.
 
-Five detectors, live today. Four map to every step of the Drift attack chain —
-timelock removed, multisig weakened, nonce seeded, stale nonce executed. The
-fifth catches signer rotation, an adjacent vector that's hit other Solana teams.
-Any single alert would have stopped the drain.
-
-Discord and Slack alerts, self-hosted in five minutes, MIT licensed, zero paid
-tiers.
+Five detectors live today. Four map to the Drift attack chain — timelock
+removed, multisig weakened, nonce seeded, stale nonce executed. The fifth
+catches signer rotation. Any single alert would have stopped the drain.
 
 ---
 
 **[SLIDE 4 — Traction / evidence]**
 
-The repo is public. 205 tests, GitHub Actions CI green. A devnet smoke harness
-reproduces three Drift attack-chain steps plus the signer-rotation vector —
-four live alerts in real time.
+The repo is public. 205 tests, GitHub Actions green. A devnet smoke harness
+replays three Drift attack steps plus signer rotation — four live alerts under
+a second each.
 
 Live dashboard at custos-nox.up.railway.app.
 
@@ -61,29 +55,26 @@ Live dashboard at custos-nox.up.railway.app.
 
 **[SLIDE 5 — GTM / who uses this]**
 
-Our first users are Squads multisig operators — protocol treasuries, grant
-committees, hackathon prize pools. They're already on Discord. The integration
-is one webhook URL.
+First users: Squads multisig operators — protocol treasuries, grant committees,
+hackathon prize pools. They're already on Discord.
 
-We're reaching out to Squads multisig operators directly — the integration is
-one webhook URL and a five-minute self-host. Issue tracker is open for
-detector requests.
+Integration is one webhook URL and a five-minute self-host. MIT licensed, no
+paid tiers. Issue tracker is open for detector requests.
 
 ---
 
 **[SLIDE 6 — Vision]**
 
-Long term: a hosted alert feed that any DAO can subscribe to with zero infra.
-A pre-configured watchlist of the top 50 Solana multisigs by TVL. The
-security layer that lives between on-chain governance and the first Discord
-ping.
+Long term: a hosted feed that any DAO subscribes to with zero infra. Top-50
+Solana multisigs pre-watched. The security layer between on-chain governance
+and the first Discord ping.
 
 ---
 
 **[SLIDE 7 — Close]**
 
-I'm Yasya from Superteam Ukraine. The code is live on GitHub, the demo runs on
-devnet, and the five detectors are watching right now.
+I'm Yasya from Superteam Ukraine. Code is live on GitHub, demo runs on devnet,
+five detectors are watching right now.
 
 **github.com/cryptoyasenka/custos-nox**
 
@@ -93,36 +84,39 @@ devnet, and the five detectors are watching right now.
 
 | Section | ~Words | ~Time |
 | ------- | ------ | ----- |
-| Hook (Drift attack) | 65 | 0:26 |
-| Problem (STRIDE gap) | 40 | 0:16 |
-| Solution | 60 | 0:24 |
-| Traction | 40 | 0:16 |
-| GTM | 45 | 0:18 |
-| Vision | 45 | 0:18 |
-| Close | 30 | 0:12 |
-| **Total** | **325** | **~2:10** |
+| Hook (Drift attack) | 60 | 0:24 |
+| Problem (STRIDE gap) | 33 | 0:13 |
+| Solution | 57 | 0:23 |
+| Traction | 33 | 0:13 |
+| GTM | 32 | 0:13 |
+| Vision | 30 | 0:12 |
+| Close | 22 | 0:09 |
+| **Total** | **267** | **~1:47** |
 
-**To hit 1:50:** Cut one of these:
-- Option A: Drop the Vision slide (cut ~45 words → 280 words, 1:52) ← recommended
-- Option B: Drop Vision + tighten GTM to 2 sentences (260 words, 1:44)
+Comfortably under 2 min with breathing room for pacing/pauses. If a take runs
+long, drop Slide 6 Vision (saves ~12s, lands ~1:35).
 
 ---
 
-## SLIDE CONTENT GUIDE
+## SLIDE CONTENT (built — see `assets/pitch-slides/`)
 
-**Slide 1:** Text: "April 1, 2026 / $285M / 4 days / 3 governance changes / no alert"
+All 7 slides rendered at 1920×1080 brand dark theme by `scripts/gen_pitch_slides.py`.
 
-**Slide 2:** Text: "STRIDE protects ~100 protocols. / The other 99% have nothing."
+**Slide 1** (`pitch-slide-01.png`): DRIFT PROTOCOL · April 1, 2026 · $285M drained · 4 days / 3 governance changes / 0 alerts · "Every step happened on chain. In public." · "Nobody noticed"
 
-**Slide 3:** Image: architecture diagram (Helius WS → 5 Detectors → FanOut → Discord/Slack). Or: screenshot of daemon output showing all five colored alerts (timelock-removal, multisig-weakening, signer-set-change, privileged-nonce, stale-nonce-execution).
+**Slide 2** (`pitch-slide-02.png`): THE GAP · STRIDE protects ~100 protocols · $10M+ TVL monitored · "The other 99% have nothing"
 
-**Slide 4:** Screenshot: `npm test` showing 205 passing. Or: GitHub CI badge green.
+**Slide 3** (`pitch-slide-03.png`): WHAT IT CATCHES · 5 detectors live today · 5 cards (TimelockRemoval/MultisigWeakening/SignerSetChange/PrivilegedNonce/StaleNonceExecution with CRITICAL/HIGH severity pills) · "Sub-second alerts via Helius WebSocket"
 
-**Slide 5:** Text: "First users: Squads operators / One webhook URL / 5-min self-host"
+**Slide 4** (`pitch-slide-04.png`): EVIDENCE · Public repo · Green CI · 205 tests / 5 detectors / <1s latency · custos-nox.up.railway.app · "Devnet smoke harness replays Drift steps in real time"
 
-**Slide 6 (optional):** Text: "Hosted feed → zero-infra monitoring / Top-50 Squads watchlist"
+**Slide 5** (`pitch-slide-05.png`): WHO USES THIS · First users: Squads multisig operators · protocol treasuries · grant committees · hackathon prize pools · 1 webhook URL · 5-minute self-host · Open issue tracker for detector requests
 
-**Slide 7:** GitHub URL, QR code, "Yasya / Superteam Ukraine / Frontier 2026"
+**Slide 6** (`pitch-slide-06.png`): VISION · Hosted feed · Zero-infra monitoring · Top-50 Solana multisigs by TVL — pre-watched · "Subscribe with one click. Discord ping. Slack ping. Done." · "Security layer between on-chain governance and the first Discord alert"
+
+**Slide 7** (`pitch-slide-07.png`): CUSTOS NOX · Open-source attack monitor for Solana · github.com/cryptoyasenka/custos-nox · Yasya · Superteam Ukraine · Frontier 2026
+
+**HTML deck:** `assets/pitch-slides/deck.html` — preview via `cd assets/pitch-slides && python -m http.server 8765` → open `http://127.0.0.1:8765/deck.html` → press `F` for fullscreen.
 
 ---
 
