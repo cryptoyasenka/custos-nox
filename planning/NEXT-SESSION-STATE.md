@@ -1,9 +1,10 @@
 # NEXT-SESSION-STATE — Custos Nox
 
 **Updated:** 2026-04-29
-**Latest commit:** `f61f457` (main, clean working tree)
+**Latest commit:** `06b4fe3` (main, clean working tree)
 **Tests:** 205/205 passing, CI green
 **Detectors live:** 5 (4 covering Drift attack chain + 1 adjacent signer-rotation)
+**Live surfaces:** page `200`, `/opengraph-image` `200 image/png` ✅ (verified 2026-04-29 post-deploy)
 
 ---
 
