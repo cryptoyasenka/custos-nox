@@ -12,7 +12,7 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const siteUrl = "https://custos-nox-production.up.railway.app";
+const siteUrl = "https://custos-nox.up.railway.app";
 const description =
   "Open-source real-time attack monitor for Solana multisigs and DAOs. Detects every on-chain step of the $285M Drift drain on April 1, 2026 — plus an adjacent signer-rotation vector. Self-host in 5 minutes. MIT licensed.";
 
