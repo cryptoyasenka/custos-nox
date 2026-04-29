@@ -10,9 +10,9 @@ Open-source attack detection for Solana multisigs and DAOs
 
 ---
 
-## SHORT DESCRIPTION (A6, ≤280 chars — currently 220 ✓)
+## SHORT DESCRIPTION (A6, ≤280 chars — currently 224 ✓)
 
-Custos Nox monitors Solana multisigs and DAOs for attack-chain precursors in real time. Detects all 4 on-chain steps of the April 2026 Drift exploit ($285M drained). Self-host in 5 minutes. MIT licensed, zero paid tiers.
+Custos Nox monitors Solana multisigs and DAOs for attack-chain precursors in real time. 5 detectors covering every step of the April 2026 Drift exploit ($285M) plus adjacent vectors. Self-host in 5 min. MIT, no paid tiers.
 
 ---
 

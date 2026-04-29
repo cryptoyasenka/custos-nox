@@ -26,9 +26,9 @@
 
 ## A6 — Short description (≤280 chars)
 
-> Custos Nox monitors Solana multisigs and DAOs for attack-chain precursors in real time. Detects all 4 on-chain steps of the April 2026 Drift exploit ($285M drained). Self-host in 5 minutes. MIT licensed, zero paid tiers.
+> Custos Nox monitors Solana multisigs and DAOs for attack-chain precursors in real time. 5 detectors covering every step of the April 2026 Drift exploit ($285M) plus adjacent vectors. Self-host in 5 min. MIT, no paid tiers.
 
-**Character count: 220** ✓ (60 chars left to add a link or detail)
+**Character count: 224** ✓ (56 chars left to add a link or detail)
 
 Optional add-on if space allows:
 > Live at custos-nox.up.railway.app

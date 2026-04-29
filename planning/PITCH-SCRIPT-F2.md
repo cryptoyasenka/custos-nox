@@ -114,7 +114,7 @@ devnet, and the five detectors are watching right now.
 
 **Slide 2:** Text: "STRIDE protects ~100 protocols. / The other 99% have nothing."
 
-**Slide 3:** Image: architecture diagram (Helius WS → 5 Detectors → FanOut → Discord/Slack). Or: screenshot of daemon output showing all four colored alerts (timelock-removal, multisig-weakening, privileged-nonce, stale-nonce-execution).
+**Slide 3:** Image: architecture diagram (Helius WS → 5 Detectors → FanOut → Discord/Slack). Or: screenshot of daemon output showing all five colored alerts (timelock-removal, multisig-weakening, signer-set-change, privileged-nonce, stale-nonce-execution).
 
 **Slide 4:** Screenshot: `npm test` showing 205 passing. Or: GitHub CI badge green.
 
