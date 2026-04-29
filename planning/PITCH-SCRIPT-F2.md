@@ -1,6 +1,6 @@
 # F2 — Pitch Video Script (≤2 min, English)
 
-**Recording:** Loom, face-cam + slides or just talking head.
+**Recording:** OBS / Loom Desktop / Win+G Game Bar (local capture). Upload to YouTube **Unlisted** (same channel as F1 Week 3 video 2026-04-24).
 **Target:** 272 words. Stay under 2 min — see TIMING CHECK below for pace caveat.
 **Style:** calm, direct, no buzzwords. Evidence first, enthusiasm second.
 **Deck:** 7 slides, see `assets/pitch-slides/deck.html` (arrow keys, F11 fullscreen).
@@ -129,8 +129,9 @@ All 7 slides rendered at 1920×1080 brand dark theme by `scripts/gen_pitch_slide
 
 ## RECORDING TIPS
 
-- Record face + screen side by side (Loom default layout)
+- Record face + screen side by side (OBS / Loom Desktop default layout)
 - Keep slides up while speaking — don't flip too fast
-- Say the URL out loud at the end; paste it in Loom description
-- One take is fine; trim head/tail silence, no music needed
-- Upload to Loom, paste URL in Arena submission field A10
+- Say the URL out loud at the end; paste it in YouTube description too
+- One take is fine; trim head/tail silence in any local editor (Clipchamp, OBS, DaVinci Resolve free), no music needed
+- Upload to **YouTube as Unlisted** (NOT Private — Private requires login). Title: `Custos Nox — F2 Pitch (Solana Frontier 2026)`. End screens / cards OFF (don't distract from GitHub CTA at the end).
+- **Verify URL works in incognito (no login)** before pasting in Arena submission field A10.

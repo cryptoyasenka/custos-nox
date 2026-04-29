@@ -90,21 +90,21 @@ https://x.com/CustosNox
 
 ## PITCH VIDEO (A10) — record F2 first
 
-[paste Loom URL after recording planning/PITCH-SCRIPT-F2.md]
+[paste YouTube unlisted URL after recording planning/PITCH-SCRIPT-F2.md]
 
 ---
 
 ## TECH DEMO VIDEO (A11) — record F3 first
 
-[paste Loom URL after recording planning/TECH-DEMO-SCRIPT-F3.md]
+[paste YouTube unlisted URL after recording planning/TECH-DEMO-SCRIPT-F3.md]
 
 ---
 
 ## FINAL CHECKLIST BEFORE CLICKING SUBMIT
 
 - [ ] @CustosNox X account created and linked
-- [ ] Pitch video (F2) uploaded to Loom — URL ready
-- [ ] Tech demo (F3) uploaded to Loom — URL ready
+- [ ] Pitch video (F2) uploaded to YouTube (Unlisted) — URL works in incognito
+- [ ] Tech demo (F3) uploaded to YouTube (Unlisted) — URL works in incognito
 - [ ] "Superteam Ukraine" affiliation marked in form (mandatory for Ukrainian Sidetrack)
 - [ ] Character count on A6 verified in actual form field
 - [ ] If Arena doesn't support markdown in A7: remove all ** and # formatting

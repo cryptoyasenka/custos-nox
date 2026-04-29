@@ -28,7 +28,7 @@
 | +2 | 2026-05-01 (пт) | БЛОК 5 — F2 pitch чорновий запис (1-2 год) |
 | +3 | 2026-05-02 (сб) | БЛОК 6 — F3 tech demo чорновий запис (1-2 год) |
 | +4 | 2026-05-03 (нд) | БЛОК 7 — self-review F2/F3 (30 хв) |
-| +5 | 2026-05-04 (пн) | БЛОК 7 — фінальні дублі + Loom upload |
+| +5 | 2026-05-04 (пн) | БЛОК 7 — фінальні дублі + YouTube upload |
 | +6 | 2026-05-05 (вт) | БЛОК 8 — pitch на review до Карини |
 | +7 | 2026-05-06 (ср) | Буфер на правки |
 | +8 | 2026-05-07 (чт) | БЛОК 9 — Arena форма (заповнити, не submit'ити) |
@@ -183,8 +183,8 @@ Watching your first multisig in 5 minutes. MIT.
 # БЛОК 5 — F2 Pitch Video (≤2 хв)
 
 **Коли:** 2026-05-01 (пт) чорновий, 2026-05-04 (пн) фінал
-**Інструмент:** Loom
-**Скрипт:** повний у `planning/PITCH-SCRIPT-F2.md`, нижче — слайд-by-слайд для запису
+**Інструмент:** OBS Studio / Loom Desktop / Win+G Game Bar (локальний запис) → upload на YouTube **Unlisted** (той самий канал що F1 Week 3 video 2026-04-24)
+**Скрипт:** повний у `planning/PITCH-SCRIPT-F2.md` (single source of truth — там 272 слова, синхронізовано зі слайдами `assets/pitch-slides/`); нижче — застаріла слайд-by-слайд копія, якщо drift'нула — довіряй `PITCH-SCRIPT-F2.md`
 
 ## Pre-recording setup (≤30 хв)
 
@@ -201,7 +201,7 @@ Watching your first multisig in 5 minutes. MIT.
 
 ## Запис (1-2 дублі)
 
-1. Loom → New Video → Screen + Cam
+1. Запиши локально: OBS Studio (recommended) / Loom Desktop / Win+G Game Bar — Screen + Cam side-by-side, 1080p
 2. Тиха кімната, light на обличчя, mic без шуму
 3. **Скрипт по слайдах** (повний у `PITCH-SCRIPT-F2.md`):
 
@@ -221,17 +221,21 @@ Watching your first multisig in 5 minutes. MIT.
 
 ## Post-recording (2026-05-04)
 
-1. Loom → Trim → обрізати початок/кінець
-2. Перевір: відео ≤2:00 в incognito відкривається?
-3. Loom → Share → "Anyone with the link" → Copy link
-4. **Збережи URL у Notepad під назвою "F2_LOOM_URL"** — він піде в Arena форму поле A10
+1. Trim початок/кінець у локальному редакторі (Clipchamp / OBS / DaVinci Resolve free)
+2. Перевір: відео ≤2:00 (буквально по таймеру)?
+3. YouTube Studio → Upload → Visibility = **Unlisted** (НЕ Private — Private вимагає логін!)
+4. Title: `Custos Nox — F2 Pitch (Solana Frontier 2026)`
+5. Description: 2-3 рядки про що + GitHub URL + "Built for Solana Frontier Hackathon, Superteam Ukraine"
+6. End screens OFF, cards OFF (не відволікати від CTA)
+7. Перевір URL в incognito tab — відкривається без логіну? Якщо ні → перевір що Visibility = Unlisted
+8. **Збережи URL у Notepad під назвою "F2_YOUTUBE_URL"** — він піде в Arena форму поле A10
 
 ---
 
 # БЛОК 6 — F3 Tech Demo (2-3 хв)
 
 **Коли:** 2026-05-02 (сб) чорновий, 2026-05-04 (пн) фінал
-**Інструмент:** Loom (screen-only, опціонально PiP)
+**Інструмент:** OBS Studio / Loom Desktop screen-only (опціонально PiP) → upload на YouTube **Unlisted** (той самий канал що F2)
 **Скрипт:** повний у `planning/TECH-DEMO-SCRIPT-F3.md`
 
 ## Pre-recording setup (≤45 хв)
@@ -259,7 +263,7 @@ CUSTOS_WATCH=SQDS4ep65T869zMMBKyuUq6aD6EgTu8psMjkvj52pCf:<NEW_MULTISIG_PDA>,1111
 
 ## Запис
 
-1. Loom → New Video → Screen Only (PiP опціонально)
+1. Запиши локально: OBS Studio / Loom Desktop / Win+G — Screen Only (PiP опціонально), 1080p
 2. **Послідовність дій (за скриптом):**
    - 0:00 — Intro: "This is Custos Nox running on devnet, watching one Squads multisig and one durable nonce account."
    - 0:15 — `npm run smoke:weaken` у Term 1 → Term 2 показує `[HIGH] squads-multisig-weakening`
@@ -271,9 +275,13 @@ CUSTOS_WATCH=SQDS4ep65T869zMMBKyuUq6aD6EgTu8psMjkvj52pCf:<NEW_MULTISIG_PDA>,1111
 
 ## Post (2026-05-04)
 
-1. Trim початок/кінець у Loom
-2. Loom → Share → "Anyone with the link" → Copy
-3. **Збережи URL під назвою "F3_LOOM_URL"** — поле A11 в Arena
+1. Trim початок/кінець у локальному редакторі (Clipchamp / OBS / DaVinci Resolve free)
+2. YouTube Studio → Upload → Visibility = **Unlisted**
+3. Title: `Custos Nox — F3 Tech Demo (Solana Frontier 2026)`
+4. Description: коротко + GitHub URL + "Live devnet demo of 4 detectors firing"
+5. End screens OFF
+6. Перевір URL в incognito tab — відкривається без логіну?
+7. **Збережи URL під назвою "F3_YOUTUBE_URL"** — поле A11 в Arena
 
 ---
 
@@ -314,8 +322,8 @@ CUSTOS_WATCH=SQDS4ep65T869zMMBKyuUq6aD6EgTu8psMjkvj52pCf:<NEW_MULTISIG_PDA>,1111
 
 Дуже потрібен ваш погляд на pitch (F2) і tech demo (F3) до сабміту 9-10 травня.
 
-F2 pitch (1:50): [F2_LOOM_URL]
-F3 tech demo (2:30): [F3_LOOM_URL]
+F2 pitch (1:50): [F2_YOUTUBE_URL]
+F3 tech demo (2:30): [F3_YOUTUBE_URL]
 GitHub: github.com/cryptoyasenka/custos-nox
 Live: custos-nox.up.railway.app
 
@@ -411,12 +419,12 @@ https://x.com/CustosNox
 
 ### A10 — Pitch video (F2)
 ```
-[ВСТАВ ТУТ F2_LOOM_URL З БЛОКУ 5]
+[ВСТАВ ТУТ F2_YOUTUBE_URL З БЛОКУ 5]
 ```
 
 ### A11 — Tech demo video (F3)
 ```
-[ВСТАВ ТУТ F3_LOOM_URL З БЛОКУ 6]
+[ВСТАВ ТУТ F3_YOUTUBE_URL З БЛОКУ 6]
 ```
 
 ### A11 (Founder profile)
@@ -443,8 +451,8 @@ curl -sI https://custos-nox.up.railway.app/opengraph-image | head -1    # 200
 ```
 
 В incognito браузері відкрий:
-- F2 Loom URL — працює без логіну?
-- F3 Loom URL — працює без логіну?
+- F2 YouTube URL — відкривається в incognito без логіну? (Visibility = Unlisted, НЕ Private)
+- F3 YouTube URL — відкривається в incognito без логіну?
 - `https://x.com/CustosNox` — працює без логіну?
 - `https://custos-nox.up.railway.app` — 200?
 - `https://github.com/cryptoyasenka/custos-nox` — public?
@@ -462,7 +470,7 @@ curl -sI https://custos-nox.up.railway.app/opengraph-image | head -1    # 200
 1. Зайди на Arena, відкрий проект Custos Nox
 2. Edit submission → перевір що всі поля з БЛОКу 9 заповнені правильно
 3. **Прочитай весь preview submission один раз очима**
-4. Перевір A11 — Loom URLs клікаються в incognito tab
+4. Перевір A10/A11 — YouTube URLs клікаються в incognito tab
 5. Натисни **A12 SUBMIT** (велика червона/синя кнопка)
 6. Зроби screenshot confirmation сторінки
 7. Перевір email — Colosseum має надіслати "submission received"
@@ -517,8 +525,8 @@ GitHub: https://github.com/cryptoyasenka/custos-nox
    - **Founder location:** Ukraine (Kyiv)
    - **Superteam member:** Yes (`@yasya_eth`)
    - **X:** `@CustosNox`
-   - **Loom F2:** [F2_LOOM_URL]
-   - **Loom F3:** [F3_LOOM_URL]
+   - **YouTube F2:** [F2_YOUTUBE_URL]
+   - **YouTube F3:** [F3_YOUTUBE_URL]
 3. Submit
 4. Screenshot confirmation
 
@@ -634,11 +642,11 @@ Feedback welcome 🙏
 | Проблема | Рішення |
 |----------|---------|
 | `@CustosNox` уже зайнятий | ВЖЕ створено ✅ — не актуально |
-| Loom не відкривається без логіну | Loom → Settings → Privacy → "Anyone with link" |
+| YouTube видео не відкривається в incognito | YouTube Studio → Visibility → змінь Private на Unlisted |
 | Demon видає помилку при F3 запису | Перевір `.env` (CLUSTER=devnet?), restart `npm run dev` |
 | Карина не відповіла за 48h | Skip review, submit як є |
 | Arena форма має нові поля | Заповни як зможеш, не блокуйся |
-| Світло вирубили посеред запису | Записуй частинами, склеювати в Loom |
+| Світло вирубили посеред запису | Записуй частинами, склеюй у локальному редакторі (Clipchamp / OBS / DaVinci Resolve free) перед upload на YouTube |
 | Mail `cryptoyasenka@gmail.com` блокує alias | Створи окремий gmail для @CustosNox |
 | Demo Day реєстрація закрита | Не блокер для submission. Просто пропускаєш івент |
 | TG `@KumekaGroup` flood limit | Зачекай 1 годину, спробуй ще раз |
