@@ -12,7 +12,8 @@
 - ✅ Live dashboard: `custos-nox.up.railway.app` (200 OK + OG image 200)
 - ✅ **F1 Week 3 video залито 2026-04-24** (НЕ перезаписувати!)
 - ✅ Discord Colosseum intro post (2026-04-23)
-- ✅ X акаунт `@CustosNox` створено 2026-04-29
+- ✅ X акаунт `@CustosNox` створено 2026-04-29 — banner=center variant, hex avatar, verified ✅, 14 followers
+- ✅ **Pinned opener post @CustosNox 2026-04-28** — заголовок "$285M drained from Drift in 12 minutes", 9-day timeline visual (`assets/post-visual-timeline.png`), tags @colosseum + @SuperteamUKR. Engagement: 11 likes / 9 replies / 3 reposts / 483 views. **Тема "9 днів / Drift drain / nobody watching" вже покрита — POST B з БЛОКу 13 НЕ дублювати.**
 - ✅ 5 детекторів live, 205/205 тестів, CI green
 - ✅ Online Demo Day URL знайдено: `luma.com/demodayonline`
 
@@ -90,29 +91,13 @@ github.com/cryptoyasenka/custos-nox
 
 ---
 
-## POST B — Drift forensics: 9-day fuse
+## POST B — ⛔ SUPERSEDED by pinned opener (2026-04-28)
 
-**Коли постити:** 2026-04-30 (чт) ввечері
+Pinned пост @CustosNox 28 квітня вже покрив цю тему: "$285M / 9 days / nobody watching" + timeline visual. Не дублювати.
 
-**Текст:**
-
-```
-The Drift $285M drain wasn't one transaction. It was 4 moves spread over 9 days, every one of them on chain in public:
-
-Day 1 — Realm timelock → 0
-Day 3 — Squads multisig migrated to 2-of-5, zero timelock
-Day 6 — Durable nonce seeded under attacker key
-Day 9 — Pre-signed drain tx executes
-
-Custos Nox fires on all 4. Sub-second.
-
-github.com/cryptoyasenka/custos-nox
-```
-
-**Візуал:** timeline graphic (4 horizontal blocks with detector names)
-- Якщо немає — попроси мене згенерувати, у тебе вже є `assets/post-visual-timeline.png` готовий ✅ — використай його
-
-**Hashtags:** жодних
+**Замість POST B на 30.04** використай один з:
+- POST D (PrivilegedNonce spotlight) — підтягни з 2026-05-02 на 2026-04-30
+- Або просто перенеси POST C (self-host CTA) з 01.05 на 30.04
 
 ---
 
