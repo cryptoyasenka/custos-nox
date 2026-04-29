@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const runtime = "edge";
+export const dynamic = "force-dynamic";
 export const alt = "Custos Nox — Real-time attack monitor for Solana";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
@@ -123,10 +123,11 @@ export default function OGImage() {
           maxWidth: 680,
           marginBottom: 20,
           fontFamily: "sans-serif",
+          display: "flex",
+          flexDirection: "column",
         }}
       >
-        Watch the chain
-        <br />
+        <span>Watch the chain</span>
         <span style={{ color: ACCENT }}>before it drains your treasury.</span>
       </div>
 
