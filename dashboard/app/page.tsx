@@ -204,24 +204,91 @@ export default function Home() {
             <div className="mb-8 flex flex-col gap-3">
               <h2 className="text-3xl font-semibold tracking-tight">Self-host in 5 minutes</h2>
               <p className="max-w-2xl text-muted-strong">
-                One binary, zero vendor lock-in. Runs on any Node.js 20+ or the published Docker
-                image. Free-tier Helius or the public devnet RPC is enough to get started.
+                One binary, zero vendor lock-in. Runs on any Node.js 20+ or Docker.
+                Free-tier Helius RPC is enough to get started.
               </p>
             </div>
+
+            <div className="mb-8 grid gap-4 sm:grid-cols-3">
+              <div className="rounded-lg border border-border bg-surface p-5">
+                <div className="mb-3 flex h-7 w-7 items-center justify-center rounded-full bg-accent font-mono text-sm font-semibold text-background">
+                  1
+                </div>
+                <div className="mb-1.5 font-semibold text-foreground">Get a free RPC key</div>
+                <p className="text-sm text-muted-strong">
+                  Sign up at{" "}
+                  <a
+                    href="https://helius.dev"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-accent underline-offset-2 hover:underline"
+                  >
+                    helius.dev
+                  </a>{" "}
+                  — free tier, no credit card. Copy your endpoint URL into{" "}
+                  <code className="rounded bg-surface-elevated px-1 font-mono text-xs">
+                    CUSTOS_RPC_URL
+                  </code>
+                  .
+                </p>
+              </div>
+              <div className="rounded-lg border border-border bg-surface p-5">
+                <div className="mb-3 flex h-7 w-7 items-center justify-center rounded-full bg-accent font-mono text-sm font-semibold text-background">
+                  2
+                </div>
+                <div className="mb-1.5 font-semibold text-foreground">Point it at your multisig</div>
+                <p className="text-sm text-muted-strong">
+                  Set{" "}
+                  <code className="rounded bg-surface-elevated px-1 font-mono text-xs">
+                    CUSTOS_WATCH
+                  </code>{" "}
+                  to your Squads PDA or SPL Governance realm. Comma-separate multiple accounts.
+                  Optionally add a Discord or Slack webhook URL.
+                </p>
+              </div>
+              <div className="rounded-lg border border-border bg-surface p-5">
+                <div className="mb-3 flex h-7 w-7 items-center justify-center rounded-full bg-accent font-mono text-sm font-semibold text-background">
+                  3
+                </div>
+                <div className="mb-1.5 font-semibold text-foreground">Start the daemon</div>
+                <p className="text-sm text-muted-strong">
+                  Run{" "}
+                  <code className="rounded bg-surface-elevated px-1 font-mono text-xs">
+                    npm run dev
+                  </code>{" "}
+                  or the Docker one-liner below. Alerts arrive in Discord, Slack, or stdout within
+                  a second of any config change.
+                </p>
+              </div>
+            </div>
+
             <div className="overflow-hidden rounded-lg border border-border bg-surface">
               <div className="border-b border-border bg-surface-elevated px-4 py-2">
                 <span className="font-mono text-[11px] uppercase tracking-wider text-muted">
-                  bash
+                  npm
                 </span>
               </div>
               <pre className="overflow-x-auto px-4 py-4 font-mono text-sm leading-relaxed">
                 <code>{`git clone https://github.com/cryptoyasenka/custos-nox
 cd custos-nox
 npm install
-cp .env.example .env        # edit CUSTOS_WATCH with your accounts
+cp .env.example .env        # set CUSTOS_RPC_URL and CUSTOS_WATCH
 npm run dev                 # daemon connects, seeds baseline, starts watching`}</code>
               </pre>
             </div>
+            <div className="mt-4 overflow-hidden rounded-lg border border-border bg-surface">
+              <div className="border-b border-border bg-surface-elevated px-4 py-2">
+                <span className="font-mono text-[11px] uppercase tracking-wider text-muted">
+                  docker
+                </span>
+              </div>
+              <pre className="overflow-x-auto px-4 py-4 font-mono text-sm leading-relaxed">
+                <code>{`docker build -t custos .
+docker run -d --name custos --restart unless-stopped --env-file .env custos
+docker logs -f custos`}</code>
+              </pre>
+            </div>
+
             <div className="mt-6 grid gap-4 text-sm text-muted-strong sm:grid-cols-3">
               <div>
                 <div className="mb-1 font-mono text-[11px] uppercase tracking-wider text-muted">
