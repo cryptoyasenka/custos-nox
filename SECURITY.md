@@ -53,4 +53,30 @@ fires alerts. The attack surface is:
    webhooks. Treat webhook URLs as secrets.
 
 3. **Supply chain** — dependencies are pinned via `package-lock.json`. Run
-   `npm audit` before deploying in production.
+   `npm audit` before deploying in production. See "Tracked advisories" below
+   for the moderate-severity advisories we have evaluated and chosen not to
+   patch yet.
+
+## Tracked advisories
+
+### GHSA-w5hq-g745-h8pq — `uuid<14.0.0` buffer-bounds CVE
+
+Reaches the project transitively via
+`@solana/web3.js` → `jayson` + `rpc-websockets` → `uuid`. Surfaces as 5 moderate
+advisories on `npm audit`.
+
+The vulnerable code path is the `v3` / `v5` / `v6` generators when called with a
+caller-supplied `buf` argument. We verified in `node_modules/@solana/web3.js`
+that the SDK calls `uuid()` with no `buf` argument (default `v4`, random IDs),
+so the vulnerable branch is not invoked from any code path Custos Nox uses.
+
+We intentionally do not run `npm audit fix --force` because it downgrades
+`@solana/web3.js` to `0.9.2`, which is incompatible with the rest of the SDK
+surface. Resolution will come when the project migrates to `@solana/web3.js v2`
+once it reaches stable.
+
+CI runs `npm audit --omit=dev --audit-level=high`, which fails on `high` /
+`critical` but lets `moderate` advisories through by design.
+
+Watch [GHSA-w5hq-g745-h8pq](https://github.com/advisories/GHSA-w5hq-g745-h8pq)
+for upstream resolution.
