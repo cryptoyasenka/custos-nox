@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1920">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body {
+    width: 1920px; height: 1080px;
+    background: #080808;
+    overflow: hidden;
+    font-family: 'Courier New', Courier, monospace;
+    color: #e0e0e0;
+  }
+
+  .stage {
+    width: 100%; height: 100%;
+    display: flex; flex-direction: column;
+    justify-content: center; align-items: center;
+    position: relative;
+    padding: 0 200px;
+  }
+
+  .line {
+    opacity: 0;
+    transition: opacity 0.6s ease;
+    text-align: center;
+    line-height: 1.6;
+    will-change: opacity;
+  }
+  .line.show { opacity: 1; }
+  .line.dim  { opacity: 0.18; transition: opacity 1.2s ease; }
+
+  /* Part 1 — intro */
+  #date    { font-size: 22px; letter-spacing: 0.22em; color: #888; text-transform: uppercase; margin-bottom: 18px; }
+  #nine    { font-size: 38px; letter-spacing: 0.06em; color: #ccc; margin-bottom: 60px; }
+  #nonce   { font-size: 24px; color: #666; margin-bottom: 50px; max-width: 900px; }
+  #nobody1 { font-size: 80px; font-weight: 700; color: #ff2a2a; letter-spacing: 0.04em; font-family: sans-serif; }
+
+  /* Part 2 — timeline */
+  .tl-wrap {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    display: flex; flex-direction: column; align-items: flex-start;
+    gap: 0; min-width: 700px;
+    opacity: 0; transition: opacity 0.5s ease;
+  }
+  .tl-wrap.show { opacity: 1; }
+
+  .tl-row {
+    display: flex; align-items: baseline; gap: 0;
+    opacity: 0; transform: translateY(8px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    padding: 8px 0;
+  }
+  .tl-row.show { opacity: 1; transform: translateY(0); }
+
+  .tl-date { font-size: 18px; color: #555; width: 140px; flex-shrink: 0; }
+  .tl-sep  { font-size: 18px; color: #444; width: 24px; flex-shrink: 0; }
+  .tl-evt  { font-size: 22px; color: #bbb; }
+  .tl-evt.alert { color: #ff2a2a; font-size: 26px; font-family: sans-serif; font-weight: 600; letter-spacing: 0.02em; }
+
+  /* Part 2 — April 1 big reveal */
+  .reveal-wrap {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    text-align: center;
+    opacity: 0; transition: opacity 0.6s ease;
+  }
+  .reveal-wrap.show { opacity: 1; }
+  #rev-date  { font-size: 20px; color: #555; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 24px; }
+  #rev-amount{ font-size: 96px; font-weight: 700; color: #ff2a2a; font-family: sans-serif; letter-spacing: -2px; }
+  #rev-time  { font-size: 32px; color: #cc2020; margin-top: 16px; font-family: sans-serif; }
+
+  /* grain overlay */
+  body::after {
+    content: '';
+    position: fixed; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none; z-index: 999; opacity: 0.4;
+  }
+</style>
+</head>
+<body>
+<div class="stage" id="stage1">
+  <!-- Part 1 elements -->
+  <div class="line" id="date">March 23, 2026</div>
+  <div class="line" id="nine">Nine days before the drain.</div>
+  <div class="line" id="nonce">An attacker initialized a privileged durable nonce<br>on Solana mainnet.</div>
+  <div class="line" id="nobody1">Nobody noticed.</div>
+
+  <!-- Part 2 — timeline rows -->
+  <div class="tl-wrap" id="tl">
+    <div class="tl-row" id="tl1">
+      <span class="tl-date">Mar 26</span>
+      <span class="tl-sep">·</span>
+      <span class="tl-evt">Timelock → 0 days</span>
+    </div>
+    <div class="tl-row" id="tl2">
+      <span class="tl-date"></span>
+      <span class="tl-sep"></span>
+      <span class="tl-evt alert">Nobody noticed.</span>
+    </div>
+    <div class="tl-row" id="tl3">
+      <span class="tl-date">Mar 26</span>
+      <span class="tl-sep">·</span>
+      <span class="tl-evt">Multisig threshold: weakened</span>
+    </div>
+    <div class="tl-row" id="tl4">
+      <span class="tl-date"></span>
+      <span class="tl-sep"></span>
+      <span class="tl-evt alert">Nobody noticed.</span>
+    </div>
+  </div>
+
+  <!-- Part 2 — April 1 reveal -->
+  <div class="reveal-wrap" id="rev">
+    <div id="rev-date">April 1, 2026</div>
+    <div id="rev-amount">$285,000,000</div>
+    <div id="rev-time">Gone in 12 minutes.</div>
+  </div>
+</div>
+
+<script>
+// timing matched to VO chunks. all times in ms from animation start.
+// Part 1
+const T = {
+  DATE_IN:     1000,
+  NINE_IN:     2800,
+  NONCE_IN:    5400,
+  NOBODY1_IN:  10600,
+  P1_OUT:      12800,   // fade Part 1 out
+
+  // Part 2 — timeline
+  TL_IN:       14000,
+  TL1_IN:      14200,
+  TL2_IN:      17400,   // "Nobody noticed." after timelock
+  TL3_IN:      20000,
+  TL4_IN:      23200,   // "Nobody noticed." after threshold
+  TL_OUT:      25500,
+
+  // April 1 big reveal
+  REV_IN:      26200,
+  REV_OUT:     31000,
+};
+
+function show(id)  { document.getElementById(id).classList.add('show'); }
+function dim(id)   { document.getElementById(id).classList.add('dim');  }
+function hide(id) {
+  const el = document.getElementById(id);
+  el.style.opacity = '0';
+  el.style.transition = 'opacity 1.0s ease';
+}
+
+// Sequence
+setTimeout(() => show('date'),    T.DATE_IN);
+setTimeout(() => show('nine'),    T.NINE_IN);
+setTimeout(() => show('nonce'),   T.NONCE_IN);
+setTimeout(() => show('nobody1'), T.NOBODY1_IN);
+
+// Fade out Part 1
+setTimeout(() => {
+  ['date','nine','nonce','nobody1'].forEach(id => hide(id));
+}, T.P1_OUT);
+
+// Part 2 — timeline
+setTimeout(() => {
+  document.getElementById('tl').classList.add('show');
+}, T.TL_IN);
+setTimeout(() => show('tl1'), T.TL1_IN);
+setTimeout(() => show('tl2'), T.TL2_IN);
+setTimeout(() => show('tl3'), T.TL3_IN);
+setTimeout(() => show('tl4'), T.TL4_IN);
+
+// Fade timeline out
+setTimeout(() => hide('tl'), T.TL_OUT);
+
+// April 1 reveal
+setTimeout(() => document.getElementById('rev').classList.add('show'), T.REV_IN);
+setTimeout(() => hide('rev'), T.REV_OUT);
+
+// Signal to Playwright that animation is complete
+setTimeout(() => {
+  document.title = 'ANIMATION_DONE';
+}, T.REV_OUT + 1500);
+</script>
+</body>
+</html>
