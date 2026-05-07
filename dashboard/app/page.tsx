@@ -75,7 +75,7 @@ export default function Home() {
               <h1 className="max-w-3xl text-4xl font-semibold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
                 Watch the chain
                 <br />
-                <span className="text-accent">before it drains your treasury.</span>
+                <span className="text-accent">before it drains your treasury</span>
               </h1>
               <p className="max-w-2xl text-lg leading-relaxed text-muted-strong">
                 Custos Nox is an open-source real-time attack monitor for Solana multisigs and DAOs.
@@ -84,8 +84,8 @@ export default function Home() {
               </p>
               <div className="max-w-2xl rounded-lg border border-border bg-surface px-4 py-3 font-mono text-sm text-muted-strong">
                 <span className="text-foreground">Solana Foundation&apos;s STRIDE program</span> monitors protocols with $10M+ TVL — roughly 50 protocols.{" "}
-                <span className="text-accent">The other 10,000+ multisigs and DAOs have nothing.</span>{" "}
-                Custos Nox is for them.
+                <span className="text-accent">The other 10,000+ multisigs and DAOs have nothing</span>{" "}
+                — Custos Nox is for them
               </div>
               <div className="flex flex-wrap gap-3">
                 <a
@@ -196,8 +196,8 @@ export default function Home() {
             <div className="mb-8 flex flex-col gap-3">
               <h2 className="text-3xl font-semibold tracking-tight">How it works</h2>
               <p className="max-w-2xl text-muted-strong">
-                A WebSocket daemon, five independent detectors, parallel alert fan-out.
-                Sub-second latency from on-chain change to alert in your team&apos;s channel.
+                A WebSocket daemon, five independent detectors, parallel alert fan-out —
+                sub-second latency from on-chain change to alert in your team&apos;s channel
               </p>
             </div>
             <div className="flex flex-col items-center gap-0 font-mono text-sm">
