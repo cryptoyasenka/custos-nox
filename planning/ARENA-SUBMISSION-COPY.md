@@ -171,10 +171,12 @@ https://x.com/CustosNox
 
 ---
 
-## PITCH VIDEO (A10) — ✅ DONE 2026-05-07
+## PITCH VIDEO (A10) — ⚠️ RE-RECORD with deck-v2.html
 
-https://youtu.be/eX_Ze5lDLrc
-(saved in Arena PITCH VIDEO field)
+Old URL (pre-animations): https://youtu.be/eX_Ze5lDLrc
+→ Record new F2 per planning/PITCH-SCRIPT-F2.md
+→ Prepend Veo3 intro in CapCut
+→ Upload YouTube Unlisted → update Arena A10 with new URL
 
 ---
 
@@ -234,7 +236,7 @@ No (solo founder, pre-revenue open-source tool — not the right fit for acceler
 - [ ] Fill repo context — copy from this file
 - [ ] Fill live product link: https://custos-nox.up.railway.app
 - [ ] Access instructions: "No login required"
-- [x] Pitch video (F2): https://youtu.be/eX_Ze5lDLrc (saved 2026-05-07)
+- [ ] Pitch video (F2): re-record with deck-v2.html + Veo3 intro → new YouTube URL → update Arena A10
 - [ ] Tech demo (F3): record → upload to **Loom** (Superteam UA requirement) + **YouTube Unlisted**
 - [ ] Fill PRODUCT DEMO VIDEO field with F3 URL
 
