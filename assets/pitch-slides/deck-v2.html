@@ -41,7 +41,7 @@
     flex-direction: column;
     opacity: 0;
     pointer-events: none;
-    transition: opacity 140ms ease-out;
+    transition: opacity 200ms ease-out;
     padding: 72px 96px 60px;
   }
   .slide.active { display: flex; opacity: 1; pointer-events: auto; }
@@ -295,9 +295,24 @@
     font-size: 24px; color: var(--muted);
   }
   .s5-stride-note {
-    margin-top: 56px; font-size: 26px; color: var(--dimmed);
+    margin-top: 40px; font-size: 22px; color: var(--dimmed);
     font-style: italic;
   }
+  .s5-scenario {
+    margin-top: 36px;
+    background: rgba(239,68,68,0.06);
+    border: 1px solid rgba(239,68,68,0.22);
+    border-radius: 14px;
+    padding: 28px 40px;
+    display: flex; align-items: flex-start; gap: 20px;
+  }
+  .s5-scenario-icon {
+    font-size: 28px; flex-shrink: 0; margin-top: 2px;
+  }
+  .s5-scenario-text {
+    font-size: 24px; color: var(--muted); line-height: 1.55; font-style: italic;
+  }
+  .s5-scenario-text strong { color: var(--red); font-style: normal; font-weight: 700; }
 
   /* ═══════════════════════════════════════════
      SLIDE 6 — LIVE (PROOF)
@@ -518,7 +533,7 @@
 
     <div class="s1-body">
       <div class="s1-label">Drift Protocol · April 1, 2026</div>
-      <div class="s1-amount">$285M</div>
+      <div class="s1-amount" id="s1-amount">$285M</div>
       <div class="s1-sub">drained in 12 minutes</div>
       <div class="s1-divider"></div>
       <div class="s1-tag">9 days of on-chain warnings &nbsp;·&nbsp; Zero alerts fired</div>
@@ -700,6 +715,13 @@
         <div class="s5-tag">Hackathon prize pools</div>
       </div>
       <div class="s5-stride-note">Anyone who falls below STRIDE's $10M TVL threshold — and has no other option.</div>
+      <div class="s5-scenario">
+        <div class="s5-scenario-icon">⚠️</div>
+        <div class="s5-scenario-text">
+          Your grant committee holds $400K. A co-signer's key is compromised.
+          Without Custos Nox — <strong>you find out when the treasury is empty.</strong>
+        </div>
+      </div>
     </div>
 
     <div class="slide-footer">
@@ -946,26 +968,84 @@
 <script>
 const slides = Array.from(document.querySelectorAll('.slide'));
 const counter = document.getElementById('counter');
-const hud = document.getElementById('hud');
+const hud    = document.getElementById('hud');
 let current = 0;
 let idleTimer;
+let busy = false;
 
+/* ── Scale canvas to viewport ── */
 function scale() {
   const canvas = document.getElementById('canvas');
-  const sw = window.innerWidth, sh = window.innerHeight;
-  const s = Math.min(sw / 1920, sh / 1080);
-  canvas.style.transform = `translate(-50%, -50%) scale(${s})`;
+  const s = Math.min(window.innerWidth / 1920, window.innerHeight / 1080);
+  canvas.style.transform = `translate(-50%,-50%) scale(${s})`;
 }
 scale();
 window.addEventListener('resize', scale);
 
-function go(n) {
-  slides[current].classList.remove('active');
-  current = Math.max(0, Math.min(slides.length - 1, n));
-  slides[current].classList.add('active');
-  counter.textContent = `${current + 1} / ${slides.length}`;
+/* ── Count-up for $285M ── */
+function countUp(el, target, ms) {
+  const t0 = performance.now();
+  el.textContent = '$0M';
+  function tick(now) {
+    const p = Math.min((now - t0) / ms, 1);
+    const eased = 1 - Math.pow(1 - p, 3);           // easeOutCubic
+    el.textContent = '$' + Math.round(eased * target) + 'M';
+    if (p < 1) requestAnimationFrame(tick);
+    else el.textContent = '$285M';
+  }
+  requestAnimationFrame(tick);
 }
 
+/* ── Per-slide entrance animations ── */
+function onSlideEnter(idx) {
+  if (idx === 0) {
+    countUp(document.getElementById('s1-amount'), 285, 1500);
+  }
+  if (idx === 1) {
+    const steps = document.querySelectorAll('#s2 .tl-step');
+    steps.forEach((el, i) => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(18px)';
+      el.style.transition = 'opacity 380ms ease-out, transform 380ms ease-out';
+      setTimeout(() => {
+        el.style.opacity = '1';
+        el.style.transform = 'translateY(0)';
+      }, i * 240 + 100);
+    });
+  }
+}
+
+/* ── Slide navigation with fade ── */
+function go(n) {
+  if (busy) return;
+  const nextIdx = Math.max(0, Math.min(slides.length - 1, n));
+  if (nextIdx === current) return;
+  busy = true;
+
+  const prev = slides[current];
+  const next = slides[nextIdx];
+
+  // Keep prev displayed while CSS opacity transitions 1→0, then hide
+  prev.style.display = 'flex';
+  prev.classList.remove('active');
+  setTimeout(() => { prev.style.display = ''; }, 210); // CSS display:none takes over
+
+  // Show next at opacity:0, force reflow, then add .active → transition fires
+  next.style.display = 'flex';
+  next.getBoundingClientRect();           // force reflow: browser registers flex
+  next.classList.add('active');           // CSS opacity 0→1 via transition
+  next.style.display = '';               // let CSS .active{display:flex} own it
+
+  current = nextIdx;
+  counter.textContent = `${current + 1} / ${slides.length}`;
+
+  setTimeout(() => {
+    busy = false;
+    onSlideEnter(current);
+  }, 220);
+}
+
+/* ── Idle HUD ── */
 function resetIdle() {
   hud.classList.remove('idle');
   clearTimeout(idleTimer);
@@ -987,6 +1067,7 @@ document.addEventListener('click', e => {
 });
 
 resetIdle();
+onSlideEnter(0);   // trigger count-up on first load
 </script>
 </body>
 </html>
