@@ -98,7 +98,7 @@ The very first change will be diffed correctly."
 
 ---
 
-### [1:10–1:35] — Three live alerts
+### [1:10–1:45] — Four live alerts — all five detectors
 
 *(Terminal 1. Type each command, Enter. Pause 3–4 seconds for tx confirmation after each.)*
 
@@ -115,22 +115,29 @@ The very first change will be diffed correctly."
 **Step 3 — nonce initialization:**
 `npm run smoke:nonce-init`
 
-"CRITICAL. Nonce initialized under an attacker-controlled key. The pre-signed drain is now armed.
+"CRITICAL. Nonce initialized under an attacker-controlled key. The pre-signed drain is now armed."
 
-Three alerts. Three attack-chain steps. Sub-second latency each."
+**Step 4 — signer rotation:**
+`npm run smoke:rotate-signers -- <PDA>`
+
+"HIGH. Legitimate signer evicted, attacker key added. That's the fifth detector — an adjacent takeover
+vector that's hit other Solana protocols. Not part of the Drift chain, but the same baseline-diff
+machinery catches it for free.
+
+Four alerts. All five detectors demonstrated."
 
 ---
 
-### [1:35–1:52] — Discord alert landing
+### [1:45–2:02] — Discord alert landing
 
-*(Switch to the Discord channel tab — Custos Nox bot alerts visible with severity-colored embeds)*
+*(Switch to the Discord channel tab — four severity-colored embeds visible)*
 
-"These same three alerts just landed in Discord — severity color-coded, Solscan link, the exact values that changed.
+"All four alerts landed in Discord simultaneously — color-coded by severity, each with a direct
+Solscan transaction link and the exact values that changed.
 
-The fan-out is simultaneous: Discord, Slack, and stdout all receive every alert.
-One failing webhook never blocks the others."
+Discord, Slack, and stdout fire in parallel. One failing webhook never blocks the others."
 
-*(Scroll to show all three embed cards if they fit. 5–8 seconds.)*
+*(Scroll to show all four embed cards. 8–10 seconds.)*
 
 ---
 
@@ -187,12 +194,12 @@ Alerts start arriving within a second of any config change."
 | Drift timeline | 0:20 |
 | Detector catalog | 0:15 |
 | Transition | 0:15 |
-| Three live alerts | 0:25 |
-| Discord landing | 0:17 |
+| Four live alerts (all 5 detectors) | 0:35 |
+| Discord landing (4 embeds) | 0:17 |
 | Stale nonce / tests | 0:15 |
 | Architecture | 0:15 |
 | Self-host CTA | 0:23 |
-| **Total** | **~2:45** |
+| **Total** | **~2:55** |
 
 ---
 
