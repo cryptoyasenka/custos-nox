@@ -1,9 +1,20 @@
 # F2 — Pitch Video Script (≤2 min, English)
+# UPDATED 2026-05-08 — rewritten for deck-v2.html (10 slides)
 
-**Recording:** OBS / Loom Desktop / Win+G Game Bar (local capture). Upload to YouTube **Unlisted** (same channel as F1 Week 3 video 2026-04-24).
-**Target:** 272 words. Stay under 2 min — see TIMING CHECK below for pace caveat.
-**Style:** calm, direct, no buzzwords. Evidence first, enthusiasm second.
-**Deck:** 7 slides, see `assets/pitch-slides/deck.html` (arrow keys, F11 fullscreen).
+**Recording:** OBS / Loom Desktop / Win+G. Fullscreen browser on deck-v2.html.
+**Target:** ≤2:00. 10 slides. Screen-only (no face required, but face adds trust).
+**Deck:** `assets/pitch-slides/deck-v2.html` → open in browser, F11 fullscreen.
+**Intro:** Veo3 clip prepended in CapCut (6–8 sec). Narration starts on slide 1.
+**Style:** calm, direct. Evidence first, enthusiasm second.
+
+---
+
+## PRE-RECORDING
+
+- Open deck-v2.html in Chrome/Edge, F11 fullscreen
+- Navigate to Slide 1 — count-up will auto-play on first load
+- Verify animations work (arrow key through all 10 slides once, then Home to return)
+- OBS/Loom running, check audio levels
 
 ---
 
@@ -11,127 +22,129 @@
 
 ---
 
-**[SLIDE 1 — "April 1, 2026"]**
+**[SLIDE 1 — The Incident · count-up $285M → watch it animate]**
 
-On April 1, 2026, $285 million drained from Drift Protocol — more than half of TVL.
+*(pause 1–2 sec while $285M counts up — let the number land)*
 
-The attack didn't happen in one transaction. It took weeks. A migrated Security
-Council multisig with a 2-of-5 threshold and zero timelock. Durable nonces
-seeded by privileged signers. A pre-signed admin transfer waiting in the queue.
-Every step happened on chain. In public. Nobody noticed.
+"April 1, 2026. Drift Protocol lost $285 million in twelve minutes.
 
----
-
-**[SLIDE 2 — Problem]**
-
-Solana Foundation's STRIDE monitors protocols with $10 million or more in TVL.
-Maybe a hundred projects.
-
-There are thousands of DAOs, grant committees, and treasury multisigs below that
-line. They have nothing.
+This wasn't a zero-day. Nine days of on-chain warnings — and zero alerts fired."
 
 ---
 
-**[SLIDE 3 — Solution / product]**
+**[→ SLIDE 2 — Attack Chain · timeline staggers in]**
 
-Custos Nox is an open-source daemon. It watches Solana accounts over Helius
-WebSocket and fires an alert when a config change matches an attack pattern.
+*(pause while timeline animates)*
 
-Five detectors live today. Four map to the Drift attack chain — timelock
-removed, multisig weakened, nonce seeded, stale nonce executed. The fifth
-catches signer rotation. Any single alert would have stopped the drain.
+"The attacker removed the governance timelock. Weakened the multisig to one signer.
+Armed a pre-signed drain transaction. Every step was visible on-chain. None of it was flagged."
 
 ---
 
-**[SLIDE 4 — Traction / evidence]**
+**[→ SLIDE 3 — The Gap · 10,000+ counts up]**
 
-The repo is public. 205 tests, GitHub Actions green. A devnet smoke harness
-replays three Drift attack steps plus signer rotation — four live alerts under
-a second each.
+*(pause while 10,000+ animates)*
 
-Live dashboard at custos-nox.up.railway.app.
-
----
-
-**[SLIDE 5 — GTM / who uses this]**
-
-First users: Squads multisig operators — protocol treasuries, grant committees,
-hackathon prize pools. They're already on Discord.
-
-Integration is one webhook URL and a five-minute self-host. MIT licensed, no
-paid tiers. Issue tracker is open for detector requests.
+"Solana Foundation's STRIDE program monitors roughly fifty protocols — the top half-percent by TVL.
+The other ten thousand multisigs and DAOs have nothing. That's who this is for."
 
 ---
 
-**[SLIDE 6 — Vision]**
+**[→ SLIDE 4 — The Solution · detector cards stagger]**
 
-Long term: a hosted feed that any DAO subscribes to with zero infra. Top-50
-Solana multisigs pre-watched. The security layer between on-chain governance
-and the first Discord alert.
+"Custos Nox is an open-source TypeScript daemon. Five detectors — one per step in the Drift attack chain.
+Any single alert would have bought hours of response time."
 
 ---
 
-**[SLIDE 7 — Close]**
+**[→ SLIDE 5 — Target User · quick flip, ~5 sec]**
 
-I'm Yasya from Superteam Ukraine. Code is live on GitHub, demo runs on devnet,
-five detectors are watching right now.
+"First users: Squads multisig operators. Protocol treasuries, grant committees, DAO core teams.
+If you're below STRIDE's threshold, this is for you."
 
-**github.com/cryptoyasenka/custos-nox**
+---
+
+**[→ SLIDE 6 — Proof of Work · 215 counts up]**
+
+*(pause while 215 animates)*
+
+"It's built. 215 tests, GitHub Actions green, sub-second alert latency.
+A devnet smoke harness reproduces the Drift attack chain with real on-chain transactions."
+
+---
+
+**[→ SLIDE 7 — Setup · step cards stagger · quick]**
+
+"Self-host in five minutes. One env variable. Free Helius RPC. MIT licensed — no paid tiers, ever."
+
+---
+
+**[→ SLIDES 8–9 — GTM + Vision · flip through, ~8 sec each]**
+
+*(Slide 8 — GTM rows stagger)*
+"Ten thousand Squads multisigs are visible on-chain right now. GitHub organic, Squads Discord, Superteam network."
+
+*(Slide 9 — Vision rows stagger)*
+"v1 is live — free, self-hosted. v2: hosted alert feed for teams who can't self-host. v3: mainnet watchlist, pre-configured coverage of the top multisigs."
+
+---
+
+**[→ SLIDE 10 — CTA]**
+
+"github.com/cryptoyasenka/custos-nox
+
+The other ten thousand DAOs on Solana need a Night Guardian."
 
 ---
 
 ## TIMING CHECK
 
-| Section | Words |
-| ------- | ----- |
-| Hook (Drift attack) | 61 |
-| Problem (STRIDE gap) | 32 |
-| Solution | 59 |
-| Traction | 33 |
-| GTM | 38 |
-| Vision | 28 |
-| Close | 21 |
-| **Total** | **272** |
+| Section | ~Sec |
+|---------|------|
+| Veo3 intro (CapCut prepend) | 6–8 |
+| Slide 1 (incident) | 14 |
+| Slide 2 (attack chain) | 16 |
+| Slide 3 (gap) | 14 |
+| Slide 4 (solution) | 13 |
+| Slide 5 (target user) | 9 |
+| Slide 6 (proof) | 12 |
+| Slide 7 (setup) | 8 |
+| Slides 8–9 (GTM + vision) | 20 |
+| Slide 10 (CTA) | 10 |
+| **Total** | **~2:02** |
 
-| Pace | Total time | Notes |
-| ---- | ---------- | ----- |
-| 150 wpm | **1:48** | Fast/conversational, hard to land emphasis |
-| 140 wpm | **1:56** | Recommended — brisk but clear, lands inside 2 min |
-| 130 wpm | **2:05** | Deliberate pauses — overshoots, drop Slide 6 |
-
-**Plan A (default):** target ~140 wpm → ~1:56. First take, watch the clock.
-**Plan B (if take runs ≥ 2:00):** drop Slide 6 Vision (saves 28 words / ~12s) →
-244 words / ~1:44 at 140 wpm.
+If running over: trim slide 9 vision narration (just flip the slide without voiceover).
 
 ---
 
-## SLIDE CONTENT (built — see `assets/pitch-slides/`)
+## VEO3 INTRO (CapCut prepend)
 
-All 7 slides rendered at 1920×1080 brand dark theme by `scripts/gen_pitch_slides.py`.
+Generate this clip first, then prepend in CapCut:
 
-**Slide 1** (`pitch-slide-01.png`): DRIFT PROTOCOL · April 1, 2026 · $285M drained · 4 days / 3 governance changes / 0 alerts · "Every step happened on chain. In public." · "Nobody noticed"
+> "Dark digital space. Blockchain transactions flow as glowing lines — white and blue. Slow, calm.
+> Suddenly one red transaction cuts through the others. Text appears: 'April 1, 2026'.
+> Red line reaches endpoint — everything stops. Text: '$285,000,000'. Slow fade to black."
 
-**Slide 2** (`pitch-slide-02.png`): THE GAP · STRIDE protects ~100 protocols · $10M+ TVL monitored · "The other 99% have nothing"
+CapCut: Veo3 clip → 6–8 sec → cut to slide recording starting at Slide 1.
 
-**Slide 3** (`pitch-slide-03.png`): WHAT IT CATCHES · 5 detectors live today · 5 cards (TimelockRemoval/MultisigWeakening/SignerSetChange/PrivilegedNonce/StaleNonceExecution with CRITICAL/HIGH severity pills) · "Sub-second alerts via Helius WebSocket"
+---
 
-**Slide 4** (`pitch-slide-04.png`): EVIDENCE · Public repo · Green CI · 205 tests / 5 detectors / <1s latency · custos-nox.up.railway.app · "Devnet smoke harness replays Drift steps in real time"
+## KEY LINES TO LAND
 
-**Slide 5** (`pitch-slide-05.png`): WHO USES THIS · First users: Squads multisig operators · protocol treasuries · grant committees · hackathon prize pools · 1 webhook URL · 5-minute self-host · Open issue tracker for detector requests
-
-**Slide 6** (`pitch-slide-06.png`): VISION · Hosted feed · Zero-infra monitoring · Top-50 Solana multisigs by TVL — pre-watched · "Subscribe with one click. Discord ping. Slack ping. Done." · "Security layer between on-chain governance and the first Discord alert"
-
-**Slide 7** (`pitch-slide-07.png`): CUSTOS NOX · Open-source attack monitor for Solana · github.com/cryptoyasenka/custos-nox · Yasya · Superteam Ukraine · Frontier 2026
-
-**HTML deck:** `assets/pitch-slides/deck.html` — preview via `cd assets/pitch-slides && python -m http.server 8765` → open `http://127.0.0.1:8765/deck.html` → press `F` for fullscreen.
+1. **"Nine days of on-chain warnings — and zero alerts fired."** — pause after, let it sit
+2. **"The other ten thousand multisigs and DAOs have nothing."** — the core market claim
+3. **"Any single alert would have bought hours of response time."** — the value prop
+4. **"Five minutes. MIT licensed. No paid tiers, ever."** — removes all friction objections
+5. **"The other ten thousand DAOs on Solana need a Night Guardian."** — emotional close
 
 ---
 
 ## RECORDING TIPS
 
-- Record face + screen side by side (OBS / Loom Desktop default layout)
-- Keep slides up while speaking — don't flip too fast
-- Say the URL out loud at the end; paste it in YouTube description too
-- One take is fine; trim head/tail silence in any local editor (Clipchamp, OBS, DaVinci Resolve free), no music needed
-- Upload to **YouTube as Unlisted** (NOT Private — Private requires login). Title: `Custos Nox — F2 Pitch (Solana Frontier 2026)`. End screens / cards OFF (don't distract from GitHub CTA at the end).
-- **Verify URL works in incognito (no login)** before pasting in Arena submission field A10.
+- Let the animations play — don't rush to the next slide before the animation finishes
+- Pause 1–2 sec on slide 1 while $285M counts up (it takes ~1.5 sec)
+- Pause on slide 2 for the stagger (takes ~1.2 sec for all 4 steps)
+- Pause on slide 3 for the 10,000+ count-up (~1.8 sec)
+- Upload to **YouTube Unlisted**. Title: `Custos Nox — F2 Pitch (Solana Frontier 2026)`
+- Verify URL works in incognito before pasting in Arena field A10
+- **Update Arena A10** with the new URL (the old URL https://youtu.be/eX_Ze5lDLrc was pre-deck-v2)
