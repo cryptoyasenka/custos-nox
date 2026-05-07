@@ -90,9 +90,10 @@ https://x.com/CustosNox
 
 ---
 
-## PITCH VIDEO (A10) — record F2 first
+## PITCH VIDEO (A10) — ✅ DONE 2026-05-07
 
-[paste YouTube unlisted URL after recording planning/PITCH-SCRIPT-F2.md]
+https://youtu.be/eX_Ze5lDLrc
+(saved in Arena PITCH VIDEO field)
 
 ---
 
@@ -105,9 +106,11 @@ https://x.com/CustosNox
 ## FINAL CHECKLIST BEFORE CLICKING SUBMIT
 
 - [x] @CustosNox X account created and linked (2026-04-29)
-- [ ] Pitch video (F2) uploaded to YouTube (Unlisted) — URL works in incognito
+- [x] Pitch video (F2) uploaded and saved in Arena — https://youtu.be/eX_Ze5lDLrc (2026-05-07)
 - [ ] Tech demo (F3) uploaded to YouTube (Unlisted) — URL works in incognito
+- [ ] Fill PRODUCT DEMO VIDEO field in Arena (Step 2) with F3 URL
 - [ ] "Superteam Ukraine" affiliation marked in form (mandatory for Ukrainian Sidetrack)
 - [ ] Character count on A6 verified in actual form field
 - [ ] If Arena doesn't support markdown in A7: remove all ** and # formatting
+- [ ] Click "CONTINUE TO FINAL SURVEY" → submit
 - [ ] Deadline: 2026-05-10 23:59 PDT (act as if May 10, not May 11)
