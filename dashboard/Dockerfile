@@ -11,7 +11,7 @@ RUN npm ci
 COPY . .
 
 # Bake the daemon URL into the build so client-side fetches resolve to it.
-ARG NEXT_PUBLIC_CUSTOS_DAEMON_URL=https://custos-nox.up.railway.app
+ARG NEXT_PUBLIC_CUSTOS_DAEMON_URL=https://custos-daemon.up.railway.app
 ENV NEXT_PUBLIC_CUSTOS_DAEMON_URL=$NEXT_PUBLIC_CUSTOS_DAEMON_URL
 
 RUN npm run build
