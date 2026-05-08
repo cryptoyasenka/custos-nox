@@ -106,6 +106,11 @@
     align-items: center; justify-content: center; gap: 0;
     text-align: center;
   }
+  .s1-intro {
+    font-size: 28px; font-weight: 400; color: var(--muted);
+    letter-spacing: 0.01em; line-height: 1.4;
+    max-width: 1280px; margin-bottom: 56px;
+  }
   .s1-label {
     font-size: 20px; letter-spacing: 0.2em; text-transform: uppercase;
     color: var(--muted); margin-bottom: 28px;
@@ -555,6 +560,67 @@
   .s9-footer-line span { color: var(--green); }
 
   /* ═══════════════════════════════════════════
+     SLIDE 8 — TEAM (NEW)
+  ═══════════════════════════════════════════ */
+  .team-headline {
+    font-size: 60px; font-weight: 800; margin-bottom: 14px;
+  }
+  .team-sub {
+    font-size: 30px; color: var(--muted); margin-bottom: 56px;
+  }
+  .team-grid {
+    display: grid; grid-template-columns: 1fr 1.3fr; gap: 56px;
+    flex: 1; align-items: stretch;
+  }
+  .team-card {
+    background: #0f0f0f; border: 1px solid #27272a;
+    border-radius: 16px; padding: 48px 44px;
+    display: flex; flex-direction: column; justify-content: center;
+  }
+  .team-name {
+    font-size: 96px; font-weight: 900; letter-spacing: 0.04em;
+    color: var(--fg); line-height: 1; margin-bottom: 24px;
+  }
+  .team-role {
+    font-size: 28px; color: var(--cyan); font-weight: 600;
+    letter-spacing: 0.02em; margin-bottom: 18px;
+  }
+  .team-bio {
+    font-size: 24px; color: var(--muted); line-height: 1.55;
+  }
+  .team-bio span { color: var(--fg); font-weight: 500; }
+  .team-models-title {
+    font-size: 20px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--dimmed); font-weight: 600; margin-bottom: 28px;
+  }
+  .team-models {
+    display: flex; flex-direction: column; gap: 18px; flex: 1;
+  }
+  .team-model-row {
+    display: flex; align-items: center; gap: 24px;
+    background: #18181b; border: 1px solid #27272a;
+    border-radius: 12px; padding: 22px 28px;
+  }
+  .team-model-tag {
+    font-size: 16px; letter-spacing: 0.14em; text-transform: uppercase;
+    font-weight: 700; color: var(--green);
+    background: rgba(74,222,128,0.12);
+    padding: 6px 14px; border-radius: 6px;
+    flex-shrink: 0;
+  }
+  .team-model-name {
+    font-size: 24px; font-weight: 600; color: var(--fg); flex: 1;
+  }
+  .team-model-desc {
+    font-size: 18px; color: var(--muted);
+  }
+  .team-footer-line {
+    margin-top: 40px; text-align: center;
+    font-size: 28px; font-weight: 600; color: var(--fg);
+  }
+  .team-footer-line span { color: var(--green); }
+
+  /* ═══════════════════════════════════════════
      SLIDE 10 — TEAM + CTA
   ═══════════════════════════════════════════ */
   .s10-body {
@@ -606,10 +672,11 @@
         <svg viewBox="0 0 1024 1024"><use href="#logo"/></svg>
         CUSTOS NOX
       </div>
-      <div class="slide-num">01 / 08</div>
+      <div class="slide-num">01 / 09</div>
     </div>
 
     <div class="s1-body">
+      <div class="s1-intro">Custos Nox is a real-time security monitor for Solana DAO multisigs &mdash; open-source, sub-second alerts, MIT licensed.</div>
       <div class="s1-label">Drift Protocol · April 1, 2026</div>
       <div class="s1-amount" id="s1-amount">$285M</div>
       <div class="s1-sub">drained in 12 minutes</div>
@@ -635,7 +702,7 @@
       </div>
       <div style="display:flex;gap:48px;align-items:center">
         <div class="slide-label">The Problem</div>
-        <div class="slide-num">02 / 08</div>
+        <div class="slide-num">02 / 09</div>
       </div>
     </div>
 
@@ -688,7 +755,7 @@
       </div>
       <div style="display:flex;gap:48px;align-items:center">
         <div class="slide-label">The Market Gap</div>
-        <div class="slide-num">03 / 08</div>
+        <div class="slide-num">03 / 09</div>
       </div>
     </div>
 
@@ -726,7 +793,7 @@
       </div>
       <div style="display:flex;gap:48px;align-items:center">
         <div class="slide-label">The Solution</div>
-        <div class="slide-num">04 / 08</div>
+        <div class="slide-num">04 / 09</div>
       </div>
     </div>
 
@@ -783,7 +850,7 @@
       </div>
       <div style="display:flex;gap:48px;align-items:center">
         <div class="slide-label">Proof of Work</div>
-        <div class="slide-num">05 / 08</div>
+        <div class="slide-num">05 / 09</div>
       </div>
     </div>
 
@@ -857,7 +924,7 @@
       </div>
       <div style="display:flex;gap:48px;align-items:center">
         <div class="slide-label">Zero Friction Adoption</div>
-        <div class="slide-num">06 / 08</div>
+        <div class="slide-num">06 / 09</div>
       </div>
     </div>
 
@@ -884,8 +951,8 @@
     </div>
 
     <div class="s7-note">
-      <span>Free Helius RPC. MIT licensed. </span>
-      No paid tiers ever. The self-hosted tier is a public good — free permanently.
+      <span>No paid tiers ever. </span>
+      Public Goods Award sustainability &mdash; covered by Solana Foundation grant + Superteam Ukraine. Free Helius RPC, MIT licensed, public good permanently.
     </div>
 
     <div class="slide-footer">
@@ -905,7 +972,7 @@
       </div>
       <div style="display:flex;gap:48px;align-items:center">
         <div class="slide-label">Vision</div>
-        <div class="slide-num">07 / 08</div>
+        <div class="slide-num">07 / 09</div>
       </div>
     </div>
 
@@ -942,6 +1009,65 @@
   </div>
 
   <!-- ══════════════════════════════════════
+       SLIDE 8 — TEAM (NEW)
+  ══════════════════════════════════════ -->
+  <div class="slide" id="s8team">
+    <div class="slide-header">
+      <div class="brand">
+        <svg viewBox="0 0 1024 1024"><use href="#logo"/></svg>
+        CUSTOS NOX
+      </div>
+      <div style="display:flex;gap:48px;align-items:center">
+        <div class="slide-label">Team</div>
+        <div class="slide-num">08 / 09</div>
+      </div>
+    </div>
+
+    <div class="team-headline">Built solo by Yana</div>
+    <div class="team-sub">Solana developer based in Kyiv &mdash; building Web3 security tooling in public</div>
+
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="team-name">YANA</div>
+        <div class="team-role">Solo founder · Full-stack · Solana &amp; security</div>
+        <div class="team-bio">
+          Background in <span>Web3 security tooling</span>. Open-source ML models published on the <span>OpenGradient TEE hub</span> covering MEV detection, account abstraction safety, and EigenLayer monitoring &mdash; all live, all free.
+        </div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-models-title">Published security models · OpenGradient TEE</div>
+        <div class="team-models">
+          <div class="team-model-row">
+            <div class="team-model-tag">MEV</div>
+            <div class="team-model-name">Sandwich-attack detector</div>
+            <div class="team-model-desc">ONNX · TEE-attested</div>
+          </div>
+          <div class="team-model-row">
+            <div class="team-model-tag">4337</div>
+            <div class="team-model-name">Account-abstraction safety</div>
+            <div class="team-model-desc">UserOp risk scoring</div>
+          </div>
+          <div class="team-model-row">
+            <div class="team-model-tag">AVS</div>
+            <div class="team-model-name">EigenLayer slashing monitor</div>
+            <div class="team-model-desc">Operator-set anomalies</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="team-footer-line">
+      Custos Nox follows the same line &mdash; <span>built as a public good, free forever</span>.
+    </div>
+
+    <div class="slide-footer">
+      <span></span>
+      <span>Frontier 2026 · Superteam Ukraine</span>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════
        SLIDE 10 — TEAM + CTA
   ══════════════════════════════════════ -->
   <div class="slide" id="s10">
@@ -950,7 +1076,7 @@
         <svg viewBox="0 0 1024 1024"><use href="#logo"/></svg>
         CUSTOS NOX
       </div>
-      <div class="slide-num">08 / 08</div>
+      <div class="slide-num">09 / 09</div>
     </div>
 
     <div class="s10-body">
