@@ -36,7 +36,7 @@
 
 *(pause for stagger ~1.2 sec)*
 
-"Chainalysis confirmed the timeline. The Security Council multisig was migrated to a two-of-five quorum with zero timelock. A pre-signed drain transaction was armed via durable nonce. Every config change visible on-chain. Nothing flagged."
+"Chainalysis traced the attack. Every config change was visible on-chain for nine days — the approval threshold was lowered, safety delays removed, a drain transaction pre-armed. The DAO had no tool watching. Nothing flagged it."
 
 ---
 

@@ -16,7 +16,7 @@ edge-tts --voice "$VOICE" --rate "$RATE" --write-media slide-1.mp3 \
   --text "DAOs on Solana hold their treasuries through multisig wallets — three-of-five signatures, like a corporate bank account. Last April, one of them lost two hundred eighty-five million dollars in twelve minutes. Nine days of on-chain preparation. Zero alerts fired."
 
 edge-tts --voice "$VOICE" --rate "$RATE" --write-media slide-2.mp3 \
-  --text "Chainalysis confirmed the timeline. The Security Council multisig was migrated to a two-of-five quorum with zero timelock. A pre-signed drain transaction was armed via durable nonce. Every config change visible on-chain. Nothing flagged."
+  --text "Chainalysis traced the attack. Every config change was visible on-chain for nine days — the approval threshold was lowered, safety delays removed, a drain transaction pre-armed. The DAO had no tool watching. Nothing flagged it."
 
 edge-tts --voice "$VOICE" --rate "$RATE" --write-media slide-3.mp3 \
   --text "Solana Foundation's STRIDE program monitors fifty protocols above ten million in TVL. The other ten thousand have nothing."
