@@ -1,7 +1,7 @@
 # CURRENT — custos (Custos Nox)
 
-**Last touched:** 2026-05-08 evening (post-rework decision)
-**Status:** REWORK IN PROGRESS — F2 + F3 + dashboard ALL being upgraded for "идеально презентабельно судьям". Old mp3 sets DEPRECATED. Deadline 2026-05-10 23:59 PDT.
+**Last touched:** 2026-05-08 late evening — F3 v5 + voice DONE
+**Status:** REWORK FRONT-LOADED — F2 deck/voice ✅, F3 script/voice ✅. Remaining: Yana finishes Railway deploy (Helius key) + records both videos in OBS/Loom. Deadline 2026-05-10 23:59 PDT.
 
 ## ⚠️ READ FIRST on resume — DO NOT roll back
 
@@ -19,8 +19,8 @@ If a future session sees old text saying "F2 mp3 ready, Yana собирает в
 6. ⏳ Deploy mainnet daemon to Railway — project linked, non-secret env set, blocked on Helius RPC URL from Yana. See `RAILWAY-DEPLOY.md` for the 3-step finish (paste key → verify logs → set Vercel `NEXT_PUBLIC_CUSTOS_DAEMON_URL`).
 7. ✅ F2 deck patched — slide 1 intro + slide 6 Public-Goods monetization + NEW slide 08 team (`18f1853`). 9 slides total now.
 8. ✅ F2 voice regenerated — script v3 + 9 mp3s + Playwright timing extended to 132s (`e7102ba`).
-9. → **NEXT** Rewrite F3 v5 (dashboard-first multi-DAO, ≤10s terminal max)
-10. → Regenerate F3 voice (new chunks)
+9. ✅ F3 v5 dashboard-first script written (`a6f572f`) — 7 sections, terminal-zero, replays Drift chain inside dashboard alert feed instead of CLI.
+10. ✅ F3 voice regenerated — 9 chunks ~3:08 total, edge-tts AriaNeural. Old v4 17-chunk set wiped.
 
 ## Key files (current state)
 
