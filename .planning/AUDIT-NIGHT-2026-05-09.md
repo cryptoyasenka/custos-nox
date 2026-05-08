@@ -140,7 +140,7 @@ Drafts уже есть:
 
 2. **Demo Day 2026-04-23** — уже прошёл (16 days назад). В CURRENT.md написано как "Active track". В memory `project_custos_nox_parallel_tracks.md` — "АКТИВНЫ 2026-04-23". Не понятно прошёл ли он, или просто активирован с этой даты, или по факту не состоялся. **Утром спросить Yana** или проверить календарь Solana Frontier.
 
-3. **ARENA-SUBMISSION-COPY.md** упоминает "215 tests" в нескольких местах — реально 228. Cosmetic, но если будет finally edit — поправить. (Не делал — Yana сказала ничего не менять.)
+3. **ARENA-SUBMISSION-COPY.md** упоминает "215 tests" в **3 местах** (lines 37, 75, 150) — реально 228. Cosmetic. Поправить за 30 секунд через `sed -i 's/215/228/g'` если решит. (Не делал — Yana сказала ничего не менять.) Roadmap line 88 "top 50 Squads multisigs" — это про **будущую v3**, не текущее покрытие, не путать.
 
 4. **F3 mainnet narrative** — daemon `lastEventAt: null` после 11 минут uptime. Скрипт говорит "watching 12 mainnet DAOs right now... if any of them changes a threshold". Это ОК — главное чтобы во время записи дашборд показывал зелёные точки и DAO имена. Devnet replay для алертов уже учтён в скрипте.
 
