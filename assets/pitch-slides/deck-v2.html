@@ -120,10 +120,14 @@
   }
   .s1-divider {
     width: 64px; height: 3px; background: var(--dimmed);
-    border-radius: 2px; margin: 48px auto;
+    border-radius: 2px; margin: 40px auto;
+  }
+  .s1-product {
+    font-size: 38px; font-weight: 600; color: var(--cyan);
+    letter-spacing: 0.04em; margin-bottom: 28px;
   }
   .s1-tag {
-    font-size: 36px; font-weight: 600; color: var(--green);
+    font-size: 34px; font-weight: 600; color: var(--green);
     letter-spacing: 0.04em;
   }
 
@@ -325,27 +329,96 @@
     font-size: 60px; font-weight: 800; margin-bottom: 16px;
   }
   .s6-sub {
-    font-size: 30px; color: var(--muted); margin-bottom: 72px;
+    font-size: 30px; color: var(--muted); margin-bottom: 56px;
   }
   .proof-row {
-    display: flex; gap: 36px; flex: 1;
+    display: flex; gap: 24px; flex: 1;
   }
   .proof-card {
     flex: 1; background: #0f0f0f; border: 1px solid #27272a;
-    border-radius: 16px; padding: 48px 44px;
+    border-radius: 14px; padding: 32px 26px;
     display: flex; flex-direction: column; justify-content: space-between;
   }
   .proof-num {
-    font-size: 100px; font-weight: 900; line-height: 0.9;
+    font-size: 78px; font-weight: 900; line-height: 0.9;
     letter-spacing: -0.02em;
   }
   .proof-label {
-    font-size: 26px; color: var(--muted); margin-top: 16px;
+    font-size: 22px; color: var(--muted); margin-top: 12px;
     font-weight: 400;
   }
   .proof-detail {
-    font-size: 26px; color: var(--dimmed); margin-top: 12px;
+    font-size: 20px; color: var(--dimmed); margin-top: 12px;
     line-height: 1.4;
+  }
+  /* Discord-style alert mockup card */
+  .proof-card.mock-discord {
+    background: #36393f;
+    border: 1px solid #1f2125;
+    padding: 22px 22px;
+    gap: 14px;
+    justify-content: center;
+  }
+  .md-bot-row {
+    display: flex; align-items: center; gap: 10px;
+  }
+  .md-avatar {
+    width: 36px; height: 36px;
+    background: #5865f2; color: #fff;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 17px;
+    flex-shrink: 0;
+  }
+  .md-bot { font-size: 17px; font-weight: 600; color: #fff; }
+  .md-badge-bot {
+    background: #5865f2; color: #fff;
+    font-size: 10px; padding: 2px 6px; border-radius: 3px;
+    font-weight: 700; letter-spacing: 0.06em;
+  }
+  .md-time { margin-left: auto; color: #72767d; font-size: 12px; letter-spacing: 0.04em; }
+  .md-embed {
+    border-left: 4px solid var(--red);
+    background: #2f3136;
+    padding: 18px 20px;
+    border-radius: 0 4px 4px 0;
+    display: flex; flex-direction: column; gap: 14px;
+  }
+  .md-title {
+    color: #ef4444; font-weight: 700; font-size: 19px;
+    line-height: 1.25;
+  }
+  .md-desc {
+    color: #dcddde; font-size: 14px; line-height: 1.45;
+  }
+  .md-fields {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+  .md-field {
+    display: flex; flex-direction: column; gap: 4px;
+  }
+  .md-key {
+    font-size: 10px; color: #b9bbbe;
+    letter-spacing: 0.08em; font-weight: 700;
+    text-transform: uppercase;
+  }
+  .md-val {
+    font-family: "Cascadia Code", ui-monospace, monospace;
+    font-size: 15px; color: #dcddde;
+  }
+  .md-footer-line {
+    color: #72767d; font-size: 12px;
+    font-style: italic;
+    border-top: 1px solid #40444b;
+    padding-top: 10px;
+    margin-top: 4px;
+  }
+  .md-caption {
+    text-align: center;
+    color: var(--green); font-size: 13px;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    font-weight: 700;
   }
   .s6-url {
     text-align: center; font-size: 32px; color: var(--green);
@@ -469,6 +542,7 @@
     font-size: 16px; letter-spacing: 0.12em; text-transform: uppercase;
     padding: 6px 18px; border-radius: 999px; flex-shrink: 0;
     font-weight: 600;
+    white-space: nowrap;
   }
   .vision-status.live { background: rgba(74,222,128,0.15); color: var(--green); }
   .vision-status.next { background: rgba(34,211,238,0.1); color: var(--cyan); }
@@ -540,12 +614,13 @@
       <div class="s1-amount" id="s1-amount">$285M</div>
       <div class="s1-sub">drained in 12 minutes</div>
       <div class="s1-divider"></div>
+      <div class="s1-product">Custos Nox &mdash; the alerts they didn&rsquo;t have</div>
       <div class="s1-tag">9 days of on-chain preparation &nbsp;·&nbsp; Zero alerts fired</div>
     </div>
 
     <div class="slide-footer">
-      <span>Open-source attack detection for Solana multisigs and DAOs</span>
-      <span>Frontier 2026 · Superteam Ukraine</span>
+      <span>Built solo by Yasya · Superteam Ukraine</span>
+      <span>Frontier 2026</span>
     </div>
   </div>
 
@@ -656,7 +731,7 @@
     </div>
 
     <div class="s4-headline">One detector per step in the Drift attack chain</div>
-    <div class="s4-sub">Any single alert would have bought hours of response time</div>
+    <div class="s4-sub">Open-source TypeScript daemon · Any single alert would have bought hours of response time</div>
 
     <div class="detector-grid">
       <div class="detector-card">
@@ -721,25 +796,49 @@
           <div class="proof-num" style="color:var(--green)" id="s6-tests">200+</div>
           <div class="proof-label">tests passing</div>
         </div>
-        <div class="proof-detail">Unit + integration. GitHub Actions CI on every push. Green badge.</div>
+        <div class="proof-detail">Unit + integration · GitHub Actions CI on every push · Green badge</div>
       </div>
       <div class="proof-card">
         <div>
           <div class="proof-num" style="color:var(--cyan)">&lt; 1s</div>
           <div class="proof-label">alert latency</div>
         </div>
-        <div class="proof-detail">WebSocket subscription to Solana RPC. On-chain change to Discord alert in under a second.</div>
+        <div class="proof-detail">WebSocket to Solana RPC · On-chain change to Discord embed in under a second</div>
       </div>
       <div class="proof-card">
         <div>
           <div class="proof-num" style="color:var(--orange)">MIT</div>
-          <div class="proof-label">licensed</div>
+          <div class="proof-label">licensed · public good</div>
         </div>
-        <div class="proof-detail">Public repo. Open issue tracker. Any team can audit, fork, and self-host with zero friction.</div>
+        <div class="proof-detail">Public repo · Open issue tracker · Any team can audit, fork, self-host</div>
+      </div>
+      <div class="proof-card mock-discord">
+        <div class="md-bot-row">
+          <div class="md-avatar">🛡</div>
+          <div class="md-bot">Custos Nox</div>
+          <div class="md-badge-bot">BOT</div>
+          <div class="md-time">14:32</div>
+        </div>
+        <div class="md-embed">
+          <div class="md-title">🚨 [CRITICAL] TimelockRemovalDetector</div>
+          <div class="md-desc">Governance timelock dropped to zero. Instant execution unlocked.</div>
+          <div class="md-fields">
+            <div class="md-field">
+              <span class="md-key">multisig</span>
+              <span class="md-val">7Hd8…XYZ</span>
+            </div>
+            <div class="md-field">
+              <span class="md-key">threshold</span>
+              <span class="md-val">3 → 1</span>
+            </div>
+          </div>
+          <div class="md-footer-line">Solscan · devnet · 9 days before drain</div>
+        </div>
+        <div class="md-caption">Real alert · Sample output</div>
       </div>
     </div>
 
-    <div class="s6-url" style="font-size:26px;line-height:1.35;max-width:1500px;margin-left:auto;margin-right:auto;">If Drift had this on March 23rd, the first CRITICAL alert would have fired — 9 days before the drain.</div>
+    <div class="s6-url" style="font-size:26px;line-height:1.35;max-width:1500px;margin-left:auto;margin-right:auto;">If Drift had this on March 23rd, the first CRITICAL alert would have fired — 9 days before the drain</div>
 
     <div class="slide-footer">
       <span></span>
@@ -818,7 +917,7 @@
         <div class="vision-v active">v1</div>
         <div class="vision-title active">Self-hosted daemon</div>
         <div class="vision-desc">Open source, MIT, free forever. Any DAO sets up in 5 minutes. Community trust is the moat.</div>
-        <div class="vision-status live">Live today</div>
+        <div class="vision-status live">Live · Free forever · Public Good</div>
       </div>
       <div class="vision-row">
         <div class="vision-v">v2</div>

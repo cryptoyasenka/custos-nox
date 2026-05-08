@@ -1,7 +1,7 @@
 # CURRENT — custos (Custos Nox)
 
 **Last touched:** 2026-05-08
-**Status:** F2 deck v2 cleaned (no periods in taglines, 5 detector cards, Telegram in fan-out); slides.webm v2 generated (~109s). Judge-eye review done 2026-05-08 → 5 improvements identified (see PITCH-DECK-REVIEW-2026-05-08.md), pending Yana's go-ahead. Deadline May 10 23:59 PDT
+**Status:** F2 deck v2 fully polished — все 5 judge-eye улучшений ВНЕДРЕНЫ (s1 product reveal + s4 daemon type + Discord mockup proof-card + Public Goods badge + founder footer + s6-url period fix). 8 анимированных слайдов записаны отдельно в `video-build/f2/slides-individual/slide-{1..8}.webm` для CapCut sequencing. Deadline May 10 23:59 PDT
 
 ## Open files
 - `.planning/PITCH-DECK-REVIEW-2026-05-08.md` — judge-eye audit + 5 concrete improvements (saved 2026-05-08, not yet applied)
