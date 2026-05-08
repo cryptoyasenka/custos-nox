@@ -23,6 +23,9 @@ video-build/*.mkv
 video-build/*.mp3
 video-build/*.wav
 video-build/*.jpg
+video-build/**/*.mp3
+video-build/**/*.wav
+video-build/**/*.mp4
 video-build/**/*.webm
 video-build/**/slides-individual/
 video-build/**/slides-screenshots/
