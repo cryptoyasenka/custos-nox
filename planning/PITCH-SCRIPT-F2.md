@@ -1,22 +1,23 @@
-# F2 — Pitch Video Script (≤2 min, English)
-# REVISED 2026-05-08 v2 — restructured for deck-v2.html (8 slides) + Chainalysis-aligned facts + Public Goods angle
+# F2 — Pitch Video Script (≤2:30, English)
+# REVISED 2026-05-08 v3 — adds intro line on slide 1, dedicated team slide, Public-Goods-explicit monetization on slide 6. Closes 3 gaps from SUBMISSION-ANALYSIS-2026-05-08.md.
 
 **Recording:** OBS / Loom Desktop / Win+G. Fullscreen browser on deck-v2.html.
-**Target:** ~1:55–2:00. 8 slides. Screen-only (no face required).
+**Target:** ~2:18 (incl. ~6s Veo3 intro). 9 slides. Screen-only (no face required).
 **Deck:** `assets/pitch-slides/deck-v2.html` → open in browser, F11 fullscreen.
 **Intro:** Veo3 clip prepended in CapCut (6–8 sec). Narration starts on slide 1.
 **Style:** calm, direct, builder-to-builder. Evidence first. No buzzwords.
-**Why this revision:** previous deck assumed crypto-fluency in 30 sec. The new arc opens with what a DAO and a multisig are, then lands the incident, the gap, the solution, the proof, and the public-goods close.
+**Why v3:** v2 had three rubric gaps (no one-sentence intro, no team slide, implicit monetization). v3 adds them while keeping the Drift narrative arc intact.
 
 ---
 
 ## PRE-RECORDING
 
 - Open deck-v2.html in Chrome/Edge, F11 fullscreen
-- Navigate to Slide 1 — count-up will auto-play on first load
-- Verify animations work (arrow key through all 8 slides once, then Home to return)
-- OBS/Loom running, check audio levels
-- HUD bottom-center should read `1 / 8` on first slide
+- Navigate to Slide 1 — count-up auto-plays on first load
+- Verify all 9 slides render: 1→2→3→4→5→6→7 (Vision)→8 (Team, NEW)→9 (Close)
+- Animations: arrow key through all 9 once, then Home to return
+- OBS/Loom running, audio levels checked
+- HUD bottom-center should read `1 / 9` on first slide
 
 ---
 
@@ -24,11 +25,11 @@
 
 ---
 
-**[SLIDE 1 — Incident · count-up $285M]** ~16s
+**[SLIDE 1 — Incident · count-up $285M]** ~21s
 
-*(pause 1.5 sec while $285M counts up — let the number land)*
+*(brief 0.5s pause on the intro line, then the Drift hook lands)*
 
-"DAOs on Solana hold their treasuries through multisig wallets — three-of-five signatures, like a corporate bank account. Last April, one of them lost $285 million in twelve minutes. Nine days of on-chain preparation. Zero alerts fired."
+"Custos Nox is a real-time security monitor for Solana DAO multisigs — open-source, sub-second alerts, MIT licensed. DAOs on Solana hold their treasuries through multisig wallets — three-of-five signatures, like a corporate bank account. Last April, one of them lost two hundred eighty-five million dollars in twelve minutes. Nine days of on-chain preparation. Zero alerts fired."
 
 ---
 
@@ -54,27 +55,35 @@
 
 ---
 
-**[→ SLIDE 5 — Proof + stakes · 215 counts up + killer line]** ~14s
+**[→ SLIDE 5 — Proof + stakes · 200 counts up + killer line]** ~14s
 
-*(pause for 215 count-up ~1.2 sec)*
+*(pause for 200+ count-up ~1.2 sec)*
 
 "It's built. Over two hundred tests, sub-second alert latency, MIT licensed. If Drift had this on March 23rd, the first CRITICAL alert would have fired nine days before the drain."
 
 ---
 
-**[→ SLIDE 6 — Setup + GTM mention · step cards stagger]** ~14s
+**[→ SLIDE 6 — Setup + monetization · step cards stagger]** ~16s
 
-"Five minutes to set up. Copy your Squads PDA, set one env variable, run npm. No paid tiers ever — this is a public good. Squads Discord, Superteam network, GitHub organic — the users are visible on-chain right now."
-
----
-
-**[→ SLIDE 7 — Vision · v1/v2/v3 rows stagger]** ~12s
-
-"v1 lives today, self-hosted, free forever. v2: hosted alert feed. v3: pre-configured mainnet watchlist for the whole ecosystem."
+"Five minutes to set up. Copy your Squads PDA, set one env variable, run npm. No paid tiers ever — Public Goods Award sustainability, covered by Solana Foundation grant and Superteam Ukraine."
 
 ---
 
-**[→ SLIDE 8 — Close]** ~10s
+**[→ SLIDE 7 — Vision · v1/v2/v3 rows stagger]** ~10s
+
+"v1 lives today, self-hosted, free forever. v2 hosted alert feed. v3 mainnet watchlist for the whole ecosystem."
+
+---
+
+**[→ SLIDE 8 — Team (NEW) · two-column reveal]** ~18s
+
+*(let the OpenGradient model rows land — 1.5s before continuing)*
+
+"Custos Nox is built solo by Yana — a Solana developer based in Kyiv, with a background in Web3 security tooling. Three open-source security models published on the OpenGradient TEE hub: MEV sandwich detection, account-abstraction safety, and EigenLayer monitoring. All free, all live. Custos Nox follows the same line — built as a public good, free forever."
+
+---
+
+**[→ SLIDE 9 — Close]** ~10s
 
 "github.com/cryptoyasenka/custos-nox. STRIDE covers fifty. Ten thousand DAOs have nothing. Custos Nox is for them."
 
@@ -85,17 +94,18 @@
 | Section | ~Sec |
 |---------|------|
 | Veo3 intro (CapCut prepend) | 6–8 |
-| Slide 1 (incident + multisig 101) | 16 |
+| Slide 1 (intro + multisig 101 + Drift hook) | 21 |
 | Slide 2 (Chainalysis chain) | 16 |
 | Slide 3 (gap) | 14 |
 | Slide 4 (solution) | 13 |
-| Slide 5 (proof + stakes, 200+ count-up) | 14 |
-| Slide 6 (setup + GTM) | 14 |
-| Slide 7 (vision) | 12 |
-| Slide 8 (close) | 10 |
-| **Total (incl. Veo3)** | **~2:00** |
+| Slide 5 (proof + stakes) | 14 |
+| Slide 6 (setup + monetization) | 16 |
+| Slide 7 (vision) | 10 |
+| Slide 8 (team, NEW) | 18 |
+| Slide 9 (close) | 10 |
+| **Total (incl. Veo3)** | **~2:20** |
 
-If running over: trim slide 7 vision narration to just "v1 lives today. v2 hosted feed. v3 mainnet watchlist."
+If running long: trim slide 7 to "v1 self-hosted, free forever. v2 hosted feed. v3 mainnet watchlist." (saves ~3s).
 
 ---
 
@@ -113,13 +123,15 @@ CapCut: Veo3 clip → 6–8 sec → cut to slide recording starting at Slide 1.
 
 ## KEY LINES TO LAND
 
-1. **"Nine days of on-chain preparation. Zero alerts fired."** — pause after, let it sit
-2. **"Chainalysis confirmed the timeline."** — anchors every fact that follows in independent verification
-3. **"The other ten thousand have nothing."** — the core market claim, said flatly
-4. **"Any single alert would have bought hours of response time."** — the value prop
-5. **"If Drift had this on March 23rd, the first CRITICAL alert would have fired nine days before the drain."** — the stakes-moment, said quietly
-6. **"No paid tiers ever — this is a public good."** — Public Goods Award positioning
-7. **"STRIDE covers fifty. Ten thousand DAOs have nothing. Custos Nox is for them."** — close, three flat sentences
+1. **"Custos Nox is a real-time security monitor for Solana DAO multisigs."** — slide 1 opener, gives judges 5-second product comprehension before the incident
+2. **"Nine days of on-chain preparation. Zero alerts fired."** — pause after, let it sit
+3. **"Chainalysis traced the attack."** — anchors every fact in independent verification
+4. **"The other ten thousand have nothing."** — core market claim, said flatly
+5. **"Any single alert would have bought hours of response time."** — value prop
+6. **"If Drift had this on March 23rd, the first CRITICAL alert would have fired nine days before the drain."** — stakes-moment, said quietly
+7. **"No paid tiers ever — Public Goods Award sustainability."** — funding model, explicit
+8. **"Three open-source security models on the OpenGradient TEE hub."** — team credibility, concrete
+9. **"STRIDE covers fifty. Ten thousand DAOs have nothing. Custos Nox is for them."** — close, three flat sentences
 
 ---
 
@@ -130,6 +142,7 @@ CapCut: Veo3 clip → 6–8 sec → cut to slide recording starting at Slide 1.
 - Pause on slide 2 for the stagger (~1.2 sec for all 4 steps)
 - Pause on slide 3 for the 10,000+ count-up (~1.8 sec)
 - Pause on slide 5 for the 200+ count-up (~1.2 sec)
+- Pause on slide 8 for OpenGradient model rows to land (~1.5 sec)
 - Upload to **YouTube Unlisted**. Title: `Custos Nox — F2 Pitch (Solana Frontier 2026)`
 - Verify URL works in incognito before pasting in Arena field A10
-- **Update Arena A10** with the new URL (any prior deck-v1 URL is obsolete)
+- **Update Arena A10** with the new URL (any prior deck-v1/v2 URL is obsolete)

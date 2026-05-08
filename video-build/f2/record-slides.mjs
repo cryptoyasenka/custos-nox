@@ -7,16 +7,17 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const DECK_PATH = path.resolve(__dirname, '../../assets/pitch-slides/deck-v2.html');
 
 const SLIDE_DURATIONS_MS = [
-  16000, // s1: $285M count-up + voice ~14s
+  21000, // s1: intro line + $285M count-up + Drift hook ~21s
   16000, // s2: stagger + Chainalysis facts
   14000, // s3: 10000+ count-up + gap claim
   13000, // s4: detector cards stagger
   14000, // s5: 200+ count-up + stakes line
-  14000, // s6: setup steps + GTM mention
-  12000, // s7: vision rows
-  10000, // s8: CTA close
+  16000, // s6: setup + Public Goods monetization
+  10000, // s7: vision rows (trimmed)
+  18000, // s8team: NEW team slide — Yana + OpenGradient TEE models
+  10000, // s9 (s10): CTA close
 ];
-// Total = 109 sec silent video (~1:49)
+// Total = 132 sec silent video (~2:12), v3 — 9 slides incl. team slide
 
 if (!fs.existsSync(DECK_PATH)) {
   console.error('✗ deck not found at', DECK_PATH);
