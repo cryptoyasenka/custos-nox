@@ -4,11 +4,10 @@
 FROM node:20-alpine AS build
 WORKDIR /app
 
-COPY package.json package-lock.json ./
-RUN npm ci
+# Copy everything (filtered by .dockerignore: node_modules, dist, .git, dashboard, etc.)
+COPY . .
 
-COPY tsconfig.json ./
-COPY src ./src
+RUN npm ci
 RUN npm run build
 
 # -- prune to prod deps -------------------------------------------------------
