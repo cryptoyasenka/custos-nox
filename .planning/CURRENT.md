@@ -17,9 +17,9 @@ If a future session sees old text saying "F2 mp3 ready, Yana собирает в
 4. ✅ Research mainnet PDAs → `.planning/MAINNET-WATCHLIST.md` (17 DAOs, 8 gov forks)
 5. ✅ Build live mainnet monitor — daemon HTTP sink (`49ce11b`) + dashboard #live rewrite (`04a9d34`), 227 tests green, Next build clean
 6. ⏳ Deploy mainnet daemon to Railway — project linked, non-secret env set, blocked on Helius RPC URL from Yana. See `RAILWAY-DEPLOY.md` for the 3-step finish (paste key → verify logs → set Vercel `NEXT_PUBLIC_CUSTOS_DAEMON_URL`).
-7. → **NEXT** Patch F2 deck (team slide, one-sentence intro, monetization line)
-8. → Regenerate F2 voice (9 chunks, was 8)
-9. → Rewrite F3 v5 (dashboard-first multi-DAO, ≤10s terminal max)
+7. ✅ F2 deck patched — slide 1 intro + slide 6 Public-Goods monetization + NEW slide 08 team (`18f1853`). 9 slides total now.
+8. ✅ F2 voice regenerated — script v3 + 9 mp3s + Playwright timing extended to 132s (`e7102ba`).
+9. → **NEXT** Rewrite F3 v5 (dashboard-first multi-DAO, ≤10s terminal max)
 10. → Regenerate F3 voice (new chunks)
 
 ## Key files (current state)
