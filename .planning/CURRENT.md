@@ -1,6 +1,13 @@
 # CURRENT — custos (Custos Nox)
 
-**Last touched:** 2026-05-09 ~02:50 — NIGHT AUDIT + autonomous verification iteration 1 (HEAD=`76528c1`). 🔴 CRITICAL: Helius API key утёк в public git (`planning/F3-RECORDING-OPTIONS.md` line 60, commit deb510d). Yana утром: reroll Helius ключ + Railway env update + sanitize file. Подробности в AUDIT-NIGHT-2026-05-09.md.
+**Last touched:** 2026-05-09 ~05:46 — CI red на main починен (HEAD=`639c8bc`). Run `25601457714` зелёный за 36s: audit/lint/typecheck/test/build все ✓. Друг увидит зелёные галочки, judges не упрутся в красные. 🔴 CRITICAL остаётся: Helius API key утёк в public git (`planning/F3-RECORDING-OPTIONS.md` line 60, commit deb510d). Yana утром: reroll Helius ключ + Railway env update + sanitize file. Подробности в AUDIT-NIGHT-2026-05-09.md.
+
+**CI fix breakdown (commit `639c8bc`):**
+- `npm audit fix` — axios 1.15.0 (12 CVEs) + uuid 11.0.0 (1 CVE) → upgraded; не breaking. CI шаг `Audit prod deps (high+)` теперь pass.
+- `npx biome check --write --unsafe` — auto-fixed 9 файлов: `node:` protocol на 6 mjs файлах в `video-build/f2/`, JSX line-wrap в 3 dashboard компонентах (live-feed/detector-card/live-status-bar), import-order. Logic не тронута.
+- Manual: `video-build/f2/screenshot-slides.mjs:27` — forEach → for-of (biome `noForEach`).
+- Tests 228/228 после фиксов, build clean. Коммит = 10 files, 111+/110-.
+- Annotation от GitHub: actions/checkout@v4 + setup-node@v4 deprecated к 16.09.2026 (Node.js 20 EOL). Не блокер, можно потом upgrade на v5.
 
 **Autonomous verification done this night** (analysis only, без правок кода):
 - ✅ Все артефакты submit на диске (deck-v2.html, 9 F2 mp3, F3 v5 script, 9 F3 mp3, Veo3 intro, ARENA-COPY)
