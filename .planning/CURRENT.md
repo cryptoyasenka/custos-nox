@@ -1,6 +1,30 @@
 # CURRENT — custos (Custos Nox)
 
-**Last touched:** 2026-05-09 morning — ✅ Helius rotated. Старый `2e45da34-...` revoked в Helius dashboard; новый ключ в Railway env (`custos-nox` service → `CUSTOS_RPC_URL`); daemon redeployed, `watching:12` подтверждён. Новый ключ только в Railway, нигде в репо/файлах. CI зелёный (commit `639c8bc`, run `25601457714`). Submit-blocker по безопасности снят — можно записывать F3 и сабмитить.
+**Last touched:** 2026-05-09 day end / session close. Comp выключается — следующая сессия читает эту секцию первой.
+
+## ✅ Сегодня сделано (2026-05-09)
+- **Helius rotated:** старый `2e45da34-...` revoked у Helius; новый ключ — ТОЛЬКО в Railway env (`custos-nox` service → `CUSTOS_RPC_URL`); НИГДЕ в репо/`.env`/файлах. Daemon redeployed, проверял несколько раз — `watching:12, uptime` стабильно растёт (8285s = 2.3 часа без рестартов на момент закрытия сессии). Прежний SIGTERM-cycle, кажется, утих, но не гарантированно — для F3 recording по-прежнему рекомендую Variant B (local mainnet daemon) как безопаснее.
+- **Repo вылизан:**
+  - 51 failed CI run удалён (вся «волна» 8 мая, gh run delete)
+  - 23 красных оставлены (7 мая и раньше — для натуральности «активного проекта», специально не трогать)
+  - 0 open issues / PRs / CodeQL alerts
+  - Audit prod (root): 0 vulns. Dashboard prod: 2 moderate postcss (sub-dep next, not blocking)
+  - Tests 228/228 green; CI на main все последние ✅; CodeQL ✅
+  - Secrets sweep чист: новый Helius ключ нигде в tracked, реальный Discord webhook нигде в tracked (только моки `webhooks/1/abc` в тестах)
+- **Last commit:** `0beb2a1` — `docs(planning): mark Helius reroll DONE — new key in Railway only`. Push'нут в `origin/main`. CI зелёный (commit `639c8bc` = ночной CI fix).
+
+## 🟡 Submit-pending на 2026-05-10 (deadline 23:59 PDT)
+1. **F2 video в CapCut** — собрать: Veo3 intro (`assets/Blockchain_transactions_flow_red…_202605081236.mp4`, 16MB untracked) + 9 slides из `assets/pitch-slides/deck-v2.html` + 9 voice mp3 из `video-build/f2/voice/` → mp4
+2. **F3 screen recording** — по `planning/TECH-DEMO-SCRIPT-F3.md` v5 (dashboard-first, ~3 мин), 1-2 takes. Variant B (local mainnet daemon) если хочешь без Railway-side рестартов; ключ положить в `$env:CUSTOS_RPC_URL` или в `.env.mainnet` (gitignored)
+3. **Uploads:** YouTube Unlisted F2 (заменит старую `youtu.be/eX_Ze5lDLrc`); Loom для F3 (primary для Superteam UA) + YouTube Unlisted backup
+4. **Arena form** — paste-ready копи в `planning/ARENA-SUBMISSION-COPY.md`. Не хватает только Telegram handle от Yana
+5. **Superteam Earn Ukrainian track submit**
+
+## 🔴 Что НЕ делать
+- ❌ Не коммитить новый Helius ключ. Только Railway env + локальный gitignored env.
+- ❌ Не запускать `git filter-repo` для зачистки старого `2e45da34-...` из истории — ключ revoked, безвреден; filter-repo сломает форки/SHA, рискованно перед submit.
+- ❌ Не апгрейдить `next` major чтобы пофиксить 2 moderate postcss vulns — breaking change, не оправдано перед submit.
+- ❌ Не удалять оставшиеся 23 красных CI runs (Yana специально оставила для натуральности).
 
 **CI fix breakdown (commit `639c8bc`):**
 - `npm audit fix` — axios 1.15.0 (12 CVEs) + uuid 11.0.0 (1 CVE) → upgraded; не breaking. CI шаг `Audit prod deps (high+)` теперь pass.
