@@ -57,7 +57,7 @@
 1. Терминал 1 (PowerShell или Git Bash) — daemon:
    ```powershell
    cd C:\Projects\custos
-   $env:CUSTOS_RPC_URL = "https://mainnet.helius-rpc.com/?api-key=2e45da34-dfeb-4bc7-a85c-472e8c16e357"
+   $env:CUSTOS_RPC_URL = "https://mainnet.helius-rpc.com/?api-key=<YOUR_HELIUS_KEY>"
    $env:CUSTOS_CLUSTER = "mainnet"
    $env:CUSTOS_HTTP_PORT = "8080"
    # CUSTOS_WATCH — взять полную строку 12 PDA из .planning/MAINNET-WATCHLIST.md (раздел "Tier 1 + Tier 2")
