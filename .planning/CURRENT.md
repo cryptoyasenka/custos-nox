@@ -17,6 +17,14 @@
 
 228/228 tests green после каждого изменения, typecheck clean. Все pushes в `origin/main`.
 
+**Consistency sweep после фиксов (commits `bdcae75` + `5f66c31`):**
+- `RAILWAY-DEPLOY.md` line 19 обновлён (был "binds to 0.0.0.0 implicitly", теперь явно про `CUSTOS_HTTP_HOST` override).
+- `ARCHITECTURE.md` env-var таблица расширена 4 строками: `CUSTOS_TELEGRAM_BOT_TOKEN`, `CUSTOS_TELEGRAM_CHAT_ID`, `CUSTOS_HTTP_PORT`, `CUSTOS_HTTP_HOST`.
+- `src/alerts/webhook.test.ts` — 3 новых теста на security-фиксы: Discord `allowed_mentions: { parse: [] }`, Telegram HTML escape для subject/detector/cluster, Telegram `explorerLink` href escape против `"><img src=x>` injection.
+- `src/config.test.ts` — 3 новых теста на `httpHost`: default `0.0.0.0`, override + trim, whitespace-only fallback.
+
+**Test count: 228 → 234 green.** Slack escape агент verified НЕ нужен (mrkdwn не парсит @-mentions в structured fields).
+
 ## ✅ Prod state на 2026-05-10 ~15:00 Kyiv
 
 - **Dashboard `https://custos-nox.up.railway.app`:** HTTP 200, видны "Live mainnet · 5 events" — НЕ переразвернулся auto-deploy'ем после моих пушей в main; ждёт ручной trigger от Yana. **Это означает что F3 запись безопасна** — prod не пересоберётся в момент recording'а с новым Dockerfile digest pin.
