@@ -86,12 +86,12 @@ for (let idx = 0; idx < SLIDE_DURATIONS_MS.length; idx++) {
   await page.evaluate((targetIdx) => {
     document.documentElement.classList.remove("recording-mode");
     const all = document.querySelectorAll(".slide");
-    all.forEach((s) => {
+    for (const s of all) {
       s.style.transition = "none";
       s.classList.remove("active");
       s.style.setProperty("display", "none", "important");
       s.style.setProperty("opacity", "0", "important");
-    });
+    }
     const target = all[targetIdx];
     target.style.setProperty("display", "flex", "important");
     target.style.setProperty("opacity", "1", "important");
