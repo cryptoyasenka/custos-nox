@@ -14,6 +14,10 @@ COPY . .
 ARG NEXT_PUBLIC_CUSTOS_DAEMON_URL=https://custos-daemon.up.railway.app
 ENV NEXT_PUBLIC_CUSTOS_DAEMON_URL=$NEXT_PUBLIC_CUSTOS_DAEMON_URL
 
+# Recording-only flag for F3 video. Set to "1" on Railway to hide demo chrome.
+ARG NEXT_PUBLIC_HIDE_DEMO_BADGES=
+ENV NEXT_PUBLIC_HIDE_DEMO_BADGES=$NEXT_PUBLIC_HIDE_DEMO_BADGES
+
 RUN npm run build
 
 # -- runtime ------------------------------------------------------------------
