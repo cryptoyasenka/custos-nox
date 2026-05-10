@@ -21,16 +21,17 @@
 - Label will read "Devnet sample · N events" — narration adapts to "this is the same UI on devnet"
 
 **Devnet attack replay (for 1:40–2:30 section):**
-- Need 4 alerts already sitting in the dashboard feed *before* recording, in this order: Timelock → Weakening → Privileged Nonce → Stale Nonce Execution
-- Run smoke chain off-camera against a fresh devnet multisig:
+- Need 3 alerts already sitting in the dashboard feed *before* recording, in this order: Timelock → Weakening → Privileged Nonce
+- Run smoke chain off-camera against a fresh devnet multisig (already done by Claude on 2026-05-10, daemon at http://127.0.0.1:8789):
   ```
   npm run smoke:create
+  npm run smoke:nonce-plan
+  # start local daemon watching both multisig + nonce on port 8789
   npm run smoke:timelock -- <PDA>
   npm run smoke:weaken -- <PDA>
   npm run smoke:nonce-init
-  npm test src/detectors/stale-nonce-execution
   ```
-- Confirm alert feed shows 4 rows. **If using mainnet daemon, run the smoke chain against a separate local daemon and screen-record THAT dashboard for the replay segment.** Do not contaminate the mainnet daemon's event log with devnet test alerts.
+- Confirm alert feed shows 3 rows. The remaining two detectors — **signer rotation** and **stale-nonce execution** — are covered by unit tests with the exact Drift pattern (12 tests for stale-nonce alone) and called out in narration. **Do not contaminate the mainnet daemon's event log with devnet test alerts** — record the local devnet daemon's dashboard for the replay segment.
 
 **Browser tabs (in this order, ready to switch):**
 - **Tab 1:** dashboard hero — `https://custos-nox.up.railway.app` or local — scrolled to top
@@ -101,29 +102,27 @@ Any one of these firing on Drift would have given hours of response time. Nine d
 
 ### [1:40–2:25] — Alert replay: devnet attack chain in the dashboard (~45s)
 
-*(Scroll to `#live` alert feed. Four alert rows visible from the prepared devnet replay.)*
+*(Scroll to `#live` alert feed. Three alert rows visible from the prepared devnet replay.)*
 
-"Here's what those four detectors look like firing back-to-back. This is a devnet replay of the Drift chain — same dashboard the operator would see on mainnet.
+"Here's what three of those detectors look like firing back-to-back. This is a devnet replay of the Drift chain — same dashboard the operator would see on mainnet.
 
 **First row** — Timelock removal. Severity CRITICAL. Subject: the multisig PDA. Solscan link to the exact transaction.
 
 **Second row** — Multisig weakening. Severity HIGH. The context shows old threshold three, new threshold one.
 
-**Third row** — Privileged nonce. CRITICAL. The drain transaction is now pre-signed and waiting.
-
-**Fourth row** — Stale nonce execution. CRITICAL. The drain executes."
+**Third row** — Privileged nonce. CRITICAL. The drain transaction is now pre-signed and waiting."
 
 *(Click the second row — alert detail panel expands. Hold 3s.)*
 
-"Each alert has the severity, the exact field that changed, the signer who did it, and a Solscan link. No log files. No grep. The team sees the chain unfolding in real time."
+"Each alert has the severity, the exact field that changed, the signer who did it, and a Solscan link. No log files. No grep. The team sees the chain unfolding in real time. The remaining two detectors — signer rotation and stale-nonce execution — are covered by unit tests with the exact Drift pattern."
 
 ---
 
 ### [2:25–2:40] — Discord: same alerts, multi-channel fan-out (~15s)
 
-*(Cut to Discord tab — four embeds visible in `#custos-alerts`. Slowly scroll through them, ~3 sec.)*
+*(Cut to Discord tab — three embeds visible in `#custos-alerts`. Slowly scroll through them, ~3 sec.)*
 
-"Same four alerts, simultaneously, in Discord. Slack and the dashboard fired at the same instant.
+"Same three alerts, simultaneously, in Discord. Slack and the dashboard fired at the same instant.
 
 If Drift had this running on March twenty-third, the first CRITICAL alert would have landed nine days before the drain."
 
@@ -181,7 +180,7 @@ github dot com slash cryptoyasenka slash custos hyphen nox."
 
 - They watched twelve real Solana DAOs being monitored on mainnet — clickable, verifiable on Realms — not a mockup
 - They saw five detectors mapped step-by-step onto the actual Drift attack chain
-- They watched four alerts fire in sequence in the dashboard feed during the devnet replay, with severity, context, and Solscan links
+- They watched three alerts fire in sequence in the dashboard feed during the devnet replay, with severity, context, and Solscan links — plus narration on the two unit-test-covered detectors
 - They saw the same alerts mirrored in Discord — fan-out is real, not promised
 - The setup story was three lines. Friction is zero
 - The closing landed the gap quantitatively: STRIDE covers fifty, ten thousand have nothing
