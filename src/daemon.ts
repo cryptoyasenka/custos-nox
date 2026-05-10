@@ -67,7 +67,7 @@ export async function run(
 
   if (opts.httpServer) {
     await opts.httpServer.start();
-    log(`http endpoint listening on :${config.httpPort}`);
+    log(`http endpoint listening on ${config.httpHost}:${config.httpPort}`);
   }
 
   const supervisor = await startSupervisor({ config, sink, detectors: DETECTORS, log });
@@ -208,6 +208,7 @@ async function main(argv: string[] = process.argv.slice(2)): Promise<void> {
     config.httpPort != null
       ? new HttpEventSink({
           port: config.httpPort,
+          host: config.httpHost,
           getWatchCount: () => config.watch.length,
         })
       : null;

@@ -195,6 +195,16 @@ docker logs -f custos
 The image runs as the built-in unprivileged `node` user and reads the
 same `CUSTOS_*` env vars documented in `.env.example`.
 
+> ⚠️ **Self-hosters: bind the HTTP server to localhost.**
+> The daemon's `/health` and `/events` endpoints listen on
+> `0.0.0.0:CUSTOS_HTTP_PORT` by default. Set `CUSTOS_HTTP_HOST=127.0.0.1`
+> when running Custos behind a reverse proxy (nginx, Caddy, Traefik) on
+> the same host, so the endpoints aren't directly reachable from other
+> interfaces. The Railway-managed deployment at
+> `custos-nox.up.railway.app` keeps the default `0.0.0.0` binding because
+> Railway's edge proxy reaches the container over a private bridge
+> network — a 127.0.0.1-only socket would not be reachable there.
+
 ## Contributing
 
 See [CONTRIBUTING.md](./CONTRIBUTING.md). The short version: add a detector,

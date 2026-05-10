@@ -16,6 +16,7 @@ export interface DaemonConfig {
   telegramBotToken: string | null;
   telegramChatId: string | null;
   httpPort: number | null;
+  httpHost: string;
 }
 
 const VALID_CLUSTERS: readonly Cluster[] = ["mainnet", "devnet", "testnet"];
@@ -76,6 +77,13 @@ export function loadConfigFromEnv(env: NodeJS.ProcessEnv = process.env): DaemonC
     httpPort = parsed;
   }
 
+  // Default 0.0.0.0 so Railway/Fly/Docker bridge-network deployments work
+  // without extra config — those platforms reach the container over a private
+  // bridge and can't see a 127.0.0.1-only socket. Self-hosters running behind
+  // a reverse proxy on the same host should set CUSTOS_HTTP_HOST=127.0.0.1
+  // so /events and /health aren't reachable from other interfaces.
+  const httpHost = env.CUSTOS_HTTP_HOST?.trim() || "0.0.0.0";
+
   return {
     rpcUrl,
     wsUrl,
@@ -86,5 +94,6 @@ export function loadConfigFromEnv(env: NodeJS.ProcessEnv = process.env): DaemonC
     telegramBotToken,
     telegramChatId,
     httpPort,
+    httpHost,
   };
 }

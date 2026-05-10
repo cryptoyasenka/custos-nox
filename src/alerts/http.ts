@@ -15,6 +15,10 @@ import { type AlertSink, safeStringify } from "./stdout.js";
 
 export interface HttpEventSinkOptions {
   port: number;
+  // Bind address. Default "0.0.0.0" matches Node's listen-without-host
+  // behavior; pass "127.0.0.1" when running behind a reverse proxy on the
+  // same host so /events and /health aren't exposed on other interfaces.
+  host?: string;
   bufferSize?: number;
   // Lets daemon.ts pass watch-list size into /health.
   getWatchCount?: () => number;
@@ -27,6 +31,7 @@ export class HttpEventSink implements AlertSink {
   private readonly buffer: Alert[] = [];
   private readonly bufferSize: number;
   private readonly port: number;
+  private readonly host: string;
   private readonly getWatchCount: () => number;
   private readonly now: () => number;
   private readonly onError: (err: unknown) => void;
@@ -37,6 +42,7 @@ export class HttpEventSink implements AlertSink {
 
   constructor(opts: HttpEventSinkOptions) {
     this.port = opts.port;
+    this.host = opts.host ?? "0.0.0.0";
     this.bufferSize = opts.bufferSize ?? 100;
     this.getWatchCount = opts.getWatchCount ?? (() => 0);
     this.now = opts.now ?? (() => Date.now());
@@ -61,7 +67,7 @@ export class HttpEventSink implements AlertSink {
         return;
       }
       server.once("error", reject);
-      server.listen(this.port, () => {
+      server.listen(this.port, this.host, () => {
         server.off("error", reject);
         resolve();
       });
