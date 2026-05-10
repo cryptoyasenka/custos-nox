@@ -68,10 +68,9 @@ describe("buildDiscordPayload", () => {
   });
 
   it("blocks @everyone/@here injection via allowed_mentions", () => {
-    const payload = buildDiscordPayload(
-      makeAlert({ subject: "@everyone drained" }),
-      FIXED_NOW,
-    ) as { allowed_mentions: { parse: string[] } };
+    const payload = buildDiscordPayload(makeAlert({ subject: "@everyone drained" }), FIXED_NOW) as {
+      allowed_mentions: { parse: string[] };
+    };
     expect(payload.allowed_mentions).toEqual({ parse: [] });
   });
 });
