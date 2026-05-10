@@ -174,12 +174,11 @@ https://x.com/CustosNox
 
 ---
 
-## PITCH VIDEO (A10) — ⚠️ RE-RECORD with deck-v2.html
+## PITCH VIDEO (A10)
 
-Old URL (pre-animations): https://youtu.be/eX_Ze5lDLrc
-→ Record new F2 per planning/PITCH-SCRIPT-F2.md
-→ Prepend Veo3 intro in CapCut
-→ Upload YouTube Unlisted → update Arena A10 with new URL
+https://youtu.be/zEaFFs1ZWV8
+
+(F2 final 2026-05-10: deck-v2.html + s0 title + s0b multisig primer + Drift hook + Veo3 intro, 2:16)
 
 ---
 
