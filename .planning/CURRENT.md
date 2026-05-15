@@ -1,6 +1,6 @@
 # CURRENT — custos (Custos Nox)
 
-**Last touched:** 2026-05-16 — post-submission 6-dimension repo audit (A–F), all clean.
+**Last touched:** 2026-05-16 — A–F repo audit, deep E/F pass done; 3 doc nits fixed (d88dbb6), all clean.
 
 ## 2026-05-16 — post-submission A–F repo audit
 
@@ -25,17 +25,33 @@ Independent re-audit of the public repo while Frontier judging is in progress.
   footer+stat, pitch one-pager, Arena copy/draft (`9b72fd7`). Stale-nonce
   sub-count 12 → 14 (`6d37527`). LICENSE is MIT and every "MIT" claim was
   already correct. Live URLs and the 5-detector count match reality.
-- **E bugs/logic — CLEAN.** `npx vitest run` → 234/234, exit 0. `webhook.ts`
-  read end-to-end: bounded exponential backoff + Retry-After cap, retry only
-  on 429/5xx, Discord `allowed_mentions: parse:[]`, Telegram HTML-escape on
-  subject/detector/cluster/ctx + href, per-sink fan-out isolation. No bugs.
-- **F polish — CLEAN.** LICENSE present (MIT); no TODO/placeholder in top
-  docs. Accepted non-fixes left alone: next-major upgrade, 23 red CI runs
-  (kept deliberately), filter-repo, CRLF renormalize (live submission repo).
+- **E bugs/logic — CLEAN (deep pass).** `npx vitest run` → 234/234, exit 0.
+  All 17 `src/` files (~1241 LOC) read end-to-end, not just `webhook.ts`:
+  config, daemon, supervisor, registry, `_shared` + 5 detectors, 3 parsers,
+  `alerts/{http,stdout,webhook}`, `types/events`. Defensive throughout —
+  bounded backoff + Retry-After cap, per-sink fan-out isolation, detector
+  timeout→operational-alert, nonce/squads/governance parsers length- and
+  range-guarded, `redactRpcUrl` strips API key from logs, no XSS in the
+  http landing (only numeric interpolation), no secrets in source. No bugs.
+- **F polish — CLEAN (deep pass), 3 nits fixed.** README/SECURITY/
+  ARCHITECTURE read end-to-end against code. Fixed (`d88dbb6`): dashboard
+  page + OG card said `v0.3` — contradicted `package.json` 0.0.1 and the
+  repo's stated "Pre-release"; no pitch/doc backed v0.3 → replaced with
+  `pre-release`. ARCHITECTURE sink list was stale (omitted Telegram + HTTP
+  sinks that ship in `src/alerts` and are in README) → added + diagram lane.
+  Defensible, deliberately NOT changed (submitted narrative, conservative):
+  "5 detectors" wording (5 capabilities; daemon registers 6 `Detector`
+  objects because timelock-removal = 1 capability × 2 program adapters,
+  README states "(Squads v4 + SPL Governance)" explicitly); `0.0.0.0` HTTP
+  default (documented design, self-hoster warning in README, public-data
+  endpoint only); dashboard "Live mainnet — 12 DAOs" (daemon IS live on
+  Railway; ARCHITECTURE frames dashboard as marketing). Accepted non-fixes:
+  next-major upgrade, 23 red CI runs (kept deliberately), filter-repo, CRLF
+  renormalize (live submission repo).
 
-Commits this pass: `5cb53f6`, `5e71105`, `9b72fd7`, `6d37527` — all pushed
-to `origin/main`, in sync. The two ` M ` video-asset files in the working
-tree are operator mid-work edits, left untouched.
+Commits this pass: `5cb53f6`, `5e71105`, `9b72fd7`, `6d37527`, `d88dbb6` —
+all pushed to `origin/main`, in sync. The two ` M ` video-asset files in
+the working tree are operator mid-work edits, left untouched.
 
 ## ✅ Audit-fixes round (2026-05-10 утро/день)
 
