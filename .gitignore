@@ -52,3 +52,30 @@ video-build/f2/archive/chunks/
 custos-nox-session.jsonl
 promo.mp4
 video-build/Видео*/
+
+# Internal grant drafts — financials / wallet / KYC placeholders. NEVER publish
+# to this public repo (Solana Foundation PG grant is filed via HubSpot, not git).
+.planning/SF-GRANT-*.md
+
+# Local TTS / voiceover scratch (ElevenLabs / Gemini exports, draft narration).
+assets/*.wav
+planning/F2-VOICEOVER*.txt
+planning/F3-VOICEOVER*.txt
+video-build/f3/voice/script.txt
+
+# Local video masters (Cyrillic-named final renders) — too large for git;
+# the canonical copy is the YouTube / Loom upload.
+video-build/Готовое*/
+video-build/видео*/
+
+# Arena / Superteam form-automation scratch — Playwright dumps, screenshots,
+# and form-field JSON of logged-in profiles. Operator-side only, never publish.
+video-build/f3/arena-*
+video-build/f3/superteam-*
+video-build/f3/qa/
+video-build/f3/*.png
+video-build/f3/*.json
+video-build/f3/*.txt
+video-build/f3/*.mjs
+video-build/f2/record-*.mjs
+video-build/f2/slides-individual-*/
