@@ -10,7 +10,7 @@ git clone https://github.com/cryptoyasenka/custos-nox
 cd custos-nox
 npm install
 cp .env.example .env      # set CUSTOS_RPC_URL and CUSTOS_WATCH
-npm test                  # 228 tests, all must pass
+npm test                  # 234 tests, all must pass
 npm run lint              # biome — no warnings allowed
 npm run build             # tsc — strict mode, must succeed
 ```
@@ -70,7 +70,7 @@ npm run smoke:rotate-signers  # exercises SignerSetChangeDetector (adjacent vect
 
 ## PR checklist
 
-- [ ] `npm test` passes (all 215+ tests green)
+- [ ] `npm test` passes (all 234 tests green)
 - [ ] `npm run lint` — zero warnings
 - [ ] `npm run build` — `tsc` strict mode, zero errors
 - [ ] New detector has a co-located `.test.ts` with ≥10 unit tests

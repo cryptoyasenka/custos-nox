@@ -10,7 +10,7 @@ const GITHUB_URL = "https://github.com/cryptoyasenka/custos-nox";
 
 const STATS = [
   { label: "Detectors live", value: "5" },
-  { label: "Tests passing", value: "215" },
+  { label: "Tests passing", value: "234" },
   { label: "Drift loss tracked", value: "$285M" },
   { label: "Alert latency", value: "< 1s" },
 ];
@@ -294,7 +294,7 @@ export default function Home() {
               </div>
             </div>
             <p className="mt-6 text-center font-mono text-xs text-muted">
-              TypeScript · Solana web3.js · 228 tests · MIT · zero Rust
+              TypeScript · Solana web3.js · 234 tests · MIT · zero Rust
             </p>
           </div>
         </section>

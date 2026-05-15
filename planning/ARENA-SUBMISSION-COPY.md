@@ -34,7 +34,7 @@ After the April 2026 Drift exploit I searched for a tool that would have caught 
 
 ## TECHNOLOGIES (Step 1 field)
 
-TypeScript, Node.js, @solana/web3.js, WebSocket (Solana RPC), Squads v4 program, SPL Governance program, System Program (nonce accounts), Vitest (228 tests), GitHub Actions CI, Docker, Railway.
+TypeScript, Node.js, @solana/web3.js, WebSocket (Solana RPC), Squads v4 program, SPL Governance program, System Program (nonce accounts), Vitest (234 tests), GitHub Actions CI, Docker, Railway.
 
 ---
 
@@ -74,7 +74,7 @@ Architecture highlights:
 • WebSocket with exponential backoff (1s → 60s) and 30-second slot health checks.
 • Alert fan-out to Discord, Slack, and Telegram webhooks, plus stdout — all sinks receive every alert; one failing sink doesn't block the others.
 • Per-detector 5s timeout: a hanging detector surfaces a low-severity operational alert instead of silently blocking the pipeline.
-• 228 unit + integration tests; GitHub Actions CI on every push.
+• 234 unit + integration tests; GitHub Actions CI on every push.
 
 ---
 
@@ -150,7 +150,7 @@ https://github.com/cryptoyasenka/custos-nox
 
 ## REPO CONTEXT (Step 2 field — "important context about your repo")
 
-TypeScript monorepo. src/detectors/ — 5 attack detectors, each with unit tests against real on-chain account state. src/alerts/ — Discord/Slack/Telegram/stdout sinks with parallel fan-out. scripts/ — devnet smoke harness that reproduces the Drift attack chain on-chain with real transactions. dashboard/ — Next.js public dashboard. 228 tests total, GitHub Actions CI on every push.
+TypeScript monorepo. src/detectors/ — 5 attack detectors, each with unit tests against real on-chain account state. src/alerts/ — Discord/Slack/Telegram/stdout sinks with parallel fan-out. scripts/ — devnet smoke harness that reproduces the Drift attack chain on-chain with real transactions. dashboard/ — Next.js public dashboard. 234 tests total, GitHub Actions CI on every push.
 
 ---
 

@@ -82,7 +82,7 @@ single alert would have bought hours of response time.
   every alert in parallel; one failing sink doesn't block the others.
 - Per-detector 5s timeout: a hanging detector surfaces a low-severity operational
   alert instead of silently blocking the pipeline.
-- 228 unit + integration tests; GitHub Actions CI on every push.
+- 234 unit + integration tests; GitHub Actions CI on every push.
 
 ### Demo
 

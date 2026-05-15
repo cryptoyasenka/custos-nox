@@ -6,7 +6,7 @@
 
 [![ci](https://github.com/cryptoyasenka/custos-nox/actions/workflows/ci.yml/badge.svg)](https://github.com/cryptoyasenka/custos-nox/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Tests](https://img.shields.io/badge/tests-228%20passing-brightgreen)](https://github.com/cryptoyasenka/custos-nox/actions/workflows/ci.yml)
+[![Tests](https://img.shields.io/badge/tests-234%20passing-brightgreen)](https://github.com/cryptoyasenka/custos-nox/actions/workflows/ci.yml)
 
 Open-source real-time monitor for Solana multisigs and DAOs. Detects the
 attack chain that drained $285M from Drift on April 1, 2026.
@@ -20,7 +20,7 @@ attack chain that drained $285M from Drift on April 1, 2026.
 
 Pre-release, built for the Solana Frontier Hackathon
 (submission 2026-05-10 23:59 PDT). All five detectors are live and
-passing 228 tests. The devnet smoke harness in `scripts/` reproduces
+passing 234 tests. The devnet smoke harness in `scripts/` reproduces
 the full Drift attack chain end-to-end on-chain.
 
 ## What it catches
@@ -119,7 +119,7 @@ initial implementation, all on `main`:
    prunes `firstSeenAt` entries older than 2× threshold every 100
    inspect calls, with a 10 000-entry hard cap as a safety net.
 
-Test coverage grew from 147 to 215 across these changes (205 after the hardening pass; 10 added for the Telegram sink).
+Test coverage grew from 147 to 234 across these changes (signer-set, replay-guard, and Telegram-sink additions).
 
 ## Quick start
 

@@ -7,7 +7,7 @@ Reusable copy for grant applications, bounty submissions, and ecosystem program 
 **Repo:** https://github.com/cryptoyasenka/custos-nox
 **Live:** https://custos-nox.up.railway.app
 **License:** MIT
-**Tests:** 215 passing
+**Tests:** 234 passing
 **Last updated:** 2026-05-08
 
 ---
@@ -40,7 +40,7 @@ Alerts fan out in parallel; detector throws and webhook 429/5xx are handled grac
 
 ## Traction
 
-- 228 tests passing on `main`
+- 234 tests passing on `main`
 - Devnet smoke harness reproduces the full Drift attack chain end-to-end on-chain
 - Live mainnet daemon deployed on Railway monitoring publicly-known Solana DAO multisigs
 - Submitted to Solana Frontier Hackathon (Colosseum) + Ukrainian Sidetrack 2026
@@ -85,4 +85,4 @@ TypeScript, Solana web3.js, Helius WebSocket RPC, Docker, Railway deploy, dashbo
 
 ## Reusable bullet for short forms
 
-> Real-time Solana DAO/multisig security monitor. 5 detectors mapped to the Drift April 2026 attack chain. Open-source TypeScript daemon, self-host in 5 min, sub-second alerts to Discord/Slack/Telegram. MIT license, 228 tests passing, live on Railway. Built solo to fill the gap STRIDE leaves below $10M TVL.
+> Real-time Solana DAO/multisig security monitor. 5 detectors mapped to the Drift April 2026 attack chain. Open-source TypeScript daemon, self-host in 5 min, sub-second alerts to Discord/Slack/Telegram. MIT license, 234 tests passing, live on Railway. Built solo to fill the gap STRIDE leaves below $10M TVL.
